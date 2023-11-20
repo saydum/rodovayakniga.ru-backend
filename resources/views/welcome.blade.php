@@ -62,32 +62,32 @@
                 <li class="current"><a href="#body">Главное</a></li>
                 <li><a href="#about">О сервисе</a></li>
                 <li><a href="#command">Команда</a></li>
-                @if (Route::has('login'))
-                    @auth
-                        <li>
-                            <a href="{{ url('/home') }}">Приложение</a>
-                        </li>
-                    @else
-                        <li>
-                            <a href="#">
-                                |
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('login') }}">Вход</a>
-                        </li>
-                        @if (Route::has('register'))
-                            <li>
-                                <a href="{{ route('register') }}">Регистрация</a>
-                            </li>
-                        @endif
-                    @endauth
-                @endif
+                <li><a href="#">Блог</a></li>
+{{--                @if (Route::has('login'))--}}
+{{--                    @auth--}}
+{{--                        <li>--}}
+{{--                            <a href="{{ url('/home') }}">Приложение</a>--}}
+{{--                        </li>--}}
+{{--                    @else--}}
+{{--                        <li>--}}
+{{--                            <a href="#">--}}
+{{--                                |--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="{{ route('login') }}">Вход</a>--}}
+{{--                        </li>--}}
+{{--                        @if (Route::has('register'))--}}
+{{--                            <li>--}}
+{{--                                <a href="{{ route('register') }}">Регистрация</a>--}}
+{{--                            </li>--}}
+{{--                        @endif--}}
+{{--                    @endauth--}}
+{{--                @endif--}}
             </ul>
         </nav>
     </div>
 </div>
-
 
 <section id="hero-area">
     <div class="container">
@@ -101,9 +101,13 @@
                         М.В.Ломоносов
                     </p>
                     <div class="wow fadeInDown" data-wow-delay="0.3s">
-                        <a class="btn btn-default btn-home" href="{{ route('home') }}">
-                            Начать
-                        </a>
+{{--                        <a class="btn btn-default btn-home" href="{{ route('home') }}">--}}
+{{--                            Начать--}}
+{{--                        </a>--}}
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <strong>rodovayakniga.ru</strong> Онлайн-сервис для составления РОДового Древа в разработке и скоро будет доступно :)
+                        </div>
                     </div>
                 </div>
             </div>
@@ -120,17 +124,6 @@
         </div>
     </div>
 </section>
-
-<div class="container ">
-    <div class="row justify-content-center">
-        <div class="col-6">
-            <div class="alert alert-warning alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong>rodovayakniga.ru</strong> Онлайн-сервис для составления РОДового Древа в разработке и скоро будет доступно :)
-            </div>
-        </div>
-    </div>
-</div>
 
 <section id="about" class="section">
     <div class="container">
