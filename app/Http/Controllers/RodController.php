@@ -24,7 +24,7 @@ class RodController extends Controller
      */
     public function index()
     {
-        $rods = $this->rodService->getAllRod();
+        $rods = $this->rodService->getAll();
         return view('rod.index', [
             'rods' => $rods
         ]);
@@ -43,7 +43,7 @@ class RodController extends Controller
      */
     public function store(RodRequest $request)
     {
-        $this->rodService->createRod($request->validated());
+        $this->rodService->create($request->validated());
         return redirect()
                     ->route('rod.index')
                     ->with('success', 'Успешно создан.');
@@ -54,7 +54,7 @@ class RodController extends Controller
      */
     public function show(int $id)
     {
-        $rod = $this->rodService->getRodById($id);
+        $rod = $this->rodService->getById($id);
         return view('rod.show', [
             'rod' => $rod,
         ]);
@@ -65,7 +65,7 @@ class RodController extends Controller
      */
     public function edit(int $id)
     {
-        $rod = $this->rodService->getRodById($id);
+        $rod = $this->rodService->getById($id);
         return view('rod.edit', [
             'rod' => $rod,
         ]);
@@ -76,7 +76,7 @@ class RodController extends Controller
      */
     public function update(int $id, RodRequest $request)
     {
-        $this->rodService->updateRod($id, $request->validated());
+        $this->rodService->update($id, $request->validated());
         return redirect()
             ->route('rod.index')
             ->with('success', 'Успешно обнавлен.');
@@ -87,7 +87,7 @@ class RodController extends Controller
      */
     public function destroy(int $id)
     {
-        $this->rodService->deleteRod($id);
+        $this->rodService->delete($id);
         return redirect()
             ->route('rod.index')
             ->with('success', 'Успешно удален.');
