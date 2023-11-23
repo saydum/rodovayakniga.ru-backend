@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Repositories\RodRepository;
+use App\Repositories\Rod\RodRepository;
 use Illuminate\Database\Eloquent\Collection;
 
 class RodService
@@ -19,12 +19,12 @@ class RodService
 
     public function getAllRod(): Collection
     {
-        return $this->rodRepository->getAll();
+        return $this->rodRepository->all();
     }
 
     public function getRodById($id)
     {
-        return $this->rodRepository->getById($id);
+        return $this->rodRepository->find($id);
     }
 
     public function createRod($data)
@@ -37,8 +37,8 @@ class RodService
         return $this->rodRepository->update($id, $data);
     }
 
-    public function deleteRod($id)
+    public function deleteRod($id): void
     {
-        return $this->rodRepository->delete($id);
+        $this->rodRepository->delete($id);
     }
 }
