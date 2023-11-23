@@ -17,27 +17,27 @@ class RodService
         $this->rodRepository = $rodRepository;
     }
 
-    public function getAllRod(): Collection
+    public function getAll(): Collection
     {
         return $this->rodRepository->all();
     }
 
-    public function getRodById($id)
+    public function getById($id)
     {
         return $this->rodRepository->find($id);
     }
 
-    public function createRod($data)
+    public function create($data)
     {
         return $this->rodRepository->create($data);
     }
 
-    public function updateRod(int $id, array $data)
+    public function update(int $id, array $data)
     {
         return $this->rodRepository->update($id, $data);
     }
 
-    public function deleteRod($id): void
+    public function delete($id): void
     {
         $this->rodRepository->delete($id);
     }
