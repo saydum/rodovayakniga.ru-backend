@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Human extends Model
 {
@@ -41,11 +41,11 @@ class Human extends Model
 
     public function father(): BelongsTo
     {
-        return $this->belongsTo(Human::class, 'father_id', 'id');
+        return $this->belongsTo(Human::class, 'father_id');
     }
 
     public function mather(): BelongsTo
     {
-        return $this->belongsTo(Human::class, 'mather_id', 'id');
+        return $this->belongsTo(Human::class, 'mather_id');
     }
 }
