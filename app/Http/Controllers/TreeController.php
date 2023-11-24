@@ -2,17 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Human;
+use App\Services\HumanService;
 
 class TreeController extends Controller
 {
-    public function index(Human $human)
+    protected HumanService $humanService;
+
+    /**
+     * @param HumanService $humanService
+     */
+    public function __construct(HumanService $humanService)
     {
-        $humans = Human::all();
-//        dd($human->name); // я
-//        dd($human->father->name); // Отец
-//        dd($human->mather->name); // Мать
+        $this->humanService = $humanService;
+    }
+
+    public function index(int $id)
+    {
+        $human = $this->humanService->getHumanWithParentsById($id);
+        $humans = $this->humanService->getAll();
+
         return view('tree.index', [
+            'human' => $human,
             'humans' => $humans,
         ]);
     }

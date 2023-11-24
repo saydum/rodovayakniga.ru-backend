@@ -37,8 +37,26 @@ class HumanService
         return $this->humanRepository->update($id, $data);
     }
 
-    public function delete($id): void
+    public function delete(int $id): void
     {
         $this->humanRepository->delete($id);
+    }
+
+    public function getHumanWithParentsById(int $id)
+    {
+        $human = $this->humanRepository->find($id);
+        return $this->loadParents($human);
+    }
+
+    protected function loadParents($human)
+    {
+        if (!$human) {
+            return null;
+        }
+
+        $human->father = $this->loadParents($human->father);
+        $human->mather = $this->loadParents($human->mather);
+
+        return $human;
     }
 }
