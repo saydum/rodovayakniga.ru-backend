@@ -33,34 +33,38 @@
 
         {{-- Связь --}}
         <div class="row g-3 pt-4">
-            @if(empty($mans) AND empty($father))
-                <div class="col mb-3">
-                    <label>Отец</label>
-                    <select class="form-select" aria-label="РОД" name="father_id">
+
+            <div class="col mb-3">
+                <label>Отец</label>
+                <select class="form-select" aria-label="РОД" name="father_id">
+                    @isset($father)
                         <option value="{{ $father->id }}" selected>
                             {{ $father->name }}
                         </option>
-                        @foreach($mans as $human)
-                            <option
-                                value="{{ $human->id }}">{{ $human->name . " " . $human->o_name . " " . $human->f_name}}</option>
-                        @endforeach
-                    </select>
-                </div>
-            @endif
-            @if(empty($womans) AND empty($mother))
-                <div class="col mb-3">
-                    <label>Мать</label>
-                    <select class="form-select" aria-label="РОД" name="mather_id">
+                    @endisset
+
+                    @foreach($mans as $human)
+                        <option
+                            value="{{ $human->id }}">{{ $human->name . " " . $human->o_name . " " . $human->f_name}}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="col mb-3">
+                <label>Мать</label>
+                <select class="form-select" aria-label="РОД" name="mather_id">
+                    @isset($mother)
                         <option value="{{ $mother->id }}" selected>
                             {{ $mother->name }}
                         </option>
-                        @foreach($womans as $human)
-                            <option
-                                value="{{ $human->id }}">{{ $human->name . " " . $human->o_name . " " . $human->f_name}}</option>
-                        @endforeach
-                    </select>
-                </div>
-            @endif
+                    @endisset
+
+                    @foreach($womans as $human)
+                        <option
+                            value="{{ $human->id }}">{{ $human->name . " " . $human->o_name . " " . $human->f_name}}</option>
+                    @endforeach
+                </select>
+            </div>
         </div>
 
         <div class="row g-3 pt-4">
@@ -68,6 +72,7 @@
             <div class="col mb-3">
                 <label>РОД</label>
                 <select class="form-select" aria-label="РОД" name="rodovayakniga_id">
+
                     @isset($human->rod_id)
                         <option value="{{ $human->rod_id }}" selected>{{ $rod->find($human->rod_id)->name }}</option>
                     @endisset

@@ -23,10 +23,17 @@
                                     <li>
                                         <a href="#">
                                             <img src="images/3.jpg">
-                                            <span></span>
+                                            <span>
+                                                {{ $humans->find($human->father->id)->father->name }}
+                                            </span>
                                         </a>
                                     </li>
-                                    <li> <a href="#"><img src="images/4.jpg"><span>Great Grand Child</span></a> </li>
+                                    <li>
+                                        <a href="#"><img src="images/4.jpg"><span>
+                                                {{ $humans->find($human->father->id)->mather->name }}
+                                            </span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                             <li>
@@ -35,8 +42,31 @@
                                     <span>{{ $human->mather->name }}</span>
                                 </a>
                                 <ul>
-                                    <li> <a href="#"><img src="images/6.jpg"><span>Great Grand Child</span></a> </li>
-                                    <li> <a href="#"><img src="images/7.jpg"><span>Great Grand Child</span></a> </li>
+                                    <li>
+                                        <a href="#"><img src="images/6.jpg">
+                                            <span>{{ $humans->find($human->mather->id)->father->name }}</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <img src="images/7.jpg">
+                                            <span> {{ $humans->find($human->mather->id)->mather->name }}</span>
+                                        </a>
+{{--                                        <ul>--}}
+{{--                                            <li>--}}
+{{--                                                <a href="#">--}}
+{{--                                                    <img src="images/7.jpg">--}}
+{{--                                                    <span>Hello</span>--}}
+{{--                                                </a>--}}
+{{--                                            </li>--}}
+{{--                                            <li>--}}
+{{--                                                <a href="#">--}}
+{{--                                                    <img src="images/7.jpg">--}}
+{{--                                                    <span>Hey</span>--}}
+{{--                                                </a>--}}
+{{--                                            </li>--}}
+{{--                                        </ul>--}}
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
