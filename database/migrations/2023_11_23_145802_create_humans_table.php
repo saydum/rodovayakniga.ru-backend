@@ -26,13 +26,13 @@ return new class extends Migration
             $table->string('nationality', 255)->nullable();
             $table->integer('generation')->nullable();
 
-            $table->integer('rod_id')->nullable();
-            $table->integer('father_id')->nullable();
-            $table->integer('mather_id')->nullable();
+            $table->unsignedBigInteger('rod_id')->nullable();
+            $table->unsignedBigInteger('father_id')->nullable();
+            $table->unsignedBigInteger('mather_id')->nullable();
 
-            $table->foreign('rod_id')->references('id')->on('rods')->onDelete('cascade');
-            $table->foreign('father_id')->references('id')->on('humans')->onDelete('cascade');
-            $table->foreign('mather_id')->references('id')->on('humans')->onDelete('cascade');
+//            $table->foreign('rod_id')->references('id')->on('rods')->onDelete('cascade');
+//            $table->foreign('father_id')->references('id')->on('humans')->onDelete('cascade');
+//            $table->foreign('mather_id')->references('id')->on('humans')->onDelete('cascade');
             $table->timestamps();
         });
     }
