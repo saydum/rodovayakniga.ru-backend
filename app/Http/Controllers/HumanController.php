@@ -2,26 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\HumanRequest;
-use App\Services\HumanService;
 use App\Services\RodService;
+use App\Services\HumanService;
+use App\Traits\ImageUploadTrait;
+use App\Http\Requests\HumanRequest;
 
 class HumanController extends Controller
 {
-    protected HumanService $humanService;
+    use ImageUploadTrait;
+
     protected RodService $rodService;
+    protected HumanService $humanService;
 
     /**
-     * @param HumanService $humanService
      * @param RodService $rodService
+     * @param HumanService $humanService
      */
     public function __construct(
-        HumanService $humanService,
         RodService $rodService,
+        HumanService $humanService,
     )
     {
-        $this->humanService = $humanService;
         $this->rodService = $rodService;
+        $this->humanService = $humanService;
     }
 
 
@@ -41,12 +44,11 @@ class HumanController extends Controller
      */
     public function create()
     {
+        $rods = $this->rodService->getAll();
         $humans = $this->humanService->getAll();
 
-        $womans = $humans->where('gender', '=', 'woman');
         $mans = $humans->where('gender', '=', 'man');
-
-        $rods = $this->rodService->getAll();
+        $womans = $humans->where('gender', '=', 'woman');
 
         return view('human.add', [
             'rods' => $rods,
@@ -60,10 +62,12 @@ class HumanController extends Controller
      */
     public function store(HumanRequest $request)
     {
-        $this->humanService->create($request->validated());
+        $validatedData = $this->imageUpload($request);
+        $this->humanService->create($validatedData);
+
         return redirect()
-                    ->route('humans.index')
-                    ->with('success', 'Успешно создан.');
+            ->route('humans.index')
+            ->with('success', 'Успешно создан.');
     }
 
     /**
@@ -85,8 +89,8 @@ class HumanController extends Controller
         $humans = $this->humanService->getAll();
         $human = $this->humanService->getById($id);
 
-        $womans = $humans->where('gender', '=', 'woman');
-        $mans = $humans->where('gender', '=', 'man');
+//        $womans = $humans->where('gender', '=', 'woman');
+//        $mans = $humans->where('gender', '=', 'man');
 
         $father = $human->father;
         $mother = $human->mother;
@@ -95,8 +99,7 @@ class HumanController extends Controller
 
         return view('human.edit', [
             'human' => $human,
-            'mans' => $mans,
-            'womans' => $womans,
+            'humans' => $humans,
             'father' => $father,
             'mother' => $mother,
             'rods' => $rods,
@@ -108,7 +111,8 @@ class HumanController extends Controller
      */
     public function update(int $id, HumanRequest $request)
     {
-        $this->humanService->update($id, $request->validated());
+        $validatedData = $this->imageUpload($request);
+        $this->humanService->update($id, $validatedData);
         return redirect()
             ->route('humans.index')
             ->with('success', 'Успешно обнавлен.');
