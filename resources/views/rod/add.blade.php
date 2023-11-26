@@ -20,7 +20,7 @@
             <input type="text" class="form-control" name="name" id="rod">
         </div>
         <label>
-            <input type="number" hidden="hidden" name="user_id" value="1"> {{-- @TODO {{ auth()->user()->id }}--}}
+            <input type="number" hidden="hidden" name="user_id" value="{{ auth()->user()->id }}">
         </label>
 
         <button type="submit" class="btn btn-success">Add</button>

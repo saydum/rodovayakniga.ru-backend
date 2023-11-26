@@ -18,7 +18,9 @@
             <form method="POST" action="{{ route("rod.destroy", $rod->id) }}">
                 @csrf
                 @method('DELETE')
-                <input type="submit" class="btn btn-outline-danger nav-item m-1" value="Удалить">
+                <button type="submit" class="btn btn-outline-danger m-1">
+                    <i class="bi bi-trash3"></i>
+                </button>
             </form>
         </div>
     </div>

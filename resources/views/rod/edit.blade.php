@@ -20,7 +20,9 @@
             <input type="text" class="form-control" name="name" id="rod" value="{{ $rod->name }}">
         </div>
 
-        <input type="number" hidden="hidden" name="user_id" value="1"> {{-- @TODO {{ auth()->user()->id }}--}}
+        <label>
+            <input type="number" hidden="hidden" name="user_id" value="{{ auth()->user()->id }}">
+        </label>
 
         <button type="submit" class="btn btn-success">Update</button>
     </form>
