@@ -69,7 +69,7 @@
             @empty($rods)
             <div class="col mb-3">
                 <label>РОД</label>
-                <select class="form-select" aria-label="РОД" name="rodovayakniga_id">
+                <select class="form-select" aria-label="РОД" name="rod_id">
                     <option value="" selected>не выбран</option>
                     @foreach($rods as $rod)
                         <option value="{{ $rod->id }}">{{ $rod->name }}</option>
@@ -112,7 +112,7 @@
         <div class="row g-3 pt-3">
             <div class="col mb-3">
                 <label for="profile_photo">Фотография</label>
-                <input type="file" class="form-control" name="image" id="profile_photo">
+                <input type="file" class="form-control" name="image" id="image">
             </div>
             {{--            <div class="col mb-3">--}}
             {{--                <label for="files">Сканы документов, Фотографии и т. д.</label>--}}

@@ -37,13 +37,17 @@
             <div class="col mb-3">
                 <label>Отец</label>
                 <select class="form-select" aria-label="РОД" name="father_id">
-                    @isset($father)
+                    @if($father)
                         <option value="{{ $father->id }}" selected>
                             {{ $father->name }}
                         </option>
-                    @endisset
+                    @else
+                        <option value="">
+                            Не выбран
+                        </option>
+                    @endif
 
-                    @foreach($mans as $human)
+                    @foreach($humans as $human)
                         <option
                             value="{{ $human->id }}">{{ $human->name . " " . $human->o_name . " " . $human->f_name}}</option>
                     @endforeach
@@ -53,13 +57,17 @@
             <div class="col mb-3">
                 <label>Мать</label>
                 <select class="form-select" aria-label="РОД" name="mather_id">
-                    @isset($mother)
+                    @if($mother)
                         <option value="{{ $mother->id }}" selected>
                             {{ $mother->name }}
                         </option>
-                    @endisset
+                    @else
+                        <option value="">
+                            Не выбран
+                        </option>
+                    @endif
 
-                    @foreach($womans as $human)
+                    @foreach($humans as $human)
                         <option
                             value="{{ $human->id }}">{{ $human->name . " " . $human->o_name . " " . $human->f_name}}</option>
                     @endforeach
@@ -71,11 +79,13 @@
 
             <div class="col mb-3">
                 <label>РОД</label>
-                <select class="form-select" aria-label="РОД" name="rodovayakniga_id">
+                <select class="form-select" aria-label="РОД" name="rod_id">
 
-                    @isset($human->rod_id)
-                        <option value="{{ $human->rod_id }}" selected>{{ $rod->find($human->rod_id)->name }}</option>
-                    @endisset
+                    @if(isset($human->rod))
+                        <option value="{{ $human->rod_id }}" selected>{{ $human->rod->name }}</option>
+                    @else
+                        <option value="" selected>Не выбран</option>
+                    @endif
 
                     @foreach($rods as $rod)
                         <option value="{{ $rod->id }}">{{ $rod->name }}</option>
@@ -117,7 +127,7 @@
         <div class="row g-3 pt-3">
             <div class="col mb-3">
                 <label for="profile_photo">Фотография</label>
-                <input type="file" class="form-control" name="image" id="profile_photo">
+                <input type="file" class="form-control" name="image" id="image">
             </div>
             {{--            <div class="col mb-3">--}}
             {{--                <label for="files">Сканы документов, Фотографии и т. д.</label>--}}

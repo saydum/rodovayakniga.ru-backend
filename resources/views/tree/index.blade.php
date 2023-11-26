@@ -9,27 +9,31 @@
                 <ul>
                     <li>
                         <a href="#">
-                            <img src="{{ $human->image }}">
+                            <img src="{{ asset($human->image) }}">
                             <span>{{ $human->name }}</span>
                         </a>
 
                         <ul>
                             <li>
                                 <a href="#">
-                                    <img src="images/2.jpg">
+                                    <img src="{{ asset($human->father->image) }}">
                                     <span>{{ $human->father->name }}</span>
                                 </a>
                                 <ul>
                                     <li>
                                         <a href="#">
-                                            <img src="images/3.jpg">
+                                            <img src="{{ asset($humans->find($human->father->id)->father->image) }}">
                                             <span>
                                                 {{ $humans->find($human->father->id)->father->name }}
                                             </span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#"><img src="images/4.jpg"><span>
+                                        <a href="#">
+                                            @isset($humans->find($human->father->id)->mather->image)
+                                                <img src="{{ asset($humans->find($human->father->id)->mather->image) }}">
+                                            @endisset
+                                            <span>
                                                 {{ $humans->find($human->father->id)->mather->name }}
                                             </span>
                                         </a>
@@ -38,18 +42,19 @@
                             </li>
                             <li>
                                 <a href="#">
-                                    <img src="images/5.jpg">
+                                    <img src="{{ asset($human->mather->image) }}">
                                     <span>{{ $human->mather->name }}</span>
                                 </a>
                                 <ul>
                                     <li>
-                                        <a href="#"><img src="images/6.jpg">
+                                        <a href="#">
+                                            <img src="{{ asset($humans->find($human->mather->id)->father->image) }}">
                                             <span>{{ $humans->find($human->mather->id)->father->name }}</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <img src="images/7.jpg">
+                                            <img src="{{ asset($humans->find($human->mather->id)->mather->image) }}">
                                             <span> {{ $humans->find($human->mather->id)->mather->name }}</span>
                                         </a>
 {{--                                        <ul>--}}
