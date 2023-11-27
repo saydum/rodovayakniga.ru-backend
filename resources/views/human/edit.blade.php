@@ -36,10 +36,10 @@
 
             <div class="col mb-3">
                 <label>Отец</label>
-                <select class="form-select" aria-label="РОД" name="father_id">
+                <select class="form-select" aria-label="Отец" name="father_id">
                     @if($father)
                         <option value="{{ $father->id }}" selected>
-                            {{ $father->name }}
+                            {{ $father->name . " " . $father->o_name . " " . $father->f_name }}
                         </option>
                     @else
                         <option value="">
@@ -56,10 +56,10 @@
 
             <div class="col mb-3">
                 <label>Мать</label>
-                <select class="form-select" aria-label="РОД" name="mather_id">
-                    @if($mother)
-                        <option value="{{ $mother->id }}" selected>
-                            {{ $mother->name }}
+                <select class="form-select" aria-label="Мать" name="mather_id">
+                    @if($mather)
+                        <option value="{{ $mather->id }}" selected>
+                            {{ $mather->name . " " . $mather->o_name . " " . $mather->f_name }}
                         </option>
                     @else
                         <option value="">
@@ -126,7 +126,7 @@
 
         <div class="row g-3 pt-3">
             <div class="col mb-3">
-                <label for="profile_photo">Фотография</label>
+                <label for="profile_photo">Фотография: {{ $human->image }}</label>
                 <input type="file" class="form-control" name="image" id="image">
             </div>
             {{--            <div class="col mb-3">--}}
