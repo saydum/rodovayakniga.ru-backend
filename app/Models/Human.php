@@ -27,7 +27,7 @@ class Human extends Model
         'generation',
         'rod_id',
         'father_id',
-        'mother_id',
+        'mather_id',
     ];
 
     protected $casts = [

@@ -93,7 +93,7 @@ class HumanController extends Controller
 //        $mans = $humans->where('gender', '=', 'man');
 
         $father = $human->father;
-        $mother = $human->mother;
+        $mather = $human->mather;
 
         $rods = $this->rodService->getAll();
 
@@ -101,7 +101,7 @@ class HumanController extends Controller
             'human' => $human,
             'humans' => $humans,
             'father' => $father,
-            'mother' => $mother,
+            'mather' => $mather,
             'rods' => $rods,
         ]);
     }
@@ -111,8 +111,13 @@ class HumanController extends Controller
      */
     public function update(int $id, HumanRequest $request)
     {
-        $validatedData = $this->imageUpload($request);
-        $this->humanService->update($id, $validatedData);
+        if ($request->input('image') !== null) {
+            $validatedData = $this->imageUpload($request);
+            $this->humanService->update($id, $validatedData);
+        } else {
+            $this->humanService->update($id, $request->validated());
+        }
+
         return redirect()
             ->route('humans.index')
             ->with('success', 'Успешно обнавлен.');
