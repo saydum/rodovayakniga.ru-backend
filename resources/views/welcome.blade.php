@@ -63,27 +63,27 @@
                 <li><a href="#about">О сервисе</a></li>
                 <li><a href="#command">Команда</a></li>
                 <li><a href="#">Блог</a></li>
-{{--                @if (Route::has('login'))--}}
-{{--                    @auth--}}
-{{--                        <li>--}}
-{{--                            <a href="{{ url('/home') }}">Приложение</a>--}}
-{{--                        </li>--}}
-{{--                    @else--}}
-{{--                        <li>--}}
-{{--                            <a href="#">--}}
-{{--                                |--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
-{{--                        <li>--}}
-{{--                            <a href="{{ route('login') }}">Вход</a>--}}
-{{--                        </li>--}}
-{{--                        @if (Route::has('register'))--}}
-{{--                            <li>--}}
-{{--                                <a href="{{ route('register') }}">Регистрация</a>--}}
-{{--                            </li>--}}
-{{--                        @endif--}}
-{{--                    @endauth--}}
-{{--                @endif--}}
+                @if (Route::has('login'))
+                    @auth
+                        <li>
+                            <a href="{{ url('/rod') }}">Приложение</a>
+                        </li>
+                    @else
+                        <li>
+                            <a href="#">
+                                |
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('login') }}">Вход</a>
+                        </li>
+                        @if (Route::has('register'))
+                            <li>
+                                <a href="{{ route('register') }}">Регистрация</a>
+                            </li>
+                        @endif
+                    @endauth
+                @endif
             </ul>
         </nav>
     </div>
