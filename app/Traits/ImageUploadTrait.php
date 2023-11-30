@@ -11,7 +11,7 @@ trait ImageUploadTrait
         $path = "";
 
         if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('storage/images', 'public');
+            $path = $request->file('image')->store('images', 'public');
         }
 
         $validatedData = $request->validated();
