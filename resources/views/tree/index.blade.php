@@ -11,35 +11,44 @@
                         <ul>
                             <li>
                                 {{-- 1 --}}
-                                <a href="#">
-                                    <img src="{{ asset($im->image) }}">
-                                    <span> {{ $im->name. " " .  $im->o_name . " " . $im->f_name}}</span>
-                                </a>
+                                <div class="tree_card">
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <img class="img-fluid" src="{{ asset($im->image) }}">
+                                        <p class=""> {{ $im->name. " " .  $im->o_name . " " . $im->f_name}}</p>
+                                    </a>
+                                </div>
+                                @include('tree.modal')
                                 {{-- E1--}}
                                 <ul>
                                     @isset($father)
                                         <li>
-                                            <a href="#">
-                                                <img src="{{ asset($father->image) }}">
-                                                <span>{{ $father->name . " " . $father->o_name . " " . $father->f_name }}</span>
-                                            </a>
+                                            <div class="tree_card">
+                                                <a href="#">
+                                                    <img class="img-fluid" src="{{ asset($father->image) }}">
+                                                    <p>{{ $father->name . " " . $father->o_name . " " . $father->f_name }}</p>
+                                                </a>
+                                            </div>
                                             <ul>
                                                 @isset($fatherGrandfather)
                                                     <li>
-                                                        <a href="#">
-                                                            <img
-                                                                src="{{ asset($fatherGrandfather->image) }}"/>
-                                                            <span>{{ $fatherGrandfather->name }}</span>
-                                                        </a>
+                                                        <div class="tree_card">
+                                                            <a href="#">
+                                                                <img class="img-fluid"
+                                                                    src="{{ asset($fatherGrandfather->image) }}"/>
+                                                                <p>{{ $fatherGrandfather->name }}</p>
+                                                            </a>
+                                                        </div>
                                                     </li>
                                                 @endisset
                                                 @isset($fatherGrandmother)
                                                     <li>
-                                                        <a href="#">
-                                                            <img
-                                                                src="{{ asset($fatherGrandmother->image) }}">
-                                                            <span>{{ $fatherGrandmother->name }}</span>
-                                                        </a>
+                                                        <div class="tree_card">
+                                                            <a href="#">
+                                                                <img class="img-fluid"
+                                                                    src="{{ asset($fatherGrandmother->image) }}">
+                                                                <p>{{ $fatherGrandmother->name }}</p>
+                                                            </a>
+                                                        </div>
                                                     </li>
                                                 @endisset
                                             </ul>
@@ -48,27 +57,33 @@
 
                                     @isset($mather)
                                         <li>
-                                            <a href="#">
-                                                <img src="{{ asset($mather->image) }}">
-                                                <span>{{ $mather->name . " " . $mather->o_name . " " . $mather->f_name }}</span>
-                                            </a>
+                                            <div class="tree_card">
+                                                <a href="#">
+                                                    <img class="img-fluid" src="{{ asset($mather->image) }}">
+                                                    <p>{{ $mather->name . " " . $mather->o_name . " " . $mather->f_name }}</p>
+                                                </a>
+                                            </div>
                                             <ul>
                                                 @isset($matherGrandfather)
                                                     <li>
-                                                        <a href="#">
-                                                            <img
-                                                                src="{{ asset($matherGrandfather->image) }}">
-                                                            <span>{{ $matherGrandfather->name }}</span>
-                                                        </a>
+                                                        <div class="tree_card">
+                                                            <a href="#">
+                                                                <img class="img-fluid"
+                                                                    src="{{ asset($matherGrandfather->image) }}">
+                                                                <p>{{ $matherGrandfather->name }}</p>
+                                                            </a>
+                                                        </div>
                                                     </li>
                                                 @endisset
                                                 @isset($matherGrandmother)
                                                     <li>
-                                                        <a href="#">
-                                                            <img
-                                                                src="{{ asset($matherGrandmother->image) }}">
-                                                            <span> {{ $matherGrandmother->name }}</span>
-                                                        </a>
+                                                        <div class="tree_card">
+                                                            <a href="#">
+                                                                <img class="img-fluid"
+                                                                    src="{{ asset($matherGrandmother->image) }}">
+                                                                <p> {{ $matherGrandmother->name }}</p>
+                                                            </a>
+                                                        </div>
                                                     </li>
                                                 @endisset
                                             </ul>
