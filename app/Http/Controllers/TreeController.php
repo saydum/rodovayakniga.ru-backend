@@ -25,11 +25,11 @@ class TreeController extends Controller
         $father = $im->father;
         $mather = $im->mather;
 
-        $fatherGrandfather = $humans->find($im->father->id)->father;
-        $fatherGrandmother = $humans->find($im->father->id)->mather;
+        $fatherGrandfather = $im->father ? $humans->find($im->father->id)->father : null;
+        $fatherGrandmother = $im->father ? $humans->find($im->father->id)->mather : null;
 
-        $matherGrandfather = $humans->find($im->mather->id)->father;
-        $matherGrandmother = $humans->find($im->mather->id)->mather;
+        $matherGrandfather = $im->mather ? $humans->find($im->mather->id)->father : null;
+        $matherGrandmother = $im->mather ? $humans->find($im->mather->id)->mather : null;
 
 
 
