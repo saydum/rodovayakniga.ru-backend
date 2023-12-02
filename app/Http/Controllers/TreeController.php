@@ -35,6 +35,7 @@ class TreeController extends Controller
 
 
         return view('tree.index', [
+            'humans' => $humans,
             'im' => $im,
             'father' => $father,
             'mather' => $mather,
