@@ -25,6 +25,7 @@ class HumanController extends Controller
     {
         $this->rodService = $rodService;
         $this->humanService = $humanService;
+        $this->middleware('auth');
     }
 
 
