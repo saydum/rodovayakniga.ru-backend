@@ -15,6 +15,7 @@ class HumanFactory extends Factory
         return [
             'name' => fake()->name,
             'f_name' => fake()->lastName ,
+            'o_name' => fake()->lastName,
             'gender' => array_rand(['man' => 'man', 'woman' => 'woman']),
             'data_birth' => fake()->date('d-m-Y'),
             'location_birth' => fake()->locale,
@@ -24,6 +25,7 @@ class HumanFactory extends Factory
             'nationality' => array_rand(['Русский' => 'Русский', 'Лезгин' => 'Лезгин', 'Англичанин' => 'Англичанин']),
             'rod_id' => rand(1, 16),
             'generation' => rand(1, 16),
+            'text' => fake()->text,
         ];
     }
 }
