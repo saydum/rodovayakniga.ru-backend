@@ -16,6 +16,7 @@ class RodController extends Controller
     public function __construct(RodService $rodService)
     {
         $this->rodService = $rodService;
+        $this->middleware('auth');
     }
 
 
