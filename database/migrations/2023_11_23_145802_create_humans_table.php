@@ -26,6 +26,8 @@ return new class extends Migration
             $table->string('nationality', 255)->nullable();
             $table->integer('generation')->nullable();
 
+            $table->text('text')->nullable();
+
             $table->unsignedBigInteger('rod_id')->nullable();
             $table->unsignedBigInteger('father_id')->nullable();
             $table->unsignedBigInteger('mather_id')->nullable();

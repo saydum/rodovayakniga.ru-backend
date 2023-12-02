@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -61,7 +60,7 @@
                         @endforeach
                     </select>
                 </div>
-                @endempty
+            @endempty
         </div>
 
         <div class="row g-3 pt-4">
@@ -114,22 +113,28 @@
                 <label for="profile_photo">Фотография</label>
                 <input type="file" class="form-control" name="image" id="image">
             </div>
-            {{--            <div class="col mb-3">--}}
-            {{--                <label for="files">Сканы документов, Фотографии и т. д.</label>--}}
-            {{--                <input type="file" class="form-control" name="files" id="files" multiple>--}}
-            {{--            </div>--}}
+        </div>
+
+        <div class="row g-3 pt-3 pb-3">
+            <div class="col">
+                <label for="summernote">
+                    Биография
+                </label>
+                <textarea id="summernote" name="text" class="form-control">
+                </textarea>
+            </div>
         </div>
 
         <div class="accordion card" id="accordionExample">
 
-            <div class="row ">
-                <div class="py-4 text-center">
-                    <p type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
+            <div class="row g-3 py-3">
+                <div class="text-center">
+                    <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
                        aria-controls="collapseOne">
                         <i class="bi bi-arrow-down"></i>
                         <span class="text-success">Добавить остальные данные  </span>
                         <i class="bi bi-arrow-down"></i>
-                    </p>
+                    </button>
                 </div>
             </div>
 

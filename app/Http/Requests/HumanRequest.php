@@ -37,6 +37,7 @@ class HumanRequest extends FormRequest
             'rod_id' => 'int|nullable',
             'father_id' => 'int|nullable',
             'mather_id' => 'int|nullable',
+            'text' => 'string|nullable',
         ];
     }
 }
