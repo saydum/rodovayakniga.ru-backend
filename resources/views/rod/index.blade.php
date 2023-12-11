@@ -16,7 +16,7 @@
             <tr>
                 <td>{{ $rod->name }}</td>
                 <td class="text-center d-flex justify-content-end">
-                    <a href="{{ route("rod.show", $rod->id) }}"
+                    <a href="{{ route("rod.get-humans", $rod->id) }}"
                        class="btn btn-outline-success">
                         Открыть
                     </a>

@@ -93,4 +93,12 @@ class RodController extends Controller
             ->route('rod.index')
             ->with('success', 'Успешно удален.');
     }
+
+    public function getHumansByRodId(int $id)
+    {
+        $humans = $this->rodService->getHumansByRodId($id);
+        return view('human.index', [
+            'humans' => $humans,
+        ]);
+    }
 }

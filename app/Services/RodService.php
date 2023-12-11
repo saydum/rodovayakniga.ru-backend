@@ -27,7 +27,7 @@ class RodService
         return $this->rodRepository->find($id);
     }
 
-    public function create($data)
+    public function create(array $data)
     {
         return $this->rodRepository->create($data);
     }
@@ -37,8 +37,14 @@ class RodService
         return $this->rodRepository->update($id, $data);
     }
 
-    public function delete($id): void
+    public function delete(int $id): void
     {
         $this->rodRepository->delete($id);
+    }
+
+    public function getHumansByRodId(int $id): Collection
+    {
+        $rod = $this->rodRepository->find($id);
+        return $rod->humans()->get();
     }
 }

@@ -24,4 +24,9 @@ class Rod extends Model
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
+    public function humans()
+    {
+        return $this->hasMany(Human::class, 'rod_id', 'id');
+    }
 }
