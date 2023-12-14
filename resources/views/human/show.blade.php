@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+
+    <div class="pb-3">
+        @include('layouts.embed.link-back')
+    </div>
+
     <table class="table table-bordered table-hover">
         <tbody>
         @foreach($human->getAttributes() as $key => $value)

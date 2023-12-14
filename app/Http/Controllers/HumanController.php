@@ -113,7 +113,7 @@ class HumanController extends Controller
         }
 
         return redirect()
-            ->route('humans.index')
+            ->route('rod.humans.index', $request->input('rod_id'))
             ->with('success', 'Успешно обнавлен.');
     }
 

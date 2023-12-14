@@ -48,11 +48,8 @@
                         Открыть
                     </a>
 
-                    <a href="{{ route('humans.edit', $human->id) }}" class="btn btn-outline-secondary btn-sm btn-rounded">Изменить</a>
-
-                    <a href="{{ route("rod.humans.tree", ['rod' => $rod->id, 'human' =>$human->id]) }}"
-                       class="btn btn-success btn-sm btn-rounded">
-                        Древа РОДа
+                    <a href="{{ route('humans.edit', $human->id) }}" class="btn btn-outline-warning btn-sm btn-rounded">
+                        Изменить
                     </a>
                 </td>
             </tr>

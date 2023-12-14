@@ -17,8 +17,13 @@
                 <td>{{ $rod->name }}</td>
                 <td class="text-center d-flex justify-content-end">
                     <a href="{{ route("rod.humans.index", $rod->id) }}"
-                       class="btn btn-outline-success">
+                       class="btn btn-outline-success btn-sm btn-rounded" style="margin-right: 5px">
                         Открыть
+                    </a>
+
+                    <a href="{{ route("rod.humans.tree", $rod->id) }}"
+                       class="btn btn-success btn-sm btn-rounded">
+                        Древа РОДа
                     </a>
                 </td>
             </tr>

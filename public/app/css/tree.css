@@ -65,6 +65,8 @@
     border: 1px solid #ccc;
     display: inline-grid;
     border-radius: 5px;
+    text-align: start;
+    padding-left: 3px;
 }
 .tree li a {
     text-decoration-line: none;
