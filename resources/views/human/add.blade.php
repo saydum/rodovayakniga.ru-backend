@@ -14,6 +14,10 @@
     <form action="{{ route("humans.store") }}" method="POST" enctype="multipart/form-data">
         @csrf
 
+        {{-- Hidden items --}}
+        <input type="hidden" name="rod_id" value="{{ $rod->id }}">
+        {{-- End hidden items --}}
+
         <div class="row g-3 pt-4">
             <h5>И.О.Ф</h5>
             <div class="col">
@@ -64,18 +68,6 @@
         </div>
 
         <div class="row g-3 pt-4">
-
-            @empty($rods)
-            <div class="col mb-3">
-                <label>РОД</label>
-                <select class="form-select" aria-label="РОД" name="rod_id">
-                    <option value="" selected>не выбран</option>
-                    @foreach($rods as $rod)
-                        <option value="{{ $rod->id }}">{{ $rod->name }}</option>
-                    @endforeach
-                </select>
-            </div>
-            @endempty
 
 
             <div class="col mb-3">

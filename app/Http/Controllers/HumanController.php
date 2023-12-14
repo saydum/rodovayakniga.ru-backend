@@ -43,18 +43,11 @@ class HumanController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function createByRodId(int $id)
     {
-        $rods = $this->rodService->getAll();
-        $humans = $this->humanService->getAll();
-
-        $mans = $humans->where('gender', '=', 'man');
-        $womans = $humans->where('gender', '=', 'woman');
-
+        $rod = $this->rodService->getById($id);
         return view('human.add', [
-            'rods' => $rods,
-            'mans' => $mans,
-            'womans' => $womans,
+            'rod' => $rod,
         ]);
     }
 

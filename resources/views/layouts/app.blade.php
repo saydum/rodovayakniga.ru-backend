@@ -46,10 +46,6 @@
                     <li>
                         <a class="nav-link" href="{{ route('rod.index') }}">РОД</a>
                     </li>
-
-                    <li>
-                        <a class="nav-link" href="{{ route('humans.index') }}">Человеки</a>
-                    </li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->

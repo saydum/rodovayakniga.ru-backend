@@ -96,8 +96,10 @@ class RodController extends Controller
 
     public function getHumansByRodId(int $id)
     {
+        $rod = $this->rodService->getById($id);
         $humans = $this->rodService->getHumansByRodId($id);
         return view('human.index', [
+            'rod' => $rod,
             'humans' => $humans,
         ]);
     }

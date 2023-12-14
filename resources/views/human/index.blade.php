@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="mb-4">
-        <a href="{{ route("humans.create") }}" class="btn btn-success">Добавить человека</a>
+        <a href="{{ route("rod.humans.add", $rod->id) }}" class="btn btn-success">Добавить человека</a>
     </div>
 
     <table class="table align-middle mb-0 bg-white">
@@ -48,9 +48,11 @@
                         Открыть
                     </a>
 
-                    <a href="{{ route("tree.index", $human->id) }}"
-                       class="btn btn-outline-success btn-sm btn-rounded">
-                        Открыть РОДовое Древо
+                    <a href="{{ route('humans.edit', $human->id) }}" class="btn btn-outline-secondary btn-sm btn-rounded">Изменить</a>
+
+                    <a href="{{ route("rod.humans.tree", ['rod' => $rod->id, 'human' =>$human->id]) }}"
+                       class="btn btn-success btn-sm btn-rounded">
+                        Древа РОДа
                     </a>
                 </td>
             </tr>
