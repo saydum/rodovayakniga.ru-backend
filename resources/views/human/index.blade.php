@@ -2,7 +2,11 @@
 
 @section('content')
     <div class="mb-4">
-        <a href="{{ route("rod.humans.add", $rod->id) }}" class="btn btn-success">Добавить человека</a>
+        @isset($rod)
+        <a href="{{ route("rod.humans.add", $rod->id) }}" class="btn btn-success">
+            Добавить человека
+        </a>
+        @endisset
     </div>
 
     <table class="table align-middle mb-0 bg-white">
