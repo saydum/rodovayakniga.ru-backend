@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -87,16 +86,16 @@
                         <option value="" selected>Не выбран</option>
                     @endif
 
-                    @foreach($rods as $rod)
-                        <option value="{{ $rod->id }}">{{ $rod->name }}</option>
+                    @foreach($rod as $r)
+                        <option value="{{ $r->id }}">{{ $r->name }}</option>
                     @endforeach
                 </select>
             </div>
 
+            <!--    @TODO(не вставляется default значение в select)        -->
             <div class="col mb-3">
                 <label>Поколения</label>
-                <select class="form-select" aria-label="Поколения" name="generation">
-                    <option value="{{ $human->generation }}" selected>{{ $human->generation }}</option>
+                <select id="generation" class="form-select" aria-label="Поколения" name="generation">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -115,6 +114,7 @@
                     <option value="16">16</option>
                 </select>
             </div>
+
             <div class="col mb-3">
                 <div class="col">
                     <label for="nationality" class="pb-1">Национальность</label>

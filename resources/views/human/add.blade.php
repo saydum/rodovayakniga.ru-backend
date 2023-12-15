@@ -40,7 +40,7 @@
         {{-- Связь --}}
         <div class="row g-3 pt-4">
 
-            @empty($mans)
+            @isset($mans)
                 <div class="col mb-3">
                     <label>Отец</label>
                     <select class="form-select" aria-label="РОД" name="father_id">
@@ -51,9 +51,9 @@
                         @endforeach
                     </select>
                 </div>
-            @endempty
+            @endisset
 
-            @empty($womans)
+            @isset($womans)
                 <div class="col mb-3">
                     <label>Мать</label>
                     <select class="form-select" aria-label="РОД" name="mather_id">
@@ -64,7 +64,7 @@
                         @endforeach
                     </select>
                 </div>
-            @endempty
+            @endisset
         </div>
 
         <div class="row g-3 pt-4">

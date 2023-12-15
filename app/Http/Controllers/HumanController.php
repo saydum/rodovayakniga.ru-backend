@@ -46,8 +46,14 @@ class HumanController extends Controller
     public function createByRodId(int $id)
     {
         $rod = $this->rodService->getById($id);
+
+        $mans = $rod->humans->where('gender', '=', 'man');
+        $womans = $rod->humans->where('gender', '=', 'woman');
+
         return view('human.add', [
             'rod' => $rod,
+            'mans' => $mans,
+            'womans' => $womans,
         ]);
     }
 
@@ -80,23 +86,26 @@ class HumanController extends Controller
      */
     public function edit(int $id)
     {
+        $rod = $this->rodService->getAll();
+
         $humans = $this->humanService->getAll();
         $human = $this->humanService->getById($id);
 
-//        $womans = $humans->where('gender', '=', 'woman');
-//        $mans = $humans->where('gender', '=', 'man');
+        $mans = $humans->where('gender', '=', 'man');
+        $womans = $humans->where('gender', '=', 'woman');
 
         $father = $human->father;
         $mather = $human->mather;
 
-        $rods = $this->rodService->getAll();
 
         return view('human.edit', [
             'human' => $human,
             'humans' => $humans,
             'father' => $father,
             'mather' => $mather,
-            'rods' => $rods,
+            'rod'  =>  $rod,
+            'mans' => $mans,
+            'womans' => $womans,
         ]);
     }
 
@@ -106,7 +115,7 @@ class HumanController extends Controller
     public function update(int $id, HumanRequest $request)
     {
         if ($request->input('image') !== null) {
-            $validatedData = $this->imageUpload($request);
+            $validatedData=$this->imageUpload($request);
             $this->humanService->update($id, $validatedData);
         } else {
             $this->humanService->update($id, $request->validated());
