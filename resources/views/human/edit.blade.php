@@ -135,6 +135,15 @@
             {{--            </div>--}}
         </div>
 
+        <div class="row g-3 pt-3 pb-3">
+            <div class="col">
+                <label for="summernote">
+                    Биография
+                </label>
+                <textarea id="myeditorinstance" name="text" class="form-control">{{ $human->text }}</textarea>
+            </div>
+        </div>
+
         <div class="accordion card" id="accordionExample">
 
             <div class="row ">
@@ -189,4 +198,6 @@
 
         <button type="submit" class="btn btn-success mt-4">Изменить</button>
     </form>
+
+    @include('components.head.tinymce-config')
 @endsection

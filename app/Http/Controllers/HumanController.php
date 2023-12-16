@@ -66,7 +66,7 @@ class HumanController extends Controller
         $this->humanService->create($validatedData);
 
         return redirect()
-            ->route('humans.index')
+            ->route('rod.humans.index', $request->input('rod_id'))
             ->with('success', 'Успешно создан.');
     }
 
@@ -133,7 +133,7 @@ class HumanController extends Controller
     {
         $this->humanService->delete($id);
         return redirect()
-            ->route('humans.index')
+            ->route('rod.index')
             ->with('success', 'Успешно удален.');
     }
 }

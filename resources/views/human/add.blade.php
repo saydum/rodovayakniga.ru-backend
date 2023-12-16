@@ -112,8 +112,7 @@
                 <label for="summernote">
                     Биография
                 </label>
-                <textarea id="summernote" name="text" class="form-control">
-                </textarea>
+                <textarea id="myeditorinstance" name="text" class="form-control"></textarea>
             </div>
         </div>
 
@@ -167,4 +166,6 @@
 
         <button type="submit" class="btn btn-success mt-4">Добавить</button>
     </form>
+
+    @include('components.head.tinymce-config')
 @endsection

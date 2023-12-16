@@ -11,7 +11,11 @@
         @foreach($human->getAttributes() as $key => $value)
             <tr>
                 <th>{{ $key }}</th>
-                <td>{{ $value }}</td>
+                @if($key === 'text')
+                    <td>{!! $value !!}</td>
+                @else
+                    <td>{{ $value }}</td>
+                @endif
             </tr>
             <tr>
             </tr>
