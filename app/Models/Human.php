@@ -25,7 +25,6 @@ class Human extends Model
         'hair_color',
         'nationality',
         'generation',
-        'rod_id',
         'father_id',
         'mather_id',
         'text',
@@ -34,11 +33,6 @@ class Human extends Model
     protected $casts = [
         'data_birth' => 'datetime:d-m-Y',
     ];
-
-    public function rod(): BelongsTo
-    {
-        return $this->belongsTo(Rod::class, 'rod_id', 'id');
-    }
 
     public function father(): BelongsTo
     {

@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Repositories\Human\HumanRepository;
+use App\Repositories\HumanRepository;
 use Illuminate\Database\Eloquent\Collection;
 
 class HumanService
