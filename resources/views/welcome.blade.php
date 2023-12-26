@@ -66,7 +66,7 @@
                 @if (Route::has('login'))
                     @auth
                         <li>
-                            <a href="{{ route('home') }}">Приложение</a>
+                            <a href="{{ route('app') }}">Приложение</a>
                         </li>
                     @else
                         <li>
