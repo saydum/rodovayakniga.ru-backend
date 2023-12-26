@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\RodService;
 use App\Services\HumanService;
 use App\Traits\ImageUploadTrait;
 use App\Http\Requests\HumanRequest;
@@ -11,19 +10,15 @@ class HumanController extends Controller
 {
     use ImageUploadTrait;
 
-    protected RodService $rodService;
     protected HumanService $humanService;
 
     /**
-     * @param RodService $rodService
      * @param HumanService $humanService
      */
     public function __construct(
-        RodService $rodService,
         HumanService $humanService,
     )
     {
-        $this->rodService = $rodService;
         $this->humanService = $humanService;
         $this->middleware('auth');
     }
@@ -43,17 +38,16 @@ class HumanController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function createByRodId(int $id)
+    public function create()
     {
-        $rod = $this->rodService->getById($id);
-
-        $mans = $rod->humans->where('gender', '=', 'man');
-        $womans = $rod->humans->where('gender', '=', 'woman');
+//        $humans = $this->humanService->getById($id);
+//
+//        $mans = $humans->humans->where('gender', '=', 'man');
+//        $womans = $humans->humans->where('gender', '=', 'woman');
 
         return view('human.add', [
-            'rod' => $rod,
-            'mans' => $mans,
-            'womans' => $womans,
+//            'mans' => $mans,
+//            'womans' => $womans,
         ]);
     }
 
@@ -66,7 +60,7 @@ class HumanController extends Controller
         $this->humanService->create($validatedData);
 
         return redirect()
-            ->route('rod.humans.index', $request->input('rod_id'))
+            ->route('humans.index')
             ->with('success', 'Успешно создан.');
     }
 
@@ -86,7 +80,6 @@ class HumanController extends Controller
      */
     public function edit(int $id)
     {
-        $rod = $this->rodService->getAll();
 
         $humans = $this->humanService->getAll();
         $human = $this->humanService->getById($id);
@@ -103,7 +96,6 @@ class HumanController extends Controller
             'humans' => $humans,
             'father' => $father,
             'mather' => $mather,
-            'rod'  =>  $rod,
             'mans' => $mans,
             'womans' => $womans,
         ]);
@@ -122,7 +114,7 @@ class HumanController extends Controller
         }
 
         return redirect()
-            ->route('rod.humans.index', $request->input('rod_id'))
+            ->route('humans.index')
             ->with('success', 'Успешно обнавлен.');
     }
 
@@ -133,7 +125,7 @@ class HumanController extends Controller
     {
         $this->humanService->delete($id);
         return redirect()
-            ->route('rod.index')
+            ->route('humans.index')
             ->with('success', 'Успешно удален.');
     }
 }

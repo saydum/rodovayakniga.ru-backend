@@ -2,18 +2,16 @@
 
 @section('content')
     <div class="mb-4">
-        @isset($rod)
-        <a href="{{ route("rod.humans.add", $rod->id) }}" class="btn btn-success">
+        <a href="{{ route("humans.create") }}" class="btn btn-success">
             Добавить человека
         </a>
-        @endisset
     </div>
 
+    @if(count($humans) !== 0)
     <table class="table align-middle mb-0 bg-white">
         <thead class="bg-light">
         <tr>
             <th>Имя Отчество Фамилия</th>
-            <th>РОД</th>
             <th>Национальность</th>
             <th>Actions</th>
         </tr>
@@ -40,20 +38,19 @@
                     </div>
                 </td>
                 <td>
-                    @if(isset($human->rod->name))
-                        <p class="fw-normal mb-1">{{ $human->rod->name }}</p>
-                    @endif
-                </td>
-                <td>
                     {{ $human->nationality }}
                 </td>
                 <td>
-                    <a href="{{ route("humans.show", $human->id) }}" type="button" class="btn btn-outline-success btn-sm btn-rounded">
-                        Открыть
+                    <a href="{{ route("humans.show", $human->id) }}" type="button" class="btn btn-outline-primary btn-sm btn-rounded">
+                        <i class="bi bi-eye"></i>
                     </a>
 
                     <a href="{{ route('humans.edit', $human->id) }}" class="btn btn-outline-warning btn-sm btn-rounded">
-                        Изменить
+                        <i class="bi bi-pencil-square"></i>
+                    </a>
+
+                    <a href="{{ route('humans.tree', $human->id) }}" class="btn btn-success btn-sm btn-rounded">
+                        <i class="bi bi-arrows-fullscreen"></i>
                     </a>
                 </td>
             </tr>
@@ -61,4 +58,5 @@
 
         </tbody>
     </table>
+    @endif
 @endsection

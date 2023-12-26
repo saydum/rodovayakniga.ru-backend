@@ -76,22 +76,6 @@
 
         <div class="row g-3 pt-4">
 
-            <div class="col mb-3">
-                <label>РОД</label>
-                <select class="form-select" aria-label="РОД" name="rod_id">
-
-                    @if(isset($human->rod))
-                        <option value="{{ $human->rod_id }}" selected>{{ $human->rod->name }}</option>
-                    @else
-                        <option value="" selected>Не выбран</option>
-                    @endif
-
-                    @foreach($rod as $r)
-                        <option value="{{ $r->id }}">{{ $r->name }}</option>
-                    @endforeach
-                </select>
-            </div>
-
             <!--    @TODO(не вставляется default значение в select)        -->
             <div class="col mb-3">
                 <label>Поколения</label>

@@ -23,7 +23,6 @@ class HumanFactory extends Factory
             'eye_color' => fake()->colorName,
             'hair_color' => fake()->colorName,
             'nationality' => array_rand(['Русский' => 'Русский', 'Лезгин' => 'Лезгин', 'Англичанин' => 'Англичанин']),
-            'rod_id' => rand(1, 16),
             'generation' => rand(1, 16),
             'text' => fake()->text,
         ];

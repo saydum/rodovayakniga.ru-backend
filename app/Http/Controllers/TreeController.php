@@ -20,19 +20,16 @@ class TreeController extends Controller
     {
         $humans = $this->humanService->getAll();
 
-        $im = $this->humanService->getHumanWithParentsById($id);
+        $im = $id ? $this->humanService->getHumanWithParentsById($id) : null;
 
-        $father = $im->father;
-        $mather = $im->mather;
+        $father = $im->father ?? null;
+        $mather = $im->mather ?? null;
 
         $fatherGrandfather = $im->father ? $humans->find($im->father->id)->father : null;
         $fatherGrandmother = $im->father ? $humans->find($im->father->id)->mather : null;
 
         $matherGrandfather = $im->mather ? $humans->find($im->mather->id)->father : null;
         $matherGrandmother = $im->mather ? $humans->find($im->mather->id)->mather : null;
-
-
-
 
         return view('tree.index', [
             'humans' => $humans,

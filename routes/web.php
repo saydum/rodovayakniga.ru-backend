@@ -11,8 +11,8 @@ Route::get('/', [WelcomeController::class, 'index'])->name('welcome.index');
 
 Route::middleware(['auth'])->group( function () {
     Route::resource('humans', HumanController::class);
-    Route::get('/humans/{id}tree', [TreeController::class, 'index'])->name('rod.humans.tree');
+    Route::get('/app/{human}', [TreeController::class, 'index'])->name('humans.tree');
 });
 
 Auth::routes();
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/app', [HumanController::class, 'index'])->name('app');

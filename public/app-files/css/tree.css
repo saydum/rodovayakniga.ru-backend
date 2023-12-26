@@ -96,3 +96,12 @@
 .tree li a:hover+ul li::after, .tree li a:hover+ul li::before, .tree li a:hover+ul::before, .tree li a:hover+ul ul::before {
     border-color: #94a0b4;
 }
+
+.plus-human-icon {
+    font-size: 16px;
+    color: rgba(28, 128, 72, 0.8);
+}
+.plus-human-icon:hover {
+    color: rgba(20, 103, 66, 0.68);
+    transform: scale(1.2);
+}

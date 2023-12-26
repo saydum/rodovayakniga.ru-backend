@@ -13,20 +13,16 @@ class HumanTest extends TestCase
     use RefreshDatabase;
 
     protected User $user;
-    protected Rod $rod;
 
     protected function setUp(): void
     {
         parent::setUp();
         $this->user = User::factory()->create();
-        $this->rod = Rod::factory()->create();
     }
 
     public function test_can_get_all_human_index()
     {
-        $human = Human::factory(3)->create([
-            'rod_id' => $this->rod->id
-        ]);
+        $human = Human::factory(3)->create();
 
         $this->assertEquals(3, $human->count());
 
@@ -37,9 +33,7 @@ class HumanTest extends TestCase
 
     public function test_can_get_specific_human_show()
     {
-        $human = Human::factory()->create([
-            'rod_id' => $this->rod->id
-        ]);
+        $human = Human::factory()->create();
         $this->assertEquals(1, $human->count());
 
         $this->actingAs($this->user)
@@ -49,9 +43,7 @@ class HumanTest extends TestCase
 
     public function test_can_create_human_store()
     {
-        $human = Human::factory()->create([
-            'rod_id' => $this->rod->id
-        ]);
+        $human = Human::factory()->create();
 
         $this->actingAs($this->user)
             ->post(route('humans.store', $human))
@@ -62,9 +54,7 @@ class HumanTest extends TestCase
 
     public function test_can_update_human_update()
     {
-        $human = Human::factory()->create([
-            'rod_id' => $this->rod->id
-        ]);
+        $human = Human::factory()->create();
 
         $updateHuman = [
             'name' => 'Ivan',
@@ -78,7 +68,6 @@ class HumanTest extends TestCase
             'hair_color' => 'black',
             'nationality' => 'English',
             'generation' => 4,
-            'rod_id' => $this->rod->id,
         ];
 
         $this->actingAs($this->user)
@@ -104,9 +93,7 @@ class HumanTest extends TestCase
 
     public function test_can_delete_human_destroy()
     {
-        $human = Human::factory()->create([
-            'rod_id' => $this->rod->id
-        ]);
+        $human = Human::factory()->create();
 
         $this->actingAs($this->user)
             ->delete(route('humans.destroy', $human->id))

@@ -1,15 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <link rel="stylesheet" href="{{ asset('app/css/tree.css') }}">
+    <link rel="stylesheet" href="{{ asset('app-files/css/tree.css') }}">
 
     <div class="container">
         <div class="row">
             <div class="col">
                 <div class="tree">
-
                     @include('layouts.embed.link-back')
-
                     @isset($im)
                         <ul>
                             <li>
@@ -20,7 +18,6 @@
                                         <p class=""> {{ $im->name. " " .  $im->o_name . " " . $im->f_name}}</p>
                                     </a>
                                 </div>
-                                @include('tree.modal')
                                 {{-- E1--}}
                                 <ul>
                                     @isset($father)
@@ -37,7 +34,7 @@
                                                         <div class="tree_card">
                                                             <a href="{{ route('humans.show', $fatherGrandfather->id) }}">
                                                                 <img class="img-fluid"
-                                                                    src="{{ asset($fatherGrandfather->image) }}"/>
+                                                                     src="{{ asset($fatherGrandfather->image) }}"/>
                                                                 <p>{{ $fatherGrandfather->name }}</p>
                                                             </a>
                                                         </div>
@@ -48,7 +45,7 @@
                                                         <div class="tree_card">
                                                             <a href="{{ route('humans.show', $fatherGrandmother->id) }}">
                                                                 <img class="img-fluid"
-                                                                    src="{{ asset($fatherGrandmother->image) }}">
+                                                                     src="{{ asset($fatherGrandmother->image) }}">
                                                                 <p>{{ $fatherGrandmother->name }}</p>
                                                             </a>
                                                         </div>
@@ -72,7 +69,7 @@
                                                         <div class="tree_card">
                                                             <a href="{{ route('humans.show', $matherGrandfather->id) }}">
                                                                 <img class="img-fluid"
-                                                                    src="{{ asset($matherGrandfather->image) }}">
+                                                                     src="{{ asset($matherGrandfather->image) }}">
                                                                 <p>{{ $matherGrandfather->name }}</p>
                                                             </a>
                                                         </div>
@@ -83,7 +80,7 @@
                                                         <div class="tree_card">
                                                             <a href="{{ route('humans.show', $matherGrandmother->id) }}">
                                                                 <img class="img-fluid"
-                                                                    src="{{ asset($matherGrandmother->image) }}">
+                                                                     src="{{ asset($matherGrandmother->image) }}">
                                                                 <p> {{ $matherGrandmother->name }}</p>
                                                             </a>
                                                         </div>

@@ -10,12 +10,12 @@ class HumanRepository implements CrudBaseRepositoryInterface
 {
     public function all(): Collection
     {
-        return Human::with('rod')->get();
+        return Human::all();
     }
 
     public function find(int $id)
     {
-        return Human::findOrFail($id)->load('rod');
+        return Human::findOrFail($id);
     }
 
     public function create(array $data)

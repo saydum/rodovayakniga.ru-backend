@@ -66,7 +66,7 @@
                 @if (Route::has('login'))
                     @auth
                         <li>
-                            <a href="{{ url('/rod') }}">Приложение</a>
+                            <a href="{{ route('home') }}">Приложение</a>
                         </li>
                     @else
                         <li>
@@ -101,13 +101,9 @@
                         М.В.Ломоносов
                     </p>
                     <div class="wow fadeInDown" data-wow-delay="0.3s">
-{{--                        <a class="btn btn-default btn-home" href="{{ route('home') }}">--}}
-{{--                            Начать--}}
-{{--                        </a>--}}
-                        <div class="alert alert-danger alert-dismissible" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <strong>rodovayakniga.ru</strong> Онлайн-сервис для составления РОДового Древа в разработке и скоро будет доступно :)
-                        </div>
+                        <a class="btn btn-default btn-home" href="{{ route('app') }}">
+                            Начать
+                        </a>
                     </div>
                 </div>
             </div>
