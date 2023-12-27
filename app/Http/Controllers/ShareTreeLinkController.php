@@ -2,29 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ShareTreeLink;
 use App\Services\HumanService;
 
-class TreeController extends Controller
+class ShareTreeLinkController extends Controller
 {
     protected HumanService $humanService;
-
-    /**
-     * @param HumanService $humanService
-     */
     public function __construct(HumanService $humanService)
     {
         $this->humanService = $humanService;
     }
 
-    public function index(int $id)
+    public function shareLink(int $id, string $link)
     {
-        $human = $this->humanService->getById($id);
-        $treeLink = $human->shareTreeLink;
-
-        if ($treeLink == null) {
-            $human->generateAndSaveTreeLink();
-        }
-
         $humans = $this->humanService->getAll();
 
         $im = $id ? $this->humanService->getHumanWithParentsById($id) : null;
@@ -47,7 +37,7 @@ class TreeController extends Controller
             'fatherGrandmother' => $fatherGrandmother,
             'matherGrandfather' => $matherGrandfather,
             'matherGrandmother' => $matherGrandmother,
-            'treeLink' => $treeLink->link,
+            'treeLink' => $im->shareTreeLink->link,
         ]);
     }
 }

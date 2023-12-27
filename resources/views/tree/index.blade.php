@@ -4,11 +4,29 @@
     <link rel="stylesheet" href="{{ asset('app-files/css/tree.css') }}">
 
     <div class="container">
+
+        <div class="row float-end">
+            <div class="col-sm-2">
+                <div class="position-absolute" id="liveAlertPlaceholder"></div>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col">
                 <div class="tree">
-                    @include('layouts.embed.link-back')
+
+                    @auth()
+                        @include('layouts.embed.link-back')
+                        <button id="copyButton" class="btn btn-outline-success float-end">
+                            <i class="bi bi-copy"></i>
+                        </button>
+                        <div class="mt-3">
+                            <input type="text" hidden="hidden" id="copyText" class="form-control" value="http://127.0.0.1:8000/app/{{$im->id}}/{{$treeLink}}" readonly>
+                        </div>
+                    @endauth
+
                     @isset($im)
+
                         <ul>
                             <li>
                                 {{-- 1 --}}
@@ -97,4 +115,50 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const alertPlaceholder = document.getElementById('liveAlertPlaceholder');
+
+            const appendAlert = (message, type) => {
+                const wrapper = document.createElement('div');
+                wrapper.innerHTML = `
+                <div class="alert alert-${type} alert-dismissible" role="alert">
+                    <div>${message}</div>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            `;
+                alertPlaceholder.innerHTML = ''; // Очищаем содержимое placeholder'а перед добавлением нового сообщения
+                alertPlaceholder.append(wrapper);
+            };
+
+            const alertTrigger = document.getElementById('copyButton');
+            if (alertTrigger) {
+                alertTrigger.addEventListener('click', () => {
+                    const copyText = document.getElementById('copyText');
+                    copyText.select();
+
+                    try {
+                        const successful = document.execCommand('copy');
+                        const message = successful ? 'Успешно скопировано' : 'Не удалось скопировать';
+                        appendAlert(message, successful ? 'success' : 'danger');
+                        copyTextFunc();
+                    } catch (err) {
+                        appendAlert('Ошибка при копировании', 'danger');
+                    }
+                });
+            }
+
+            function copyTextFunc() {
+                const input = document.getElementById('copyText');
+                input.select();
+
+                navigator.clipboard.writeText(input.value)
+                    .then(() => {
+                    })
+                    .catch(err => {
+                        console.error('Ошибка копирования: ', err);
+                    });
+            }
+        });
+    </script>
 @endsection

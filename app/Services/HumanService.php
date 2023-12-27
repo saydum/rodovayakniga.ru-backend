@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Repositories\HumanRepository;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Str;
 
 class HumanService
 {
