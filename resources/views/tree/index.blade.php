@@ -5,28 +5,32 @@
 
     <div class="container">
 
-        <div class="row float-end">
-            <div class="col-sm-2 p-3">
-                <div class="position-absolute" id="liveAlertPlaceholder"></div>
-            </div>
+        <div class="row">
+            @auth()
+                @include('layouts.embed.link-back')
+
+                <div class="row justify-content-end">
+                    <div class="col-sm-2 float-end">
+                        <div class="position-absolute notif" id="liveAlertPlaceholder"></div>
+                    </div>
+                </div>
+
+                <div class="copyLink">
+                    <button id="copyButton" class="btn btn-outline-success float-end">
+                        <i class="bi bi-copy"></i>
+                    </button>
+                    <div class="mt-3">
+                        <input type="text" hidden="hidden" id="copyText" class="form-control" value="https://rodovayakniga.ru/app/{{$im->id}}/{{$treeLink->link}}" readonly>
+                    </div>
+                </div>
+            @endauth
         </div>
+
 
         <div class="row">
             <div class="col">
+
                 <div class="tree">
-
-                    @auth()
-                        @include('layouts.embed.link-back')
-                        <div class="copyLink">
-                            <button id="copyButton" class="btn btn-outline-success float-end">
-                                <i class="bi bi-copy"></i>
-                            </button>
-                            <div class="mt-3">
-                                <input type="text" hidden="hidden" id="copyText" class="form-control" value="https://rodovayakniga.ru/app/{{$im->id}}/{{$treeLink}}" readonly>
-                            </div>
-                        </div>
-                    @endauth
-
                     @isset($im)
 
                         <ul>

@@ -118,6 +118,14 @@
     border-color: #94a0b4;
 }
 
+.copyLink {
+    float: right;
+    position: relative;
+}
+
+.notif {
+    margin-right: 60px
+}
 
 /* Стили для маленьких экранов (планшеты и мобильные устройства) */
 @media only screen and (max-width: 768px) {
