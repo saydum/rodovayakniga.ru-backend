@@ -19,9 +19,11 @@
                     <button id="copyButton" class="btn btn-outline-success float-end">
                         <i class="bi bi-copy"></i>
                     </button>
-                    <div class="mt-3">
-                        <input type="text" hidden="hidden" id="copyText" class="form-control" value="https://rodovayakniga.ru/app/{{$im->id}}/{{$treeLink->link}}" readonly>
-                    </div>
+                    @isset($treeLink->link)
+                        <div class="mt-3">
+                            <input type="text" hidden="hidden" id="copyText" class="form-control" value="https://rodovayakniga.ru/app/{{$im->id}}/{{$treeLink->link}}" readonly>
+                        </div>
+                    @endisset
                 </div>
             @endauth
         </div>
