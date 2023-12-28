@@ -22,7 +22,7 @@
                                 <i class="bi bi-copy"></i>
                             </button>
                             <div class="mt-3">
-                                <input type="text" hidden="hidden" id="copyText" class="form-control" value="http://127.0.0.1:8000/app/{{$im->id}}/{{$treeLink}}" readonly>
+                                <input type="text" hidden="hidden" id="copyText" class="form-control" value="https://rodovayakniga.ru/app/{{$im->id}}/{{$treeLink}}" readonly>
                             </div>
                         </div>
                     @endauth
