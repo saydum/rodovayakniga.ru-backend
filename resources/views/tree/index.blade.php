@@ -17,11 +17,13 @@
 
                     @auth()
                         @include('layouts.embed.link-back')
-                        <button id="copyButton" class="btn btn-outline-success float-end">
-                            <i class="bi bi-copy"></i>
-                        </button>
-                        <div class="mt-3">
-                            <input type="text" hidden="hidden" id="copyText" class="form-control" value="http://127.0.0.1:8000/app/{{$im->id}}/{{$treeLink}}" readonly>
+                        <div class="copyLink">
+                            <button id="copyButton" class="btn btn-outline-success float-end">
+                                <i class="bi bi-copy"></i>
+                            </button>
+                            <div class="mt-3">
+                                <input type="text" hidden="hidden" id="copyText" class="form-control" value="http://127.0.0.1:8000/app/{{$im->id}}/{{$treeLink}}" readonly>
+                            </div>
                         </div>
                     @endauth
 
