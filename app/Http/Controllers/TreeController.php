@@ -19,9 +19,8 @@ class TreeController extends Controller
     public function index(int $id)
     {
         $human = $this->humanService->getById($id);
-        $treeLink = $human->shareTreeLink->link ? $human->shareTreeLink->link : null;
 
-        if ($treeLink == null) {
+        if ($human->shareTreeLink == null) {
             $human->generateAndSaveTreeLink();
         }
 
@@ -47,7 +46,7 @@ class TreeController extends Controller
             'fatherGrandmother' => $fatherGrandmother,
             'matherGrandfather' => $matherGrandfather,
             'matherGrandmother' => $matherGrandmother,
-            'treeLink' => $treeLink,
+            'treeLink' => $human->shareTreeLink,
         ]);
     }
 }
