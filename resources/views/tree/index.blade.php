@@ -3,29 +3,31 @@
 @section('content')
     <link rel="stylesheet" href="{{ asset('app-files/css/tree.css') }}">
 
-    <div class="container">
+    <div class="container container-tree">
 
         <div class="row">
-            @auth()
-                @include('layouts.embed.link-back')
+            <div class="col">
+                @auth()
+                    @include('layouts.embed.link-back')
 
-                <div class="row justify-content-end">
-                    <div class="col-sm-2 float-end">
-                        <div class="position-absolute notif" id="liveAlertPlaceholder"></div>
-                    </div>
-                </div>
-
-                <div class="copyLink">
-                    <button id="copyButton" class="btn btn-outline-success float-end">
-                        <i class="bi bi-copy"></i>
-                    </button>
-                    @isset($treeLink->link)
-                        <div class="mt-3">
-                            <input type="text" hidden="hidden" id="copyText" class="form-control" value="https://rodovayakniga.ru/app/{{$im->id}}/{{$treeLink->link}}" readonly>
+                    <div class="row justify-content-end">
+                        <div class="col-sm-2 float-end">
+                            <div class="position-absolute notif" id="liveAlertPlaceholder"></div>
                         </div>
-                    @endisset
-                </div>
-            @endauth
+                    </div>
+
+                    <div class="copyLink">
+                        <button id="copyButton" class="btn btn-outline-success float-end">
+                            <i class="bi bi-copy"></i>
+                        </button>
+                        @isset($treeLink->link)
+                            <div class="mt-3">
+                                <input type="text" hidden="hidden" id="copyText" class="form-control" value="https://rodovayakniga.ru/app/{{$im->id}}/{{$treeLink->link}}" readonly>
+                            </div>
+                        @endisset
+                    </div>
+                @endauth
+            </div>
         </div>
 
 

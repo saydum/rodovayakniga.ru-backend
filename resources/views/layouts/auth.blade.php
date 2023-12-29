@@ -14,14 +14,13 @@
 </head>
 <body>
 <div id="app">
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <nav class="navbar navbar-expand-md  shadow-sm"  data-bs-theme="dark">
         <div class="container">
             <a class="navbar-brand" href="{{ route('welcome.index') }}">
                rodovayakniga.ru
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -30,6 +29,8 @@
                 <ul class="navbar-nav ms-auto">
                     <!-- Authentication Links -->
                     @include('layouts.embed.nav-links')
+
+                    @include('layouts.embed.auth-dropdown')
                 </ul>
             </div>
         </div>
