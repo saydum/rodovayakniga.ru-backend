@@ -31,7 +31,7 @@
 <div id="app">
     <nav class="navbar navbar-expand-md shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="{{ route('app') }}">
+            <a class="navbar-brand" href="/">
                 rodovayakniga.ru
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -68,5 +68,11 @@
         </div>
     </main>
 </div>
+
+<!-- MDB -->
+<script
+        type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"
+></script>
 </body>
 </html>
