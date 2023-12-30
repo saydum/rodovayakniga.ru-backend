@@ -7,16 +7,15 @@
 .tree {
     width: 100%;
     height: auto;
-    text-align: center;
 }
 
-.tree ul {
+.tree_ul {
     padding-top: 20px;
     position: relative;
     transition: .5s;
 }
 
-.tree li {
+.tree_li {
     display: inline-table;
     text-align: center;
     list-style-type: none;
@@ -25,7 +24,7 @@
     transition: .5s;
 }
 
-.tree li::before, .tree li::after {
+.tree_li::before, .tree_li::after {
     content: '';
     position: absolute;
     top: 0;
@@ -35,38 +34,38 @@
     height: 10px;
 }
 
-.tree li::after {
+.tree_li::after {
     right: auto;
     left: 50%;
     border-left: 1px solid #ccc;
 }
 
-.tree li:only-child::after, .tree li:only-child::before {
+.tree_li:only-child::after, .tree_li:only-child::before {
     display: none;
 }
 
-.tree li:only-child {
+.tree_li:only-child {
     padding-top: 0;
 }
 
-.tree li:first-child::before, .tree li:last-child::after {
+.tree_li:first-child::before, .tree_li:last-child::after {
     border: 0 none;
 }
 
-.tree li:last-child::before {
+.tree_li:last-child::before {
     border-right: 1px solid #ccc;
     border-radius: 0 5px 0 0;
     -webkit-border-radius: 0 5px 0 0;
     -moz-border-radius: 0 5px 0 0;
 }
 
-.tree li:first-child::after {
+.tree_li:first-child::after {
     border-radius: 5px 0 0 0;
     -webkit-border-radius: 5px 0 0 0;
     -moz-border-radius: 5px 0 0 0;
 }
 
-.tree ul ul::before {
+.tree_ul ul::before {
     content: '';
     position: absolute;
     top: 0;
@@ -86,12 +85,12 @@
     padding-left: 3px;
 }
 
-.tree li a {
+.tree_li a {
     text-decoration-line: none;
     transition: .5s;
 }
 
-.tree li a img {
+.tree_li a img {
     width: 85px;
     height: 85px;
     float: left;
@@ -101,7 +100,7 @@
     border-radius: 4px;
 }
 
-.tree li a p {
+.tree_li a p {
     color: #414040;
     padding-top: 100px;
     font-size: 14px;
@@ -110,12 +109,12 @@
 }
 
 /*Hover-Section*/
-.tree li a:hover, .tree li a:hover i, .tree li a:hover .tree li a:hover + ul li a {
+.tree_li a:hover, .tree_li a:hover i, .tree_li a:hover .tree_li a:hover + ul li a {
     background: rgba(200, 228, 248, 0.56);
     color: #000;
 }
 
-.tree li a:hover + ul li::after, .tree li a:hover + ul li::before, .tree li a:hover + ul::before, .tree li a:hover + ul ul::before {
+.tree_li a:hover + ul li::after, .tree_li a:hover + ul li::before, .tree_li a:hover + ul::before, .tree_li a:hover + ul ul::before {
     border-color: #94a0b4;
 }
 
@@ -137,12 +136,12 @@
         height: 670px;
     }
 
-    .tree ul {
+    .tree_ul {
         padding-top: 20px;
         white-space: nowrap; /* Запрещаем перенос строк */
     }
 
-    .tree li {
+    .tree_li {
         display: inline-block; /* Изменяем отображение элементов на строчные блоки */
         vertical-align: top;
         text-align: center;
@@ -165,7 +164,7 @@
         margin: 5px 10px 5px 0;
     }
 
-    .tree li a p {
+    .tree_li a p {
         padding-left: 3px;
         padding-top: 5px; /* Изменяем верхний отступ у текста внутри карточек */
         font-size: 12px; /* Уменьшаем размер шрифта для маленьких экранов */

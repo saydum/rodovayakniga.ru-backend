@@ -8,7 +8,7 @@
     </div>
 
     @if(count($humans) !== 0)
-    <table class="table align-middle mb-0 bg-white">
+    <table class="table align-middle mb-0 bg-white table-hover">
         <thead class="bg-light">
         <tr>
             <th>Имя Отчество Фамилия</th>
@@ -19,7 +19,7 @@
         <tbody>
         @foreach($humans as $human)
 
-            <tr class="rounded hover-shadow m-3">
+            <tr class="rounded m-3">
                 <td>
                     <div class="d-flex align-items-center">
                         <img

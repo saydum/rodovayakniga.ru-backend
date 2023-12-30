@@ -8,7 +8,6 @@
         <div class="row">
             <div class="col">
                 @auth()
-                    @include('layouts.embed.link-back')
 
                     <div class="row justify-content-end">
                         <div class="col-sm-2 float-end">
@@ -36,31 +35,50 @@
 
                 <div class="tree">
                     @isset($im)
+                        @include('tree.show-info-modal', ['human' => $im])
 
-                        <ul>
-                            <li>
+                        <ul class="tree_ul">
+                            <li class="tree_li">
                                 {{-- 1 --}}
                                 <div class="tree_card">
-                                    <a href="{{ route('humans.show', $im->id) }}">
+                                    <a
+                                            href="javascript:void(0);"
+                                            data-mdb-ripple-init
+                                            data-mdb-modal-init
+                                            data-mdb-target="#show-info-modal"
+                                            onclick="getHumanByIdInShowModal({{ $im }})"
+                                    >
                                         <img class="img-fluid" src="{{ asset($im->image) }}">
                                         <p class=""> {{ $im->name. " " .  $im->o_name . " " . $im->f_name}}</p>
                                     </a>
                                 </div>
                                 {{-- E1--}}
-                                <ul>
+                                <ul class="tree_ul">
                                     @isset($father)
-                                        <li>
+                                        <li class="tree_li">
                                             <div class="tree_card">
-                                                <a href="{{ route('humans.show', $father->id) }}">
+                                                <a
+                                                        href="javascript:void(0);"
+                                                        data-mdb-ripple-init
+                                                        data-mdb-modal-init
+                                                        data-mdb-target="#show-info-modal"
+                                                        onclick="getHumanByIdInShowModal({{ $father }})"
+                                                >
                                                     <img class="img-fluid" src="{{ asset($father->image) }}">
                                                     <p>{{ $father->name . " " . $father->o_name . " " . $father->f_name }}</p>
                                                 </a>
                                             </div>
-                                            <ul>
+                                            <ul class="tree_ul">
                                                 @isset($fatherGrandfather)
-                                                    <li>
+                                                    <li class="tree_li">
                                                         <div class="tree_card">
-                                                            <a href="{{ route('humans.show', $fatherGrandfather->id) }}">
+                                                            <a
+                                                                    href="javascript:void(0);"
+                                                                    data-mdb-ripple-init
+                                                                    data-mdb-modal-init
+                                                                    data-mdb-target="#show-info-modal"
+                                                                    onclick="getHumanByIdInShowModal({{ $fatherGrandfather }})"
+                                                            >
                                                                 <img class="img-fluid"
                                                                      src="{{ asset($fatherGrandfather->image) }}"/>
                                                                 <p>{{ $fatherGrandfather->name }}</p>
@@ -69,9 +87,15 @@
                                                     </li>
                                                 @endisset
                                                 @isset($fatherGrandmother)
-                                                    <li>
+                                                    <li class="tree_li">
                                                         <div class="tree_card">
-                                                            <a href="{{ route('humans.show', $fatherGrandmother->id) }}">
+                                                            <a
+                                                                    href="javascript:void(0);"
+                                                                    data-mdb-ripple-init
+                                                                    data-mdb-modal-init
+                                                                    data-mdb-target="#show-info-modal"
+                                                                    onclick="getHumanByIdInShowModal({{ $fatherGrandmother }})"
+                                                            >
                                                                 <img class="img-fluid"
                                                                      src="{{ asset($fatherGrandmother->image) }}">
                                                                 <p>{{ $fatherGrandmother->name }}</p>
@@ -84,18 +108,30 @@
                                     @endisset
 
                                     @isset($mather)
-                                        <li>
+                                        <li class="tree_li">
                                             <div class="tree_card">
-                                                <a href="{{ route('humans.show', $mather->id) }}">
+                                                <a
+                                                        href="javascript:void(0);"
+                                                        data-mdb-ripple-init
+                                                        data-mdb-modal-init
+                                                        data-mdb-target="#show-info-modal"
+                                                        onclick="getHumanByIdInShowModal({{ $mather }})"
+                                                >
                                                     <img class="img-fluid" src="{{ asset($mather->image) }}">
                                                     <p>{{ $mather->name . " " . $mather->o_name . " " . $mather->f_name }}</p>
                                                 </a>
                                             </div>
-                                            <ul>
+                                            <ul class="tree_ul">
                                                 @isset($matherGrandfather)
-                                                    <li>
+                                                    <li class="tree_li">
                                                         <div class="tree_card">
-                                                            <a href="{{ route('humans.show', $matherGrandfather->id) }}">
+                                                            <a
+                                                                    href="javascript:void(0);"
+                                                                    data-mdb-ripple-init
+                                                                    data-mdb-modal-init
+                                                                    data-mdb-target="#show-info-modal"
+                                                                    onclick="getHumanByIdInShowModal({{ $matherGrandfather }})"
+                                                            >
                                                                 <img class="img-fluid"
                                                                      src="{{ asset($matherGrandfather->image) }}">
                                                                 <p>{{ $matherGrandfather->name }}</p>
@@ -104,9 +140,15 @@
                                                     </li>
                                                 @endisset
                                                 @isset($matherGrandmother)
-                                                    <li>
+                                                    <li class="tree_li">
                                                         <div class="tree_card">
-                                                            <a href="{{ route('humans.show', $matherGrandmother->id) }}">
+                                                            <a
+                                                                    href="javascript:void(0);"
+                                                                    data-mdb-ripple-init
+                                                                    data-mdb-modal-init
+                                                                    data-mdb-target="#show-info-modal"
+                                                                    onclick="getHumanByIdInShowModal({{ $matherGrandmother }})"
+                                                            >
                                                                 <img class="img-fluid"
                                                                      src="{{ asset($matherGrandmother->image) }}">
                                                                 <p> {{ $matherGrandmother->name }}</p>
@@ -125,50 +167,9 @@
             </div>
         </div>
     </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const alertPlaceholder = document.getElementById('liveAlertPlaceholder');
 
-            const appendAlert = (message, type) => {
-                const wrapper = document.createElement('div');
-                wrapper.innerHTML = `
-                <div class="alert alert-${type} alert-dismissible" role="alert">
-                    <div>${message}</div>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            `;
-                alertPlaceholder.innerHTML = ''; // Очищаем содержимое placeholder'а перед добавлением нового сообщения
-                alertPlaceholder.append(wrapper);
-            };
+    @include('tree.show-info-modal')
 
-            const alertTrigger = document.getElementById('copyButton');
-            if (alertTrigger) {
-                alertTrigger.addEventListener('click', () => {
-                    const copyText = document.getElementById('copyText');
-                    copyText.select();
+    @include('tree.js')
 
-                    try {
-                        const successful = document.execCommand('copy');
-                        const message = successful ? 'Успешно скопировано' : 'Не удалось скопировать';
-                        appendAlert(message, successful ? 'success' : 'danger');
-                        copyTextFunc();
-                    } catch (err) {
-                        appendAlert('Ошибка при копировании', 'danger');
-                    }
-                });
-            }
-
-            function copyTextFunc() {
-                const input = document.getElementById('copyText');
-                input.select();
-
-                navigator.clipboard.writeText(input.value)
-                    .then(() => {
-                    })
-                    .catch(err => {
-                        console.error('Ошибка копирования: ', err);
-                    });
-            }
-        });
-    </script>
 @endsection
