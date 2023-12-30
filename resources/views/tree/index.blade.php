@@ -81,7 +81,8 @@
                                                             >
                                                                 <img class="img-fluid"
                                                                      src="{{ asset($fatherGrandfather->image) }}"/>
-                                                                <p>{{ $fatherGrandfather->name }}</p>
+                                                                <p>{{ $fatherGrandfather->name . " " . $fatherGrandfather->o_name . " " . $fatherGrandfather->f_name }}</p>
+
                                                             </a>
                                                         </div>
                                                     </li>
@@ -98,7 +99,7 @@
                                                             >
                                                                 <img class="img-fluid"
                                                                      src="{{ asset($fatherGrandmother->image) }}">
-                                                                <p>{{ $fatherGrandmother->name }}</p>
+                                                                <p>{{ $fatherGrandmother->name . " " . $fatherGrandmother->o_name . " " . $fatherGrandmother->f_name }}</p>
                                                             </a>
                                                         </div>
                                                     </li>
@@ -134,7 +135,8 @@
                                                             >
                                                                 <img class="img-fluid"
                                                                      src="{{ asset($matherGrandfather->image) }}">
-                                                                <p>{{ $matherGrandfather->name }}</p>
+                                                                <p>{{ $matherGrandfather->name . " " . $matherGrandfather->o_name . " " . $matherGrandfather->f_name }}</p>
+
                                                             </a>
                                                         </div>
                                                     </li>
@@ -151,7 +153,7 @@
                                                             >
                                                                 <img class="img-fluid"
                                                                      src="{{ asset($matherGrandmother->image) }}">
-                                                                <p> {{ $matherGrandmother->name }}</p>
+                                                                <p>{{ $matherGrandmother->name . " " . $matherGrandmother->o_name . " " . $matherGrandmother->f_name }}</p>
                                                             </a>
                                                         </div>
                                                     </li>
