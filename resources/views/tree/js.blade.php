@@ -45,14 +45,9 @@
     });
 
     function getHumanByIdInShowModal(human) {
-        const name = document.getElementById('name')
-        const image = document.getElementById('image')
-        const dataBirth = document.getElementById('data_birth')
-        const location_birth = document.getElementById('location_birth')
-
-        name.textContent = human.name + " " + human.o_name + " " + human.f_name
-        image.src = human.image
-        dataBirth.textContent = human.data_birth
-        location_birth.textContent = human.location_birth
+        document.getElementById('name').textContent=human.name + " " + human.o_name + " " + human.f_name
+        document.getElementById('image').src="../"+human.image
+        document.getElementById('data_birth').textContent=human.data_birth
+        document.getElementById('location_birth').textContent=human.location_birth
     }
 </script>

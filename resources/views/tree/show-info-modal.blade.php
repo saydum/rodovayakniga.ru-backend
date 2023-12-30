@@ -9,7 +9,7 @@
 
             <div class="modal-body">
                 <div class="card">
-                    <img id="image" src="https://mdbcdn.b-cdn.net/img/new/standard/city/062.webp" class="card-img-top" alt="Chicago Skyscrapers"/>
+                    <img id="image" src="" class="card-img-top" alt="Chicago Skyscrapers"/>
                     <div class="card-body">
                         <p class="card-text">
                             <b>Дата рождения:</b> <span id="data_birth"></span>
