@@ -47,6 +47,7 @@
     function getHumanByIdInShowModal(human) {
         document.getElementById('name').textContent=human.name + " " + human.o_name + " " + human.f_name
         document.getElementById('image').src="../"+human.image
+        document.getElementById('image').alt=human.name + " " + human.o_name + " " + human.f_name
         document.getElementById('data_birth').textContent=human.data_birth
         document.getElementById('location_birth').textContent=human.location_birth
     }
