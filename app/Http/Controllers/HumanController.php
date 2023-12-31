@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Services\HumanService;
 use App\Traits\ImageUploadTrait;
 use App\Http\Requests\HumanRequest;
+use ErrorException;
 
 class HumanController extends Controller
 {
@@ -108,10 +109,14 @@ class HumanController extends Controller
     {
         $validatedData=$this->imageUpload($request);
 
-        if ($validatedData['image']) {
-            $this->humanService->update($id, $validatedData);
-        } else {
-            $this->humanService->update($id, $request->validated());
+        try {
+            if ($validatedData['image']) {
+                $this->humanService->update($id, $validatedData);
+            } else {
+                $this->humanService->update($id, $request->validated());
+            }
+        } catch (ErrorException $e) {
+            echo $e->getMessage();
         }
 
         return redirect()
