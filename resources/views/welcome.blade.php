@@ -36,6 +36,11 @@
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/96031646" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
+
+    <!--Y ID-->
+    <meta name="yandex-verification" content="a5f4fa6ddc099501" />
+    <!--Google ID-->
+    <meta name="google-site-verification" content="aFCgdotNIc7YmsECOkI1nAZh0A_2YUJypOqFLjlG7wQ" />
 </head>
 
 <body id="body">
