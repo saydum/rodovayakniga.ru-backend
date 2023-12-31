@@ -26,6 +26,14 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+    <script type="text/javascript">
+        window.dgSocialWidgetData = {
+            widgetId: '46032888-58dc-474b-b210-8a579efe9ac3',
+            apiUrl: 'https://app.daily-grow.com/sw/api/v1',
+        };
+    </script>
+    <script type="text/javascript" src="https://app.daily-grow.com/social-widget/init.js" defer></script>
 </head>
 <body>
 <div id="app">
