@@ -106,8 +106,9 @@ class HumanController extends Controller
      */
     public function update(int $id, HumanRequest $request)
     {
-        if ($request->input('image') !== null) {
-            $validatedData=$this->imageUpload($request);
+        $validatedData=$this->imageUpload($request);
+
+        if ($validatedData['image']) {
             $this->humanService->update($id, $validatedData);
         } else {
             $this->humanService->update($id, $request->validated());
