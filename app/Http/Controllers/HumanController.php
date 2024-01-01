@@ -91,6 +91,11 @@ class HumanController extends Controller
         $father = $human->father;
         $mather = $human->mather;
 
+        $generations = [
+            0 => $human->generation,
+            1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16
+        ];
+
 
         return view('human.edit', [
             'human' => $human,
@@ -99,6 +104,7 @@ class HumanController extends Controller
             'mather' => $mather,
             'mans' => $mans,
             'womans' => $womans,
+            'generations' => $generations
         ]);
     }
 
@@ -108,7 +114,6 @@ class HumanController extends Controller
     public function update(int $id, HumanRequest $request)
     {
         $validatedData = $this->imageUpload($request);
-
         try {
             if ($validatedData) {
                 $this->humanService->update($id, $validatedData);
