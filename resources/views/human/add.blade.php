@@ -105,7 +105,7 @@
 
         <div class="row g-3 pt-3 pb-3">
             <div class="col">
-                <label for="summernote">
+                <label for="myeditorinstance">
                     Биография
                 </label>
                 <textarea id="myeditorinstance" name="text" class="form-control"></textarea>

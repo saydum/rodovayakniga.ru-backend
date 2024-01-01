@@ -80,7 +80,7 @@
                 <label>Поколения</label>
                 <select id="generation" class="form-select" aria-label="Поколения" name="generation">
                     @foreach($generations as $key => $generation)
-                        <option value="{{ $generation }}" @selected(old('generation', ) == $generation)>
+                        <option value="{{ $generation }}" @selected(old('generation') == $generation)>
                             {{ $generation }}
                         </option>
                     @endforeach
@@ -109,21 +109,18 @@
 
         <div class="row g-3 pt-3 pb-3">
             <div class="col">
-                <label for="summernote">
-                    Биография
-                </label>
+                <label for="myeditorinstance">Биография</label>
                 <textarea id="myeditorinstance" name="text" class="form-control">{{ $human->text }}</textarea>
             </div>
         </div>
 
         <div class="accordion card" id="accordionExample">
 
-            <div class="row ">
+            <div class="row">
                 <div class="py-4 text-center">
-                    <p type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
-                       aria-controls="collapseOne">
+                    <p type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                         <i class="bi bi-arrow-down"></i>
-                        <span class="text-success">Добавить остальные данные  </span>
+                        <span class="text-success">Добавить остальные данные</span>
                         <i class="bi bi-arrow-down"></i>
                     </p>
                 </div>

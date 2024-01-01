@@ -32,7 +32,7 @@
                             <p class="fw-bold mb-1">
                                 {{ $human->name . " " . $human->f_name . " " . $human->o_name}}
                             </p>
-                            <p class="text-muted mb-0">Дата рождения: {{ $human->data_birth }}</p>
+                            <p class="text-muted mb-0">Дата рождения: {{ date('d.m.Y', strtotime($human->data_birth)) }}</p>
                             <p class="text-muted mb-0">Поколение: {{ $human->generation }}</p>
                         </div>
                     </div>

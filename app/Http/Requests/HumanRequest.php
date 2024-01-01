@@ -27,7 +27,7 @@ class HumanRequest extends FormRequest
             'o_name' => 'string|max:55|nullable',
             'gender' => 'string|max:7|nullable',
             'image' => 'image|mimes:jpg,png,jpeg|max:1024|nullable',
-            'data_birth' => 'date|date_format:d-m-Y|nullable',
+            'data_birth' => 'date|date_format:Y-m-d|nullable',
             'location_birth' => 'string|max:550|nullable',
             'height' => 'int|min:60|max:500|nullable',
             'eye_color' => 'string|max:55|nullable',
