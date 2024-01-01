@@ -107,10 +107,10 @@ class HumanController extends Controller
      */
     public function update(int $id, HumanRequest $request)
     {
-        $validatedData=$this->imageUpload($request);
+        $validatedData = $this->imageUpload($request);
 
         try {
-            if ($validatedData['image']) {
+            if ($validatedData) {
                 $this->humanService->update($id, $validatedData);
             } else {
                 $this->humanService->update($id, $request->validated());
