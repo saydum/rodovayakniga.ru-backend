@@ -3,50 +3,58 @@
 namespace App\Http\Controllers;
 
 use App\Services\HumanService;
+use App\Services\HumanTreeService;
 
 class TreeController extends Controller
 {
     protected HumanService $humanService;
+    protected HumanTreeService $humanTreeService;
 
     /**
      * @param HumanService $humanService
+     * @param HumanTreeService $humanTreeService
      */
-    public function __construct(HumanService $humanService)
+    public function __construct(HumanService $humanService, HumanTreeService $humanTreeService)
     {
         $this->humanService = $humanService;
+        $this->humanTreeService = $humanTreeService;
     }
 
     public function index(int $id)
     {
-        $human = $this->humanService->getById($id);
-
-        if ($human->shareTreeLink == null) {
-            $human->generateAndSaveTreeLink();
-        }
-
-        $humans = $this->humanService->getAll();
-
-        $im = $id ? $this->humanService->getHumanWithParentsById($id) : null;
-
-        $father = $im->father ?? null;
-        $mather = $im->mather ?? null;
-
-        $fatherGrandfather = $im->father ? $humans->find($im->father->id)->father : null;
-        $fatherGrandmother = $im->father ? $humans->find($im->father->id)->mather : null;
-
-        $matherGrandfather = $im->mather ? $humans->find($im->mather->id)->father : null;
-        $matherGrandmother = $im->mather ? $humans->find($im->mather->id)->mather : null;
+        $humans = $this->getHumanTree($id);
 
         return view('tree.index', [
-            'humans' => $humans,
-            'im' => $im,
-            'father' => $father,
-            'mather' => $mather,
-            'fatherGrandfather' => $fatherGrandfather,
-            'fatherGrandmother' => $fatherGrandmother,
-            'matherGrandfather' => $matherGrandfather,
-            'matherGrandmother' => $matherGrandmother,
-            'treeLink' => $human->shareTreeLink,
+            'humans' => $this->humanService->getAll(),
+            'human' => $humans['human'],
+            'father' => $humans['father'],
+            'mather' => $humans['mather'],
+            'fatherGrandfather' => $humans['fatherGrandfather'],
+            'fatherGrandmother' => $humans['fatherGrandmother'],
+            'matherGrandfather' => $humans['matherGrandfather'],
+            'matherGrandmother' => $humans['matherGrandmother'],
+            'treeLink' => $this->humanTreeService->getShareTreeLink($humans['human']),
         ]);
+    }
+
+    public function shareLink(int $id, string $link)
+    {
+        $humans = $this->getHumanTree($id);
+
+        return view('tree.index', [
+            'humans' => $this->humanService->getAll(),
+            'human' => $humans['human'],
+            'father' => $humans['father'],
+            'mather' => $humans['mather'],
+            'fatherGrandfather' => $humans['fatherGrandfather'],
+            'fatherGrandmother' => $humans['fatherGrandmother'],
+            'matherGrandfather' => $humans['matherGrandfather'],
+            'matherGrandmother' => $humans['matherGrandmother'],
+        ]);
+    }
+
+    private function getHumanTree(int $id)
+    {
+        return $this->humanTreeService->getHumanTree($id);
     }
 }

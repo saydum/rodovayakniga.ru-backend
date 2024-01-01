@@ -21,7 +21,7 @@
                         </button>
                         @isset($treeLink->link)
                             <div class="mt-3">
-                                <input type="text" hidden="hidden" id="copyText" class="form-control" value="https://rodovayakniga.ru/app/{{$im->id}}/{{$treeLink->link}}" readonly>
+                                <input type="text" hidden="hidden" id="copyText" class="form-control" value="https://rodovayakniga.ru/app/{{$human->id}}/{{$treeLink->link}}" readonly>
                             </div>
                         @endisset
                     </div>
@@ -34,8 +34,8 @@
             <div class="col">
 
                 <div class="tree">
-                    @isset($im)
-                        @include('tree.show-info-modal', ['human' => $im])
+                    @isset($human)
+                        @include('tree.show-info-modal', ['human' => $human])
 
                         <ul class="tree_ul">
                             <li class="tree_li">
@@ -46,10 +46,10 @@
                                             data-mdb-ripple-init
                                             data-mdb-modal-init
                                             data-mdb-target="#show-info-modal"
-                                            onclick="getHumanByIdInShowModal({{ $im }})"
+                                            onclick="getHumanByIdInShowModal({{ $human }})"
                                     >
-                                        <img class="img-fluid" src="{{ asset($im->image) }}">
-                                        <p class=""> {{ $im->name. " " .  $im->o_name . " " . $im->f_name}}</p>
+                                        <img class="img-fluid" src="{{ asset($human->image) }}">
+                                        <p class=""> {{ $human->name. " " .  $human->o_name . " " . $human->f_name}}</p>
                                     </a>
                                 </div>
                                 {{-- E1--}}
