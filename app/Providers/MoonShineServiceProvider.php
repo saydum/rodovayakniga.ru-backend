@@ -6,6 +6,7 @@ namespace App\Providers;
 
 use App\MoonShine\Pages\Dashboard;
 use App\MoonShine\Resources\PostResource;
+use App\MoonShine\Resources\SeoResource;
 use App\MoonShine\Resources\UserResource;
 use MoonShine\Providers\MoonShineApplicationServiceProvider;
 use MoonShine\MoonShine;
@@ -37,6 +38,9 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 
             MenuItem::make('Посты', new PostResource())
                 ->icon('heroicons.outline.newspaper'),
+
+            MenuItem::make('SEO', new SeoResource())
+                ->icon('heroicons.outline.presentation-chart-bar'),
 
             MenuGroup::make(static fn() => __('moonshine::ui.resource.system'), [
                MenuItem::make(

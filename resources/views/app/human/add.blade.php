@@ -43,7 +43,7 @@
                         <option value="0" selected>не выбран</option>
                         @foreach($mans as $human)
                             <option
-                                value="{{ $human->id }}">{{ $human->name . " " . $human->o_name . " " . $human->f_name}}</option>
+                                    value="{{ $human->id }}">{{ $human->name . " " . $human->o_name . " " . $human->f_name}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -56,7 +56,7 @@
                         <option value="0" selected>не выбран</option>
                         @foreach($womans as $human)
                             <option
-                                value="{{ $human->id }}">{{ $human->name . " " . $human->o_name . " " . $human->f_name}}</option>
+                                    value="{{ $human->id }}">{{ $human->name . " " . $human->o_name . " " . $human->f_name}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -116,8 +116,9 @@
 
             <div class="row g-3 py-3">
                 <div class="text-center">
-                    <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
-                       aria-controls="collapseOne">
+                    <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                            aria-expanded="true"
+                            aria-controls="collapseOne">
                         <i class="bi bi-arrow-down"></i>
                         <span class="text-success">Добавить остальные данные  </span>
                         <i class="bi bi-arrow-down"></i>
@@ -163,5 +164,5 @@
         <button type="submit" class="btn btn-success mt-4">Добавить</button>
     </form>
 
-    @include('components.head.tinymce-config')
+    @include('app.components.head.tinymce-config')
 @endsection
