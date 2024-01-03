@@ -24,7 +24,7 @@ class TreeController extends Controller
     {
         $humans = $this->getHumanTree($id);
 
-        return view('tree.index', [
+        return view('app.tree.index', [
             'humans' => $this->humanService->getAll(),
             'human' => $humans['human'],
             'father' => $humans['father'],
@@ -41,7 +41,7 @@ class TreeController extends Controller
     {
         $humans = $this->getHumanTree($id);
 
-        return view('tree.index', [
+        return view('app.tree.index', [
             'humans' => $this->humanService->getAll(),
             'human' => $humans['human'],
             'father' => $humans['father'],

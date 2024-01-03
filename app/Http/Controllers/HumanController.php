@@ -31,7 +31,7 @@ class HumanController extends Controller
     public function index()
     {
         $humans = $this->humanService->getAll();
-        return view('human.index', [
+        return view('app.human.index', [
             'humans' => $humans
         ]);
     }
@@ -46,7 +46,7 @@ class HumanController extends Controller
 //        $mans = $humans->humans->where('gender', '=', 'man');
 //        $womans = $humans->humans->where('gender', '=', 'woman');
 
-        return view('human.add', [
+        return view('app.human.add', [
 //            'mans' => $mans,
 //            'womans' => $womans,
         ]);
@@ -71,7 +71,7 @@ class HumanController extends Controller
     public function show(int $id)
     {
         $human = $this->humanService->getById($id);
-        return view('human.show', [
+        return view('app.human.show', [
             'human' => $human,
         ]);
     }
@@ -97,7 +97,7 @@ class HumanController extends Controller
         ];
 
 
-        return view('human.edit', [
+        return view('app.human.edit', [
             'human' => $human,
             'humans' => $humans,
             'father' => $father,
