@@ -35,7 +35,7 @@
 
                 <div class="tree">
                     @isset($human)
-                        @include('tree.show-info-modal', ['human' => $human])
+                        @include('app.tree.show-info-modal', ['human' => $human])
 
                         <ul class="tree_ul">
                             <li class="tree_li">
@@ -170,8 +170,8 @@
         </div>
     </div>
 
-    @include('tree.show-info-modal')
+    @include('app.tree.show-info-modal')
 
-    @include('tree.js')
+    @include('app.tree.js')
 
 @endsection
