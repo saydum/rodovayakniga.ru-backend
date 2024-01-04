@@ -168,5 +168,5 @@
         <button type="submit" class="btn btn-success mt-4">Изменить</button>
     </form>
 
-    @include('components.head.tinymce-config')
+    @include('app.components.head.tinymce-config')
 @endsection
