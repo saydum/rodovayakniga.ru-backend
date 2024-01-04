@@ -22,7 +22,7 @@ class TreeController extends Controller
 
     public function index(int $id)
     {
-        $humans = $this->getHumanTree($id);
+        $humans = $this->humanTreeService->getHumanTree($id);
 
         return view('app.tree.index', [
             'humans' => $this->humanService->getAll(),
@@ -35,26 +35,5 @@ class TreeController extends Controller
             'matherGrandmother' => $humans['matherGrandmother'],
             'treeLink' => $this->humanTreeService->getShareTreeLink($humans['human']),
         ]);
-    }
-
-    public function shareLink(int $id, string $link)
-    {
-        $humans = $this->getHumanTree($id);
-
-        return view('app.tree.index', [
-            'humans' => $this->humanService->getAll(),
-            'human' => $humans['human'],
-            'father' => $humans['father'],
-            'mather' => $humans['mather'],
-            'fatherGrandfather' => $humans['fatherGrandfather'],
-            'fatherGrandmother' => $humans['fatherGrandmother'],
-            'matherGrandfather' => $humans['matherGrandfather'],
-            'matherGrandmother' => $humans['matherGrandmother'],
-        ]);
-    }
-
-    private function getHumanTree(int $id)
-    {
-        return $this->humanTreeService->getHumanTree($id);
     }
 }

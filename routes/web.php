@@ -13,7 +13,7 @@ Route::get('/', [WebController::class, 'index'])->name('web.index');
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
 
-Route::get('/app/{human}/{link}', [TreeController::class, 'shareLink'])
+Route::get('/app/{human}/{link}', [TreeController::class, 'index'])
     ->name('share-tree-link')
     ->middleware(CheckTreeAccess::class);
 
