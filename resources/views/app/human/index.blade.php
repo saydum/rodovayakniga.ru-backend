@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="mb-4">
-        <a href="{{ route("humans.create") }}" class="btn btn-success">
-            Добавить человека
+    <div class="card-title mt-3 d-flex ">
+        <h3 class="flex-grow-1">Человеки</h3>
+        <a class="btn btn-success flex-grow-0" href="{{ route("humans.create") }}">
+            Добавить
         </a>
     </div>
 

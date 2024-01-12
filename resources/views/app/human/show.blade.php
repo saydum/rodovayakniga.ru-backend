@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="pb-3">
-        @include('layouts.embed.link-back')
+        @include('layouts.embed.app.link_back')
     </div>
 
     <table class="table table-bordered table-hover">

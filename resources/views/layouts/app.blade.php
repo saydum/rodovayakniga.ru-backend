@@ -8,6 +8,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <link rel="stylesheet" href="{{ asset('app-files/css/styles.css') }}">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <!-- Google Fonts -->
@@ -35,49 +37,24 @@
     </script>
     <script type="text/javascript" src="https://app.daily-grow.com/social-widget/init.js" defer></script>
 </head>
-<body>
-<div id="app">
-    <nav class="navbar navbar-expand-md shadow-sm">
-        <div class="container">
-            <a class="navbar-brand" href="/">
-                rodovayakniga.ru
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+<body id="app">
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('app') }}">Главное</a>
-                    </li>
-                </ul>
+<div class="d-flex" id="wrapper">
+    <!-- Sidebar-->
+    @include('layouts.embed.app.sidebar')
 
-                <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ms-auto">
-                    <!-- Authentication Links -->
-                    @include('layouts.embed.nav-links')
+    <!-- Page content wrapper-->
+    <div id="page-content-wrapper">
+        <!-- Top navigation-->
+        @include('layouts.embed.app.navbar')
 
-                    @include('layouts.embed.auth-dropdown')
-                </ul>
+        <!-- Page content-->
+        <div class="container-fluid">
+            <div class="card my-4 p-2">
+                @yield('content')
             </div>
         </div>
-    </nav>
-
-    <main class="py-4">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col">
-                    <div class="card p-4">
-                        @yield('content')
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
+    </div>
 </div>
 
 <!-- MDB -->
@@ -85,5 +62,8 @@
         type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"
 ></script>
+
+<!-- Core theme JS-->
+<script src="{{ asset('app-files/js/scripts.js') }}"></script>
 </body>
 </html>
