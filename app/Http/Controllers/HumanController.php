@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Services\HumanService;
 use App\Traits\ImageUploadTrait;
 use App\Http\Requests\HumanRequest;
+use App\Models\HumanTreeJoin;
+use App\Models\Tree;
 use ErrorException;
 
 class HumanController extends Controller
@@ -46,7 +48,10 @@ class HumanController extends Controller
 //        $mans = $humans->humans->where('gender', '=', 'man');
 //        $womans = $humans->humans->where('gender', '=', 'woman');
 
+        $trees = Tree::all();
+
         return view('app.human.add', [
+            'trees' => $trees,
 //            'mans' => $mans,
 //            'womans' => $womans,
         ]);
@@ -58,7 +63,12 @@ class HumanController extends Controller
     public function store(HumanRequest $request)
     {
         $validatedData = $this->imageUpload($request);
-        $this->humanService->create($validatedData);
+        $human = $this->humanService->create($validatedData);
+
+        HumanTreeJoin::create([
+            'human_id' => $human->id,
+            'tree_id' => $request->input('tree_id'),
+        ]);
 
         return redirect()
             ->route('humans.index')

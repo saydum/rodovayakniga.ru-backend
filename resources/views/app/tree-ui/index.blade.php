@@ -22,7 +22,7 @@
                         @isset($treeLink->link)
                             <div class="mt-3">
                                 <input type="text" hidden="hidden" id="copyText" class="form-control"
-                                       value="https://rodovayakniga.ru/app/{{$human->id}}/{{$treeLink->link}}" readonly>
+                                       value="https://rodovayakniga.ru/tree/{{$human->id}}/{{$treeLink->link}}" readonly>
                             </div>
                         @endisset
                     </div>
@@ -36,7 +36,7 @@
 
                 <div class="tree">
                     @isset($human)
-                        @include('app.tree.show_info_modal', ['human' => $human])
+                        @include('app.tree-ui.show_info_modal', ['human' => $human])
 
                         <ul class="tree_ul">
                             <li class="tree_li">
@@ -171,8 +171,8 @@
         </div>
     </div>
 
-    @include('app.tree.show_info_modal')
+    @include('app.tree-ui.show_info_modal')
 
-    @include('app.tree.js')
+    @include('app.tree-ui.js')
 
 @endsection

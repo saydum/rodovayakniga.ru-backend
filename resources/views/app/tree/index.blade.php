@@ -27,7 +27,7 @@
                             {{ $tree->name }}
                         </td>
                         <td class="text-end">
-                            <a href="{{ route("trees.show", $tree->id) }}" type="button"
+                            <a href="{{ route("tree-humans.show", $tree->id) }}" type="button"
                                class="btn btn-outline-primary btn-sm btn-rounded">
                                 <i class="bi bi-eye"></i>
                             </a>

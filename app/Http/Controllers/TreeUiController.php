@@ -17,11 +17,11 @@ class TreeUiController extends Controller
         $this->humanTreeService = $humanTreeService;
     }
 
-    public function index(Tree $tree, Human $human)
+    public function index(Human $human)
     {
         $humans = $this->humanTreeService->getHumanTree($human->id);
 
-        return view('app.tree.index', [
+        return view('app.tree-ui.index', [
             'humans' => $this->humanService->getAll(),
             'human' => $humans['human'],
             'father' => $humans['father'],

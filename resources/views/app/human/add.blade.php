@@ -14,8 +14,9 @@
     <form action="{{ route("humans.store") }}" method="POST" enctype="multipart/form-data">
         @csrf
 
+
         <div class="row g-3 pt-4">
-            <h5>И.О.Ф</h5>
+            <h5>Имя Отчество Фамилия</h5>
             <div class="col">
                 <input type="text" class="form-control" name="name" placeholder="Имя" aria-label="Имя">
             </div>
@@ -65,6 +66,15 @@
 
         <div class="row g-3 pt-4">
 
+            <div class="col mb-3">
+                <label>РОДовое Древо</label>
+                <select class="form-select" aria-label="РОДовое Древо" name="tree_id">
+                    <option value="" selected>Не выбран</option>
+                    @foreach ($trees as $tree)
+                        <option value="{{ $tree->id }}">{{ $tree->name }}</option>
+                    @endforeach
+                </select>
+            </div>
 
             <div class="col mb-3">
                 <label>Поколения</label>
@@ -88,6 +98,7 @@
                     <option value="16">16</option>
                 </select>
             </div>
+
             <div class="col mb-3">
                 <div class="col">
                     <label for="nationality" class="pb-1">Национальность</label>

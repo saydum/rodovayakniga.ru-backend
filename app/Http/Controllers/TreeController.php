@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\TreeRequest;
 use App\Models\Tree;
-use App\Services\HumanService;
-use App\Services\HumanTreeService;
+use App\Http\Requests\TreeRequest;
 
 class TreeController extends Controller
 {
@@ -42,7 +40,8 @@ class TreeController extends Controller
      */
     public function show(Tree $tree)
     {
-        return view('app.tree.show', compact('tree'));
+        $humans = $tree->humans()->get();
+        return view('app.human.index', compact('humans'));
     }
 
     /**

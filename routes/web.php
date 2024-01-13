@@ -14,15 +14,18 @@ Route::get('/', [WebController::class, 'index'])->name('web.index');
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
 
-Route::get('/app/{tree}/{human}/{link}', [TreeUiController::class, 'index'])
+Route::get('/tree/{human}/{link}', [TreeUiController::class, 'index'])
     ->name('share-tree-link')
     ->middleware(CheckTreeAccess::class);
 
 Route::middleware(['auth'])->group( function () {
     Route::resource('humans', HumanController::class);
+
+    Route::get('/humans', [HumanController::class, 'index'])->name('humans.index');
+    Route::get('/trees/{tree}/humans', [TreeController::class, 'show'])->name('tree-humans.show');
     Route::resource('trees', TreeController::class);
 
-    Route::get('/app/{tree}/{human}', [TreeUiController::class, 'index'])->name('humans.tree');
+    Route::get('/tree/{human}', [TreeUiController::class, 'index'])->name('humans.tree');
 });
 
 Auth::routes();
