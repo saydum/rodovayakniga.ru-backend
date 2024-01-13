@@ -43,11 +43,11 @@
                                 {{-- 1 --}}
                                 <div class="tree_card">
                                     <a
-                                            href="javascript:void(0);"
-                                            data-mdb-ripple-init
-                                            data-mdb-modal-init
-                                            data-mdb-target="#show-info-modal"
-                                            onclick="getHumanByIdInShowModal({{ $human }})"
+                                        href="javascript:void(0);"
+                                        data-mdb-ripple-init
+                                        data-mdb-modal-init
+                                        data-mdb-target="#show-info-modal"
+                                        onclick="getHumanByIdInShowModal({{ $human }})"
                                     >
                                         <img class="img-fluid" src="{{ asset($human->image) }}">
                                         <p class=""> {{ $human->name. " " .  $human->o_name . " " . $human->f_name}}</p>
@@ -59,11 +59,11 @@
                                         <li class="tree_li">
                                             <div class="tree_card">
                                                 <a
-                                                        href="javascript:void(0);"
-                                                        data-mdb-ripple-init
-                                                        data-mdb-modal-init
-                                                        data-mdb-target="#show-info-modal"
-                                                        onclick="getHumanByIdInShowModal({{ $father }})"
+                                                    href="javascript:void(0);"
+                                                    data-mdb-ripple-init
+                                                    data-mdb-modal-init
+                                                    data-mdb-target="#show-info-modal"
+                                                    onclick="getHumanByIdInShowModal({{ $father }})"
                                                 >
                                                     <img class="img-fluid" src="{{ asset($father->image) }}">
                                                     <p>{{ $father->name . " " . $father->o_name . " " . $father->f_name }}</p>
@@ -74,11 +74,11 @@
                                                     <li class="tree_li">
                                                         <div class="tree_card">
                                                             <a
-                                                                    href="javascript:void(0);"
-                                                                    data-mdb-ripple-init
-                                                                    data-mdb-modal-init
-                                                                    data-mdb-target="#show-info-modal"
-                                                                    onclick="getHumanByIdInShowModal({{ $fatherGrandfather }})"
+                                                                href="javascript:void(0);"
+                                                                data-mdb-ripple-init
+                                                                data-mdb-modal-init
+                                                                data-mdb-target="#show-info-modal"
+                                                                onclick="getHumanByIdInShowModal({{ $fatherGrandfather }})"
                                                             >
                                                                 <img class="img-fluid"
                                                                      src="{{ asset($fatherGrandfather->image) }}"/>
@@ -92,11 +92,11 @@
                                                     <li class="tree_li">
                                                         <div class="tree_card">
                                                             <a
-                                                                    href="javascript:void(0);"
-                                                                    data-mdb-ripple-init
-                                                                    data-mdb-modal-init
-                                                                    data-mdb-target="#show-info-modal"
-                                                                    onclick="getHumanByIdInShowModal({{ $fatherGrandmother }})"
+                                                                href="javascript:void(0);"
+                                                                data-mdb-ripple-init
+                                                                data-mdb-modal-init
+                                                                data-mdb-target="#show-info-modal"
+                                                                onclick="getHumanByIdInShowModal({{ $fatherGrandmother }})"
                                                             >
                                                                 <img class="img-fluid"
                                                                      src="{{ asset($fatherGrandmother->image) }}">
@@ -113,11 +113,11 @@
                                         <li class="tree_li">
                                             <div class="tree_card">
                                                 <a
-                                                        href="javascript:void(0);"
-                                                        data-mdb-ripple-init
-                                                        data-mdb-modal-init
-                                                        data-mdb-target="#show-info-modal"
-                                                        onclick="getHumanByIdInShowModal({{ $mather }})"
+                                                    href="javascript:void(0);"
+                                                    data-mdb-ripple-init
+                                                    data-mdb-modal-init
+                                                    data-mdb-target="#show-info-modal"
+                                                    onclick="getHumanByIdInShowModal({{ $mather }})"
                                                 >
                                                     <img class="img-fluid" src="{{ asset($mather->image) }}">
                                                     <p>{{ $mather->name . " " . $mather->o_name . " " . $mather->f_name }}</p>
@@ -128,11 +128,11 @@
                                                     <li class="tree_li">
                                                         <div class="tree_card">
                                                             <a
-                                                                    href="javascript:void(0);"
-                                                                    data-mdb-ripple-init
-                                                                    data-mdb-modal-init
-                                                                    data-mdb-target="#show-info-modal"
-                                                                    onclick="getHumanByIdInShowModal({{ $matherGrandfather }})"
+                                                                href="javascript:void(0);"
+                                                                data-mdb-ripple-init
+                                                                data-mdb-modal-init
+                                                                data-mdb-target="#show-info-modal"
+                                                                onclick="getHumanByIdInShowModal({{ $matherGrandfather }})"
                                                             >
                                                                 <img class="img-fluid"
                                                                      src="{{ asset($matherGrandfather->image) }}">
@@ -146,11 +146,11 @@
                                                     <li class="tree_li">
                                                         <div class="tree_card">
                                                             <a
-                                                                    href="javascript:void(0);"
-                                                                    data-mdb-ripple-init
-                                                                    data-mdb-modal-init
-                                                                    data-mdb-target="#show-info-modal"
-                                                                    onclick="getHumanByIdInShowModal({{ $matherGrandmother }})"
+                                                                href="javascript:void(0);"
+                                                                data-mdb-ripple-init
+                                                                data-mdb-modal-init
+                                                                data-mdb-target="#show-info-modal"
+                                                                onclick="getHumanByIdInShowModal({{ $matherGrandmother }})"
                                                             >
                                                                 <img class="img-fluid"
                                                                      src="{{ asset($matherGrandmother->image) }}">
