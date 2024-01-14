@@ -15,11 +15,10 @@ class HumanController extends Controller
 
     protected HumanService $humanService;
 
-    /**
-     * @param HumanService $humanService
-     */
     public function __construct(
         HumanService $humanService,
+        public readonly string $title = "Человеки",
+        public readonly string $modelName = "humans",
     )
     {
         $this->humanService = $humanService;
@@ -33,8 +32,10 @@ class HumanController extends Controller
     public function index()
     {
         $humans = $this->humanService->getAll();
-        return view('app.human.index', [
-            'humans' => $humans
+        return view('components.crud.table', [
+            'models' => $humans,
+            'title' => $this->title,
+            'modelName' => $this->modelName,
         ]);
     }
 

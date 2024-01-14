@@ -175,5 +175,5 @@
         <button type="submit" class="btn btn-success mt-4">Добавить</button>
     </form>
 
-    @include('app.components.head.tinymce-config')
+    @include('components.head.tinymce-config')
 @endsection

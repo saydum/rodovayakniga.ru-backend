@@ -7,14 +7,23 @@ use App\Http\Requests\TreeRequest;
 
 class TreeController extends Controller
 {
+    public function __construct
+    (
+        public readonly string $title = "РОДовое древо",
+        public readonly string $modelName = "trees",
+    )
+    {}
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $trees = Tree::all();
-        return view('app.tree.index', [
-            'trees' => $trees,
+        $trees = Tree::paginate(15);
+        return view('components.crud.table', [
+            'models' => $trees,
+            'title' => $this->title,
+            'modelName' => $this->modelName,
         ]);
     }
 
@@ -23,7 +32,10 @@ class TreeController extends Controller
      */
     public function create()
     {
-        return view('app.tree.add');
+        return view('components.crud.add', [
+            'title' => $this->title,
+            'modelName' => $this->modelName,
+        ]);
     }
 
     /**
@@ -35,29 +47,42 @@ class TreeController extends Controller
         return redirect()->route('trees.index');
     }
 
+    public function showHumans(Tree $tree)
+    {
+        $treeHumans = $tree->humans()->get();
+        return view('components.crud.show', [
+            'model' => $treeHumans,
+            'title' => $this->title,
+            'modelName' => $this->modelName,
+        ]);
+    }
+
     /**
      * Display the specified resource.
      */
     public function show(Tree $tree)
     {
-        $humans = $tree->humans()->get();
-        return view('app.human.index', compact('humans'));
+        return view('components.crud.show', [
+            'model' => $tree,
+            'title' => $this->title,
+            'modelName' => $this->modelName,
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Tree $tree)
+    public function edit(Tree $model)
     {
-        return view('app.tree.edit', compact('tree'));
+        return view('components.crud.edit', compact('model'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(TreeRequest $request, Tree $tree)
+    public function update(TreeRequest $request, Tree $model)
     {
-        $tree->update($request->validated());
+        $model->update($request->validated());
         return redirect()->route('trees.index');
     }
 
