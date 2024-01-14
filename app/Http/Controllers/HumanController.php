@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Human;
 use App\Services\HumanService;
 use App\Traits\ImageUploadTrait;
 use App\Http\Requests\HumanRequest;
@@ -17,31 +18,22 @@ class HumanController extends Controller
 
     public function __construct(
         HumanService $humanService,
-        public readonly string $title = "Человеки",
-        public readonly string $modelName = "humans",
     )
     {
         $this->humanService = $humanService;
         $this->middleware('auth');
     }
 
-
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $humans = $this->humanService->getAll();
         return view('components.crud.table', [
             'models' => $humans,
-            'title' => $this->title,
-            'modelName' => $this->modelName,
+            'title' => $this->humanService->title,
+            'modelName' => $this->humanService->modelName,
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
 //        $humans = $this->humanService->getById($id);
@@ -58,9 +50,6 @@ class HumanController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(HumanRequest $request)
     {
         $validatedData = $this->imageUpload($request);
@@ -76,20 +65,15 @@ class HumanController extends Controller
             ->with('success', 'Успешно создан.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(int $id)
+    public function show(Human $human)
     {
-        $human = $this->humanService->getById($id);
-        return view('app.human.show', [
-            'human' => $human,
+        return view('components.crud.show', [
+            'model' => $human,
+            'title' => $this->humanService->title,
+            'modelName' => $this->humanService->modelName,
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(int $id)
     {
 
@@ -119,9 +103,6 @@ class HumanController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(int $id, HumanRequest $request)
     {
         $validatedData = $this->imageUpload($request);
@@ -140,9 +121,6 @@ class HumanController extends Controller
             ->with('success', 'Успешно обнавлен.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(int $id)
     {
         $this->humanService->delete($id);

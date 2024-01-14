@@ -10,10 +10,11 @@ class HumanService
 {
     protected HumanRepository $humanRepository;
 
-    /**
-     * @param HumanRepository $humanRepository
-     */
-    public function __construct(HumanRepository $humanRepository)
+    public function __construct(
+        HumanRepository        $humanRepository,
+        public readonly string $title = "Человеки",
+        public readonly string $modelName = "humans",
+    )
     {
         $this->humanRepository = $humanRepository;
     }
