@@ -14,6 +14,24 @@ class HumanService
         HumanRepository        $humanRepository,
         public readonly string $title = "Человеки",
         public readonly string $modelName = "humans",
+
+        public readonly array $actionButtons = [
+            [
+                'route' => 'humans.show',
+                'color' => 'primary',
+                'icon' => 'eye',
+            ],
+            [
+                'route' => 'humans.edit',
+                'color' => 'warning',
+                'icon' => 'pencil-square',
+            ],
+            [
+                'route' => 'humans.tree',
+                'color' => 'success',
+                'icon' => 'arrows-fullscreen',
+            ],
+        ]
     )
     {
         $this->humanRepository = $humanRepository;

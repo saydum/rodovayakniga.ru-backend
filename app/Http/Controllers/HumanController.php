@@ -26,11 +26,13 @@ class HumanController extends Controller
 
     public function index()
     {
+
         $humans = $this->humanService->getAll();
         return view('components.crud.table', [
             'models' => $humans,
             'title' => $this->humanService->title,
             'modelName' => $this->humanService->modelName,
+            'actionButtons' => $this->humanService->actionButtons,
         ]);
     }
 

@@ -20,6 +20,7 @@ class TreeController extends Controller
             'models' => $trees,
             'title' => $this->treeService->title,
             'modelName' => $this->treeService->modelName,
+            'actionButtons' => $this->treeService->actionButtons,
         ]);
     }
 
