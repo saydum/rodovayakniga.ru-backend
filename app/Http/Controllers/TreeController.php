@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Tree;
 use App\Http\Requests\TreeRequest;
+use App\Services\HumanService;
 use App\Services\TreeService;
 
 class TreeController extends Controller
 {
     public function __construct(
-        public readonly TreeService $treeService
+        public readonly TreeService $treeService,
+        public readonly HumanService $humanService,
     )
     {}
 
@@ -38,22 +40,13 @@ class TreeController extends Controller
         return redirect()->route('trees.index');
     }
 
-    public function showHumans(Tree $tree)
+    public function show(Tree $tree)
     {
         $treeHumans = $tree->humans()->get();
         return view('components.crud.table', [
-            'model' => $treeHumans,
-            'title' => $this->treeService->title,
-            'modelName' => $this->treeService->modelName,
-        ]);
-    }
-
-    public function show(Tree $tree)
-    {
-        return view('components.crud.show', [
-            'model' => $tree,
-            'title' => $this->treeService->title,
-            'modelName' => $this->treeService->modelName,
+            'models' => $treeHumans,
+            'title' => $this->treeService->title . " -> " . $this->humanService->title,
+            'modelName' => $this->humanService->modelName,
         ]);
     }
 
