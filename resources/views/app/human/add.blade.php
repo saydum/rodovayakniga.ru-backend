@@ -37,10 +37,14 @@
             <div class="col">
                 <label>РОДовое Древо</label>
                 <select class="form-select" aria-label="РОДовое Древо" name="tree_id">
-                    <option value="" selected>Не выбран</option>
-                    @foreach ($trees as $tree)
+                    @if($tree)
                         <option value="{{ $tree->id }}">{{ $tree->name }}</option>
-                    @endforeach
+                    @else
+                        <option value="" selected>Не выбран</option>
+                        @foreach ($trees as $tree)
+                            <option value="{{ $tree->id }}">{{ $tree->name }}</option>
+                        @endforeach
+                    @endif
                 </select>
             </div>
 

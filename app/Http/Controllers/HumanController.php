@@ -46,7 +46,7 @@ class HumanController extends Controller
         ]);
     }
 
-    public function create()
+    public function create(Tree $tree = null)
     {
 //        $humans = $this->humanService->getById($id);
 //
@@ -56,6 +56,7 @@ class HumanController extends Controller
         $trees = Tree::all();
 
         return view('app.human.add', [
+            'tree' => $tree,
             'trees' => $trees,
 //            'mans' => $mans,
 //            'womans' => $womans,

@@ -22,8 +22,16 @@ Route::middleware(['auth'])->group( function () {
     Route::resource('humans', HumanController::class);
 
     Route::get('/humans', [HumanController::class, 'index'])->name('humans.index');
+
+    Route::get('/trees', [TreeController::class, 'index'])->name('trees.index');
+    Route::get('/trees/create', [TreeController::class, 'create'])->name('trees.create');
+    Route::get('/trees/{tree}/show', [TreeController::class, 'show'])->name('trees.show');
+    Route::get('/trees/{tree}/edit', [TreeController::class, 'edit'])->name('trees.edit');
+
     Route::get('/trees/{tree}/humans', [TreeController::class, 'show'])->name('tree-humans.show');
-    Route::resource('trees', TreeController::class);
+    Route::get('/trees/{tree}/humans/create', [TreeController::class, 'show'])->name('tree-humans.show');
+
+//    Route::resource('trees', TreeController::class);
 
     Route::get('/tree/{human}', [TreeUiController::class, 'index'])->name('humans.tree');
 });
