@@ -11,9 +11,13 @@
         </div>
     @endif
 
-    <form action="{{ route("humans.store") }}" method="POST" enctype="multipart/form-data">
+    <form
+        action="{{ route("humans.store") }}"
+        method="POST"
+        enctype="multipart/form-data"
+        class="p-2"
+    >
         @csrf
-
 
         <div class="row g-3 pt-4">
             <h5>Имя Отчество Фамилия</h5>
@@ -26,53 +30,67 @@
             <div class="col">
                 <input type="text" class="form-control" name="f_name" placeholder="Фамилия" aria-label="Фамилия">
             </div>
+        </div>
+
+        <div class="row g-3 pt-4">
+
             <div class="col">
-                <select class="form-select" aria-label="Пол" name="gender">
-                    <option value="" selected>Пол</option>
-                    <option value="man">Мужской</option>
-                    <option value="woman">Женский</option>
-                </select>
-            </div>
-        </div>
-        {{-- Связь --}}
-        <div class="row g-3 pt-4">
-
-            @isset($mans)
-                <div class="col mb-3">
-                    <label>Отец</label>
-                    <select class="form-select" aria-label="РОД" name="father_id">
-                        <option value="0" selected>не выбран</option>
-                        @foreach($mans as $human)
-                            <option
-                                    value="{{ $human->id }}">{{ $human->name . " " . $human->o_name . " " . $human->f_name}}</option>
-                        @endforeach
-                    </select>
-                </div>
-            @endisset
-
-            @isset($womans)
-                <div class="col mb-3">
-                    <label>Мать</label>
-                    <select class="form-select" aria-label="РОД" name="mather_id">
-                        <option value="0" selected>не выбран</option>
-                        @foreach($womans as $human)
-                            <option
-                                    value="{{ $human->id }}">{{ $human->name . " " . $human->o_name . " " . $human->f_name}}</option>
-                        @endforeach
-                    </select>
-                </div>
-            @endisset
-        </div>
-
-        <div class="row g-3 pt-4">
-
-            <div class="col mb-3">
                 <label>РОДовое Древо</label>
                 <select class="form-select" aria-label="РОДовое Древо" name="tree_id">
                     <option value="" selected>Не выбран</option>
                     @foreach ($trees as $tree)
                         <option value="{{ $tree->id }}">{{ $tree->name }}</option>
                     @endforeach
+                </select>
+            </div>
+
+            <div class="col">
+                <label for="location_birth" class="pb-1">Место рождения</label>
+                <input type="text" class="form-control" name="location_birth" id="location_birth">
+            </div>
+            <div class="col">
+                <label for="data_birth" class="pb-1">Дата рождения</label>
+                <input type="date" class="form-control" name="data_birth" id="data_birth">
+            </div>
+        </div>
+
+        {{-- Связь --}}
+        <div class="row g-3 pt-4">
+
+            @isset($mans)
+                <div class="col">
+                    <label>Отец</label>
+                    <select class="form-select" aria-label="РОД" name="father_id">
+                        <option value="0" selected>Не выбран</option>
+                        @foreach($mans as $human)
+                            <option
+                                value="{{ $human->id }}">{{ $human->name . " " . $human->o_name . " " . $human->f_name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            @endisset
+
+            @isset($womans)
+                <div class="col">
+                    <label>Мать</label>
+                    <select class="form-select" aria-label="РОД" name="mather_id">
+                        <option value="0" selected>не выбран</option>
+                        @foreach($womans as $human)
+                            <option
+                                value="{{ $human->id }}">{{ $human->name . " " . $human->o_name . " " . $human->f_name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            @endisset
+        </div>
+
+        <div class="row g-3 pt-4">
+            <div class="col mb-3">
+                <label for="location_birth" class="pb-1">Пол</label>
+                <select class="form-select" aria-label="Пол" name="gender">
+                    <option value="" selected>Не выбран</option>
+                    <option value="man">Мужской</option>
+                    <option value="woman">Женский</option>
                 </select>
             </div>
 
@@ -108,7 +126,7 @@
         </div>
 
         <div class="row g-3 pt-3">
-            <div class="col mb-3">
+            <div class="col-4 mb-3">
                 <label for="profile_photo">Фотография</label>
                 <input type="file" class="form-control" name="image" id="image">
             </div>
@@ -123,57 +141,8 @@
             </div>
         </div>
 
-        <div class="accordion card" id="accordionExample">
-
-            <div class="row g-3 py-3">
-                <div class="text-center">
-                    <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                            aria-expanded="true"
-                            aria-controls="collapseOne">
-                        <i class="bi bi-arrow-down"></i>
-                        <span class="text-success">Добавить остальные данные  </span>
-                        <i class="bi bi-arrow-down"></i>
-                    </button>
-                </div>
-            </div>
-
-
-            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-
-                    <div class="row g-3">
-                        <div class="col">
-                            <label for="location_birth" class="pb-1">Место рождения</label>
-                            <input type="text" class="form-control" name="location_birth" id="location_birth">
-                        </div>
-                        <div class="col">
-                            <label for="data_birth" class="pb-1">Дата рождения</label>
-                            <input type="date" class="form-control" name="data_birth" id="data_birth">
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col">
-                            <label for="height" class="pb-1">Рост</label>
-                            <input type="number" class="form-control" name="height" id="height">
-                        </div>
-                        <div class="col">
-                            <label for="eye_color" class="pb-1">Цвет глаз</label>
-                            <input type="text" class="form-control" name="eye_color" id="eye_color">
-                        </div>
-                        <div class="col">
-                            <label for="hair_color" class="pb-1">Цвет волос</label>
-                            <input type="text" class="form-control" name="hair_color" id="hair_color">
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-
         <button type="submit" class="btn btn-success mt-4">Добавить</button>
     </form>
 
-    @include('app.components.head.tinymce-config')
+    @include('components.head.tinymce-config')
 @endsection

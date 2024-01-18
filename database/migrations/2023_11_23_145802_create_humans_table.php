@@ -20,9 +20,6 @@ return new class extends Migration
             $table->string('image', 550)->nullable();
             $table->date('data_birth')->nullable();
             $table->string('location_birth', 55)->nullable();
-            $table->integer('height')->nullable();
-            $table->string('eye_color', 55)->nullable();
-            $table->string('hair_color', 55)->nullable();
             $table->string('nationality', 255)->nullable();
             $table->integer('generation')->nullable();
 

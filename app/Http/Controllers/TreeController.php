@@ -26,7 +26,7 @@ class TreeController extends Controller
 
     public function create()
     {
-        return view('components.crud.add', [
+        return view('app.tree.add', [
             'title' => $this->treeService->title,
             'modelName' => $this->treeService->modelName,
         ]);
@@ -41,7 +41,7 @@ class TreeController extends Controller
     public function showHumans(Tree $tree)
     {
         $treeHumans = $tree->humans()->get();
-        return view('components.crud.show', [
+        return view('components.crud.table', [
             'model' => $treeHumans,
             'title' => $this->treeService->title,
             'modelName' => $this->treeService->modelName,
@@ -57,14 +57,14 @@ class TreeController extends Controller
         ]);
     }
 
-    public function edit(Tree $model)
+    public function edit(Tree $tree)
     {
-        return view('components.crud.edit', compact('model'));
+        return view('app.tree.edit', compact('tree'));
     }
 
-    public function update(TreeRequest $request, Tree $model)
+    public function update(TreeRequest $request, Tree $tree)
     {
-        $model->update($request->validated());
+        $tree->update($request->validated());
         return redirect()->route('trees.index');
     }
 

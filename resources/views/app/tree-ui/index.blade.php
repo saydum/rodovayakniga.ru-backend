@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+    @include('components.btn-back')
+
     <link rel="stylesheet" href="{{ asset('app-files/css/tree.css') }}">
 
     <div class="container container-tree">

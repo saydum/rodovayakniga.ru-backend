@@ -9,7 +9,7 @@
 {{--        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">РОДовая книга</a>--}}
 {{--        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">РОДственники</a>--}}
         <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{ route('humans.index') }}">
-            РОДственники
+            Человеки
         </a>
         <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Мой профиль</a>
         <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Управление ссылками</a>

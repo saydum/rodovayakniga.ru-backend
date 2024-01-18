@@ -57,10 +57,10 @@ class HumanController extends Controller
         $validatedData = $this->imageUpload($request);
         $human = $this->humanService->create($validatedData);
 
-        HumanTreeJoin::create([
-            'human_id' => $human->id,
-            'tree_id' => $request->input('tree_id'),
-        ]);
+//        HumanTreeJoin::create([
+//            'human_id' => $human->id,
+//            'tree_id' => $request->input('tree_id'),
+//        ]);
 
         return redirect()
             ->route('humans.index')
@@ -76,11 +76,11 @@ class HumanController extends Controller
         ]);
     }
 
-    public function edit(int $id)
+    public function edit(Human $human)
     {
 
         $humans = $this->humanService->getAll();
-        $human = $this->humanService->getById($id);
+        $human = $this->humanService->getById($human->id);
 
         $mans = $humans->where('gender', '=', 'man');
         $womans = $humans->where('gender', '=', 'woman');
@@ -93,6 +93,7 @@ class HumanController extends Controller
             1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16
         ];
 
+        $trees = Tree::all();
 
         return view('app.human.edit', [
             'human' => $human,
@@ -101,7 +102,8 @@ class HumanController extends Controller
             'mather' => $mather,
             'mans' => $mans,
             'womans' => $womans,
-            'generations' => $generations
+            'generations' => $generations,
+            'trees' => $trees,
         ]);
     }
 

@@ -11,22 +11,77 @@
         </div>
     @endif
 
-    <form action="{{ route("humans.update", $human->id) }}" method="POST" enctype="multipart/form-data">
+    <form
+        action="{{ route("humans.update", $human->id) }}"
+        method="POST"
+        enctype="multipart/form-data"
+        class="p-2"
+    >
         @csrf
         @method('PUT')
+
         <div class="row g-3 pt-4">
-            <h5>И.О.Ф</h5>
+            <h5>Имя Отчество Фамилия</h5>
             <div class="col">
-                <input type="text" class="form-control" name="name" placeholder="Имя" aria-label="Имя"
-                       value="{{ $human->name }}">
+                <input
+                    type="text"
+                    class="form-control"
+                    name="name"
+                    placeholder="Имя"
+                    aria-label="Имя"
+                    value="{{ $human->name }}">
             </div>
             <div class="col">
-                <input type="text" class="form-control" name="o_name" placeholder="Отчество" aria-label="Отчество"
-                       value="{{ $human->o_name }}">
+                <input
+                    type="text"
+                    class="form-control"
+                    name="o_name"
+                    placeholder="Отчество"
+                    aria-label="Отчество"
+                    value="{{ $human->o_name }}">
             </div>
             <div class="col">
-                <input type="text" class="form-control" name="f_name" placeholder="Фамилия" aria-label="Фамилия"
-                       value="{{ $human->f_name }}">
+                <input
+                    type="text"
+                    class="form-control"
+                    name="f_name"
+                    placeholder="Фамилия"
+                    aria-label="Фамилия"
+                    value="{{ $human->f_name }}">
+            </div>
+        </div>
+
+        <div class="row g-3 pt-4">
+
+            <div class="col">
+                <label>РОДовое Древо</label>
+                <select class="form-select" aria-label="РОДовое Древо" name="tree_id">
+                    <option value="" selected>Не выбран</option>
+                    @foreach ($trees as $tree)
+                        <option value="{{ $tree->id }}">{{ $tree->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="col">
+                <label for="location_birth" class="pb-1">Место рождения</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    name="location_birth"
+                    id="location_birth"
+                    value="{{ $human->location_birth }}"
+                >
+            </div>
+            <div class="col">
+                <label for="data_birth" class="pb-1">Дата рождения</label>
+                <input
+                    type="date"
+                    class="form-control"
+                    name="data_birth"
+                    id="data_birth"
+                    value="{{ $human->data_birth }}"
+                >
             </div>
         </div>
 
@@ -75,6 +130,14 @@
         </div>
 
         <div class="row g-3 pt-4">
+            <div class="col mb-3">
+                <label for="location_birth" class="pb-1">Пол</label>
+                <select class="form-select" aria-label="Пол" name="gender">
+                    <option value="{{ $human->gender }}" selected>{{ $human->gender }}</option>
+                    <option value="man">Мужской</option>
+                    <option value="woman">Женский</option>
+                </select>
+            </div>
 
             <div class="col mb-3">
                 <label>Поколения</label>
@@ -90,83 +153,38 @@
             <div class="col mb-3">
                 <div class="col">
                     <label for="nationality" class="pb-1">Национальность</label>
-                    <input type="text" class="form-control" name="nationality" id="nationality"
-                           value="{{ $human->nationality }}">
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="nationality"
+                        id="nationality"
+                        value="{{ $human->nationality }}"
+                    >
                 </div>
             </div>
         </div>
 
         <div class="row g-3 pt-3">
-            <div class="col mb-3">
-                <label for="profile_photo">Фотография: {{ $human->image }}</label>
+            <div class="col-4 mb-3">
+                <label for="profile_photo">Фотография</label>
                 <input type="file" class="form-control" name="image" id="image">
+                @empty(!$human->image)
+                    <img src="{{ asset($human->image) }}" width="120" height="120" alt="{{ $human->name }}">
+                @endempty
             </div>
-            {{--            <div class="col mb-3">--}}
-            {{--                <label for="files">Сканы документов, Фотографии и т. д.</label>--}}
-            {{--                <input type="file" class="form-control" name="files" id="files" multiple>--}}
-            {{--            </div>--}}
         </div>
 
         <div class="row g-3 pt-3 pb-3">
             <div class="col">
-                <label for="myeditorinstance">Биография</label>
+                <label for="myeditorinstance">
+                    Биография
+                </label>
                 <textarea id="myeditorinstance" name="text" class="form-control">{{ $human->text }}</textarea>
             </div>
         </div>
 
-        <div class="accordion card" id="accordionExample">
-
-            <div class="row">
-                <div class="py-4 text-center">
-                    <p type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        <i class="bi bi-arrow-down"></i>
-                        <span class="text-success">Добавить остальные данные</span>
-                        <i class="bi bi-arrow-down"></i>
-                    </p>
-                </div>
-            </div>
-
-
-            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-
-                    <div class="row g-3">
-                        <div class="col">
-                            <label for="location_birth" class="pb-1">Место рождения</label>
-                            <input type="text" class="form-control" name="location_birth" id="location_birth"
-                                   value="{{ $human->location_birth }}">
-                        </div>
-                        <div class="col">
-                            <label for="data_birth" class="pb-1">Дата рождения</label>
-                            <input type="date" class="form-control" name="data_birth" id="data_birth">
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col">
-                            <label for="height" class="pb-1">Рост</label>
-                            <input type="number" class="form-control" name="height" id="height"
-                                   value="{{ $human->height }}">
-                        </div>
-                        <div class="col">
-                            <label for="eye_color" class="pb-1">Цвет глаз</label>
-                            <input type="text" class="form-control" name="eye_color" id="eye_color"
-                                   value="{{ $human->eye_color }}">
-                        </div>
-                        <div class="col">
-                            <label for="hair_color" class="pb-1">Цвет волос</label>
-                            <input type="text" class="form-control" name="hair_color" id="hair_color"
-                                   value="{{ $human->hair_color }}">
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-
-        <button type="submit" class="btn btn-success mt-4">Изменить</button>
+        <button type="submit" class="btn btn-success mt-4">Добавить</button>
     </form>
 
-    @include('app.components.head.tinymce-config')
+    @include('components.head.tinymce-config')
 @endsection
