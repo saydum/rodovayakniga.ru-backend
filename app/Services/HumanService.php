@@ -16,7 +16,7 @@ readonly class HumanService
         return $this->humanRepository->all();
     }
 
-    public function getById($id): Collection
+    public function getById($id)
     {
         return $this->humanRepository->find($id);
     }
