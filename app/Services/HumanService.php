@@ -4,45 +4,19 @@ namespace App\Services;
 
 use App\Repositories\HumanRepository;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Support\Str;
 
-class HumanService
+readonly class HumanService
 {
-    protected HumanRepository $humanRepository;
-
     public function __construct(
-        HumanRepository        $humanRepository,
-        public readonly string $title = "Человеки",
-        public readonly string $modelName = "humans",
-
-        public readonly array $actionButtons = [
-            [
-                'route' => 'humans.show',
-                'color' => 'primary',
-                'icon' => 'eye',
-            ],
-            [
-                'route' => 'humans.edit',
-                'color' => 'warning',
-                'icon' => 'pencil-square',
-            ],
-            [
-                'route' => 'humans.tree',
-                'color' => 'success',
-                'icon' => 'arrows-fullscreen',
-            ],
-        ]
-    )
-    {
-        $this->humanRepository = $humanRepository;
-    }
+        private HumanRepository $humanRepository
+    ){}
 
     public function getAll(): Collection
     {
         return $this->humanRepository->all();
     }
 
-    public function getById($id)
+    public function getById($id): Collection
     {
         return $this->humanRepository->find($id);
     }

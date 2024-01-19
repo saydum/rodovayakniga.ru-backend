@@ -26,23 +26,9 @@ class HumanController extends Controller
 
     public function index()
     {
-        $visibleField = [
-            'id',
-            'name',
-            'o_name',
-            'f_name',
-            'data_birth',
-            'location_birth',
-            'nationality'
-        ];
-
-        $humans = Human::select($visibleField)->get();
-
-        return view('components.crud.table', [
-            'models' => $humans,
-            'title' => $this->humanService->title,
-            'modelName' => $this->humanService->modelName,
-            'actionButtons' => $this->humanService->actionButtons,
+        $humans = $this->humanService->getAll();
+        return view('app.human.index', [
+            'humans' => $humans,
         ]);
     }
 
@@ -80,10 +66,8 @@ class HumanController extends Controller
 
     public function show(Human $human)
     {
-        return view('components.crud.show', [
-            'model' => $human,
-            'title' => $this->humanService->title,
-            'modelName' => $this->humanService->modelName,
+        return view('app.human.show', [
+            'human' => $human,
         ]);
     }
 
