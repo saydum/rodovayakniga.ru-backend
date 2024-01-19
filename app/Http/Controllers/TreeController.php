@@ -43,10 +43,8 @@ class TreeController extends Controller
     public function show(Tree $tree)
     {
         $treeHumans = $tree->humans()->get();
-        return view('components.crud.table', [
-            'models' => $treeHumans,
-            'title' => $this->treeService->title . " -> " . $this->humanService->title,
-            'modelName' => $this->humanService->modelName,
+        return view('app.human.index', [
+            'humans' => $treeHumans,
         ]);
     }
 
