@@ -5,8 +5,10 @@
 }
 
 .tree {
+    display: flex;
     width: 100%;
     height: auto;
+    justify-content: center;
 }
 
 .tree_ul {

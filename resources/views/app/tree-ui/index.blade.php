@@ -7,7 +7,7 @@
 
     <div class="container container-tree">
 
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col">
                 @auth()
 
