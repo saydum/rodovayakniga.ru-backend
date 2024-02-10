@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Tree extends Model
+class Rod extends Model
 {
     use HasFactory;
 
-    protected $table = "trees";
+    protected $table = "rod";
 
     protected $fillable = [
         'name',

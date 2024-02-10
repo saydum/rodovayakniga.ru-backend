@@ -36,7 +36,7 @@ namespace App\Models{
  * @property-read Human|null $father
  * @property-read Human|null $mather
  * @property-read \App\Models\ShareTreeLink|null $shareTreeLink
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Tree> $trees
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Rod> $trees
  * @property-read int|null $trees_count
  * @method static \Database\Factories\HumanFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Human newModelQuery()
@@ -160,14 +160,14 @@ namespace App\Models{
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Human> $humans
  * @property-read int|null $humans_count
  * @property-read \App\Models\User|null $user
- * @method static \Illuminate\Database\Eloquent\Builder|Tree newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Tree newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Tree query()
- * @method static \Illuminate\Database\Eloquent\Builder|Tree whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Tree whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Tree whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Tree whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Tree whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Rod newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Rod newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Rod query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Rod whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Rod whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Rod whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Rod whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Rod whereUserId($value)
  */
 	class Tree extends \Eloquent {}
 }
@@ -194,7 +194,7 @@ namespace App\Models{
  * @property-read int|null $roles_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Laravel\Sanctum\PersonalAccessToken> $tokens
  * @property-read int|null $tokens_count
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Tree> $trees
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Rod> $trees
  * @property-read int|null $trees_count
  * @method static \Database\Factories\UserFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|User newModelQuery()

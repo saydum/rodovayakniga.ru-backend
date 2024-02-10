@@ -47,7 +47,7 @@ class Human extends Model
 
     public function trees(): BelongsToMany
     {
-        return $this->belongsToMany(Tree::class,
+        return $this->belongsToMany(Rod::class,
         'human_tree',
         'human_id',
         'tree_id',

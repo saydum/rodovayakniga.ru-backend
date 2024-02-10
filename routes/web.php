@@ -3,7 +3,7 @@
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TreeController;
+use App\Http\Controllers\RodController;
 use App\Http\Middleware\CheckTreeAccess;
 use App\Http\Controllers\HumanController;
 use App\Http\Controllers\TreeUiController;
@@ -23,17 +23,17 @@ Route::middleware(['auth'])->group( function () {
 
     Route::get('/humans', [HumanController::class, 'index'])->name('humans.index');
 
-    Route::get('/trees', [TreeController::class, 'index'])->name('trees.index');
-    Route::get('/trees/create', [TreeController::class, 'create'])->name('trees.create');
-    Route::get('/trees/{tree}/show', [TreeController::class, 'show'])->name('trees.show');
-    Route::get('/trees/{tree}/edit', [TreeController::class, 'edit'])->name('trees.edit');
+    Route::get('/rod', [RodController::class, 'index'])->name('rod.index');
+    Route::get('/rod/create', [RodController::class, 'create'])->name('rod.create');
+    Route::get('/rod/{rod}/show', [RodController::class, 'show'])->name('rod.show');
+    Route::get('/rod/{rod}/edit', [RodController::class, 'edit'])->name('rod.edit');
 
-    Route::get('/trees/{tree}/humans', [TreeController::class, 'show'])->name('tree-humans.show');
-    Route::get('/trees/{tree}/humans/create', [TreeController::class, 'show'])->name('tree-humans.show');
+    Route::get('/rod/{rod}/humans', [RodController::class, 'show'])->name('rod-humans.show');
+    Route::get('/rod/{rod}/humans/create', [RodController::class, 'show'])->name('rod-humans.show');
 
-//    Route::resource('trees', TreeController::class);
+    Route::resource('trees', RodController::class);
 
-    Route::get('/tree/{human}', [TreeUiController::class, 'index'])->name('humans.tree');
+    Route::get('/rod/tree/{human}', [TreeUiController::class, 'index'])->name('rod-humans.tree');
 });
 
 Auth::routes();

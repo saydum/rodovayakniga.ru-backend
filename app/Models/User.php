@@ -54,6 +54,6 @@ class User extends Authenticatable
 
     public function trees(): HasMany
     {
-        return $this->hasMany(Tree::class);
+        return $this->hasMany(Rod::class);
     }
 }

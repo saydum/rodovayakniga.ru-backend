@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Tree;
-use App\Http\Requests\TreeRequest;
+use App\Models\Rod;
+use App\Http\Requests\RodRequest;
 use App\Services\HumanService;
 use App\Services\TreeService;
 
-class TreeController extends Controller
+class RodController extends Controller
 {
     public function __construct(
         public readonly TreeService $treeService,
@@ -17,7 +17,7 @@ class TreeController extends Controller
 
     public function index()
     {
-        $trees = Tree::paginate(15);
+        $trees = Rod::paginate(15);
         return view('components.crud.table', [
             'models' => $trees,
             'title' => $this->treeService->title,
@@ -34,13 +34,13 @@ class TreeController extends Controller
         ]);
     }
 
-    public function store(TreeRequest $request)
+    public function store(RodRequest $request)
     {
-        Tree::create($request->validated());
+        Rod::create($request->validated());
         return redirect()->route('trees.index');
     }
 
-    public function show(Tree $tree)
+    public function show(Rod $tree)
     {
         $treeHumans = $tree->humans()->get();
         return view('app.human.index', [
@@ -48,18 +48,18 @@ class TreeController extends Controller
         ]);
     }
 
-    public function edit(Tree $tree)
+    public function edit(Rod $tree)
     {
         return view('app.tree.edit', compact('tree'));
     }
 
-    public function update(TreeRequest $request, Tree $tree)
+    public function update(RodRequest $request, Rod $tree)
     {
         $tree->update($request->validated());
         return redirect()->route('trees.index');
     }
 
-    public function destroy(Tree $tree)
+    public function destroy(Rod $tree)
     {
         $tree->delete();
         return redirect()->route('trees.index');

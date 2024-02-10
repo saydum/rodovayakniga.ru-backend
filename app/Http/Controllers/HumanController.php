@@ -7,7 +7,7 @@ use App\Services\HumanService;
 use App\Traits\ImageUploadTrait;
 use App\Http\Requests\HumanRequest;
 use App\Models\HumanTreeJoin;
-use App\Models\Tree;
+use App\Models\Rod;
 use ErrorException;
 
 class HumanController extends Controller
@@ -32,14 +32,14 @@ class HumanController extends Controller
         ]);
     }
 
-    public function create(Tree $tree = null)
+    public function create(Rod $tree = null)
     {
 //        $humans = $this->humanService->getById($id);
 //
 //        $mans = $humans->humans->where('gender', '=', 'man');
 //        $womans = $humans->humans->where('gender', '=', 'woman');
 
-        $trees = Tree::all();
+        $trees = Rod::all();
 
         return view('app.human.add', [
             'tree' => $tree,
@@ -88,7 +88,7 @@ class HumanController extends Controller
             1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16
         ];
 
-        $trees = Tree::all();
+        $trees = Rod::all();
 
         return view('app.human.edit', [
             'human' => $human,
