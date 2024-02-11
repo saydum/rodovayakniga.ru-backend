@@ -1,16 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\App;
 
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Rod\RodRequest;
 use App\Models\Rod;
 use App\Traits\RedirectToIndex;
-use App\Http\Requests\Rod\RodRequest;
 
 class RodController extends Controller
 {
     use RedirectToIndex;
 
-    public final const string MAIN_ROUTE = 'rods.index';
+    private const string MAIN_ROUTE = 'rods.index';
 
     /**
      * Display a listing of the resource.

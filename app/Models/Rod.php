@@ -16,7 +16,7 @@ class Rod extends Model
         'parent_user_id',
     ];
 
-    public function parentUser() : BelongsTo
+    public function user() : BelongsTo
     {
         return $this->belongsTo(User::class, 'id', 'parent_user_id');
     }
@@ -24,5 +24,10 @@ class Rod extends Model
     public function users() : MorphToMany
     {
         return $this->morphToMany(User::class, 'rod_user');
+    }
+
+    public function humans() : BelongsTo
+    {
+        return $this->belongsTo(Human::class);
     }
 }
