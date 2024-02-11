@@ -5,15 +5,17 @@ namespace App\Http\Controllers\Auth;
 use App\Models\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RegisterRequest;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class RegisterController extends Controller
 {
-    public function show()
+    public function show() : View
     {
         return view('auth.register');
     }
 
-    public function register(RegisterRequest $request)
+    public function register(RegisterRequest $request) : RedirectResponse
     {
         $user = User::create($request->validated());
         auth()->login($user);

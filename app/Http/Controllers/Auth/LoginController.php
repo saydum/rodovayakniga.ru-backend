@@ -4,16 +4,18 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    public function show()
+    public function show() : View
     {
         return view('auth.login');
     }
 
-    public function login(LoginRequest $request)
+    public function login(LoginRequest $request) : RedirectResponse
     {
         $credentials = $request->validated();
 
