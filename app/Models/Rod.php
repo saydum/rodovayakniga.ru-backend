@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
+use Illuminate\Support\Str;
 
 class Rod extends Model
 {
@@ -29,5 +30,22 @@ class Rod extends Model
     public function humans() : BelongsTo
     {
         return $this->belongsTo(Human::class);
+    }
+
+    public function link()
+    {
+        return $this->hasOne(Link::class, 'rod_id', 'id');
+    }
+
+    protected function generateLink() : string
+    {
+        return Str::random(15);
+    }
+
+    public function saveLink()
+    {
+        return $this->link()->create([
+            'link' => $this->generateLink(),
+        ]);
     }
 }
