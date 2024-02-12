@@ -11,8 +11,10 @@
         @foreach($human->getAttributes() as $key => $value)
             <tr>
                 <th>{{ $key }}</th>
-                @if($key === 'text')
-                    <td>{!! $value !!}</td>
+                @if($key === 'image')
+                    <td>
+                        <img class="mt-3 rounded" src="{{ asset($value) }}" width="120" height="120" alt="{{ $value }}">
+                    </td>
                 @else
                     <td>{{ $value }}</td>
                 @endif
