@@ -7,6 +7,7 @@ use App\Models\Human;
 use App\Traits\ImageUploadTrait;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Human\HumanRequest;
+use ErrorException;
 
 class HumanController extends Controller
 {
@@ -60,7 +61,15 @@ class HumanController extends Controller
      */
     public function edit(Human $human)
     {
-        return view('app.human.update', compact('human'));
+        $generations = [
+            0 => $human->generation,
+            1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16
+        ];
+
+        return view('app.human.edit', [
+            'human' => $human,
+            'generations' => $generations
+        ]);
     }
 
     /**
@@ -68,8 +77,20 @@ class HumanController extends Controller
      */
     public function update(HumanRequest $request, Human $human)
     {
-        $human->update($request->validated());
-        return redirect()->route('humans.index')->with('Успешно обновлен!');
+        $validatedData = $this->imageUpload($request);
+        try {
+            if ($validatedData) {
+                $human->update($validatedData);
+            } else {
+                $human->update($request->validated());
+            }
+        } catch (ErrorException $e) {
+            echo $e->getMessage();
+        }
+
+        return redirect()
+            ->route('humans.index')
+            ->with('success', 'Успешно обнавлен.');
     }
 
     /**
