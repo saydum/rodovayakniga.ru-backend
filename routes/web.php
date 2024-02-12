@@ -1,9 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\App\RodController;
 use App\Http\Controllers\App\HomeController;
 use App\Http\Controllers\App\HumanController;
-use App\Http\Controllers\App\RodController;
-use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('web.index');
@@ -19,4 +20,4 @@ Route::middleware(['auth'])->group( function () {
 
 Auth::routes();
 
-Route::get('/app', [App\Http\Controllers\HomeController::class, 'index'])->name('app');
+Route::get('/app', [HomeController::class, 'index'])->name('app');
