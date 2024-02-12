@@ -13,10 +13,10 @@ Route::get('/', function () {
 Route::get('/app', [HomeController::class, 'index'])->name('app');
 Route::get('/blog')->name('posts.index');
 
-Route::middleware(['auth'])->group( function () {
+Route::prefix('app')->group( function () {
     Route::resource('rods', RodController::class);
     Route::resource('humans', HumanController::class);
-});
+})->middleware('auth');
 
 Auth::routes();
 

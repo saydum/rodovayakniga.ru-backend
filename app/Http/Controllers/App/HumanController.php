@@ -16,7 +16,10 @@ class HumanController extends Controller
      */
     public function index()
     {
-        return view('app.human.index');
+        $humans = Human::all();
+        return view('app.human.index', [
+            'humans' => $humans,
+        ]);
     }
 
     /**
