@@ -23,7 +23,7 @@ class RodRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:55'],
-            'parent_user_id' => ['required', 'users,id'],
+            'user_id' => ['required', 'int'],
         ];
     }
 }

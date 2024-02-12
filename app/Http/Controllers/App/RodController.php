@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers\App;
 
+use App\Models\Rod;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Rod\RodRequest;
-use App\Models\Rod;
-use App\Traits\RedirectToIndex;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class RodController extends Controller
 {
-    use RedirectToIndex;
-
     private const string MAIN_ROUTE = 'rods.index';
 
     /**
@@ -18,7 +17,10 @@ class RodController extends Controller
      */
     public function index()
     {
-        return view('app.rod.index');
+        $rods = Rod::all();
+        return view('app.rod.index', [
+            'rods' => $rods,
+        ]);
     }
 
     /**
@@ -34,8 +36,8 @@ class RodController extends Controller
      */
     public function store(RodRequest $request)
     {
-        Rod::created($request->validated());
-        return $this->redirect(self::MAIN_ROUTE,'Успешно создан!');
+        Rod::create($request->validated());
+        return redirect()->route(self::MAIN_ROUTE)->with('Успешно создан!');
     }
 
     /**
@@ -60,7 +62,7 @@ class RodController extends Controller
     public function update(RodRequest $request, Rod $rod)
     {
         $rod->update($request->validated());
-        return $this->redirect(self::MAIN_ROUTE,'Успешно изменен!');
+        return redirect()->route(self::MAIN_ROUTE)->with('Успешно изменен!');
     }
 
     /**
@@ -69,6 +71,6 @@ class RodController extends Controller
     public function destroy(Rod $rod)
     {
         $rod->delete();
-        return $this->redirect(self::MAIN_ROUTE,'Успешно удален!');
+        return redirect()->route(self::MAIN_ROUTE)->with('Успешно удален!');
     }
 }

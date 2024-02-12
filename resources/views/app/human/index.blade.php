@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="mb-4">
-        <a href="{{ route("humans.create") }}" class="btn btn-success">
+        <a href="{{ route("humans.create") }}" class="btn btn-outline-success">
             Добавить человека
         </a>
     </div>

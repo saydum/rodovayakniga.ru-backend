@@ -14,12 +14,12 @@ class Rod extends Model
 
     protected $fillable = [
         'name',
-        'parent_user_id',
+        'user_id',
     ];
 
     public function user() : BelongsTo
     {
-        return $this->belongsTo(User::class, 'id', 'parent_user_id');
+        return $this->belongsTo(User::class, 'id', 'user_id');
     }
 
     public function users() : MorphToMany
