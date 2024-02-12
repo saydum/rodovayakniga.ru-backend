@@ -27,19 +27,19 @@
 
         <div class="row g-3 pt-4">
 
-            <div class="col">
-                <label class="pb-1">РОДовое Древо</label>
-                <select class="form-select" aria-label="РОДовое Древо" name="tree_id">
-                    @if($rod)
-                        <option value="{{ $rod->id }}">{{ $rod->name }}</option>
-                    @else
-                        <option value="" selected>Не выбран</option>
-                        @foreach ($rods as $rod)
-                            <option value="{{ $rod->id }}">{{ $rod->name }}</option>
-                        @endforeach
-                    @endif
-                </select>
-            </div>
+{{--            <div class="col">--}}
+{{--                <label class="pb-1">РОДовое Древо</label>--}}
+{{--                <select class="form-select" aria-label="РОДовое Древо" name="rod_id">--}}
+{{--                    @if($rod)--}}
+{{--                        <option value="{{ $rod->id }}">{{ $rod->name }}</option>--}}
+{{--                    @else--}}
+{{--                        <option value="" selected>Не выбран</option>--}}
+{{--                        @foreach ($rods as $rod)--}}
+{{--                            <option value="{{ $rod->id }}">{{ $rod->name }}</option>--}}
+{{--                        @endforeach--}}
+{{--                    @endif--}}
+{{--                </select>--}}
+{{--            </div>--}}
 
             <div class="col">
                 <label for="location_birth" class="pb-1">Место рождения</label>

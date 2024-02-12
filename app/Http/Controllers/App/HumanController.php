@@ -42,7 +42,7 @@ class HumanController extends Controller
     {
         $validateData = $this->imageUpload($request);
 
-        Human::created($validateData);
+        Human::create($validateData);
 
         return redirect()->route('humans.index')->with('Успешно создан!');
     }
