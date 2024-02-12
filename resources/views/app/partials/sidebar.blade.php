@@ -3,7 +3,7 @@
         rodovayakniga.ru
     </div>
     <div class="list-group list-group-flush">
-        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{ route('trees.index') }}">
+        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{ route('rods.index') }}">
             РОДовое Древо
         </a>
 {{--        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">РОДовая книга</a>--}}

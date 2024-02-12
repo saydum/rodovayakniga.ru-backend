@@ -16,7 +16,7 @@
             <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
                 <li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
 
-                @include('layouts.embed.auth.auth_dropdown')
+                @include('auth.partials.auth_dropdown')
 
             </ul>
         </div>
