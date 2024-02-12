@@ -1,15 +1,8 @@
 @extends('app.layout')
 
 @section('content')
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+
+    <x-errors />
 
     <form
         action="{{ route("humans.store") }}"
@@ -25,24 +18,24 @@
                 <input type="text" class="form-control" name="name" placeholder="Имя" aria-label="Имя">
             </div>
             <div class="col">
-                <input type="text" class="form-control" name="o_name" placeholder="Отчество" aria-label="Отчество">
+                <input type="text" class="form-control" name="surname" placeholder="Отчество" aria-label="Отчество">
             </div>
             <div class="col">
-                <input type="text" class="form-control" name="f_name" placeholder="Фамилия" aria-label="Фамилия">
+                <input type="text" class="form-control" name="lastname" placeholder="Фамилия" aria-label="Фамилия">
             </div>
         </div>
 
         <div class="row g-3 pt-4">
 
             <div class="col">
-                <label>РОДовое Древо</label>
+                <label class="pb-1">РОДовое Древо</label>
                 <select class="form-select" aria-label="РОДовое Древо" name="tree_id">
-                    @if($tree)
-                        <option value="{{ $tree->id }}">{{ $tree->name }}</option>
+                    @if($rod)
+                        <option value="{{ $rod->id }}">{{ $rod->name }}</option>
                     @else
                         <option value="" selected>Не выбран</option>
-                        @foreach ($trees as $tree)
-                            <option value="{{ $tree->id }}">{{ $tree->name }}</option>
+                        @foreach ($rods as $rod)
+                            <option value="{{ $rod->id }}">{{ $rod->name }}</option>
                         @endforeach
                     @endif
                 </select>
@@ -68,7 +61,7 @@
                         <option value="0" selected>Не выбран</option>
                         @foreach($mans as $human)
                             <option
-                                value="{{ $human->id }}">{{ $human->name . " " . $human->o_name . " " . $human->f_name}}</option>
+                                value="{{ $human->id }}">{{ $human->name . " " . $human->surname . " " . $human->lastname}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -81,7 +74,7 @@
                         <option value="0" selected>не выбран</option>
                         @foreach($womans as $human)
                             <option
-                                value="{{ $human->id }}">{{ $human->name . " " . $human->o_name . " " . $human->f_name}}</option>
+                                value="{{ $human->id }}">{{ $human->name . " " . $human->surname . " " . $human->lastname}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -89,6 +82,7 @@
         </div>
 
         <div class="row g-3 pt-4">
+
             <div class="col mb-3">
                 <label for="location_birth" class="pb-1">Пол</label>
                 <select class="form-select" aria-label="Пол" name="gender">
@@ -99,7 +93,7 @@
             </div>
 
             <div class="col mb-3">
-                <label>Поколения</label>
+                <label class="pb-1">Поколения</label>
                 <select class="form-select" aria-label="Поколения" name="generation">
                     <option value="" selected>Не выбран</option>
                     <option value="1">1</option>
@@ -130,23 +124,12 @@
         </div>
 
         <div class="row g-3 pt-3">
-            <div class="col-4 mb-3">
+            <div class="col-3 mb-3">
                 <label for="profile_photo">Фотография</label>
                 <input type="file" class="form-control" name="image" id="image">
             </div>
         </div>
 
-        <div class="row g-3 pt-3 pb-3">
-            <div class="col">
-                <label for="myeditorinstance">
-                    Биография
-                </label>
-                <textarea id="myeditorinstance" name="text" class="form-control"></textarea>
-            </div>
-        </div>
-
         <button type="submit" class="btn btn-success mt-4">Добавить</button>
     </form>
-
-    @include('components.head.tinymce-config')
 @endsection

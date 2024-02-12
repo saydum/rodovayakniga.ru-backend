@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\App;
 
+use App\Models\Rod;
 use App\Models\Human;
-use App\Traits\RedirectToIndex;
+use App\Traits\ImageUploadTrait;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Human\HumanRequest;
 
 class HumanController extends Controller
 {
-    use RedirectToIndex;
+    use ImageUploadTrait;
     private const string MAIN_ROUTE = 'rods.index';
     /**
      * Display a listing of the resource.
@@ -25,9 +26,13 @@ class HumanController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Rod $rod = null)
     {
-        return view('app.human.add');
+        $rods = Rod::with('user')->get();
+        return view('app.human.add', [
+            'rod' => $rod,
+            'rods' => $rods,
+        ]);
     }
 
     /**
@@ -35,8 +40,11 @@ class HumanController extends Controller
      */
     public function store(HumanRequest $request)
     {
-        Human::created($request->validated());
-        return $this->redirect('humans.index', 'Успешно создан!');
+        $validateData = $this->imageUpload($request);
+
+        Human::created($validateData);
+
+        return redirect()->route('humans.index')->with('Успешно создан!');
     }
 
     /**
@@ -61,7 +69,7 @@ class HumanController extends Controller
     public function update(HumanRequest $request, Human $human)
     {
         $human->update($request->validated());
-        return $this->redirect('humans.index', 'Успешно обновлен!');
+        return redirect()->route('humans.index')->with('Успешно обновлен!');
     }
 
     /**
@@ -70,6 +78,6 @@ class HumanController extends Controller
     public function destroy(Human $human)
     {
         $human->delete();
-        return $this->redirect('humans.index', 'Успешно удален!');
+        return redirect()->route('humans.index')->with('Успешно удален!');
     }
 }
