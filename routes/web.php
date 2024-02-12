@@ -3,9 +3,6 @@
 use App\Http\Controllers\App\HomeController;
 use App\Http\Controllers\App\HumanController;
 use App\Http\Controllers\App\RodController;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\LogoutController;
-use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -22,4 +19,4 @@ Route::middleware(['auth'])->group( function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/app', [App\Http\Controllers\HomeController::class, 'index'])->name('app');
