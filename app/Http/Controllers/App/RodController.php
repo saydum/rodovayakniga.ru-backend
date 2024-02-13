@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\App;
 
 use App\Models\Rod;
-use App\Actions\User\AuthUser;
+use App\Actions\User\AuthUserAction;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Rod\RodRequest;
 
@@ -14,7 +14,7 @@ class RodController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(AuthUser $user)
+    public function index(AuthUserAction $user)
     {
 
         $rods = $user->handle()->rods;

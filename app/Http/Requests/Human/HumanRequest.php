@@ -31,8 +31,8 @@ class HumanRequest extends FormRequest
             'nationality' => ['string', 'max:100', 'nullable'],
             'generation' => ['int', 'max:16', 'nullable'],
             'image' => ['image', 'mimes:jpg,png,jpeg', 'max:1024', 'nullable'],
-            'father_id' => ['int', 'nullable', 'humans,id'],
-            'mather_id' => ['int', 'nullable', 'humans,id'],
+            'father_id' => ['int', 'nullable'],
+            'mather_id' => ['int', 'nullable'],
         ];
     }
 }
