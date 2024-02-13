@@ -5,7 +5,7 @@ namespace App\Actions\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\Auth\Authenticatable;
 
-class AuthUser
+class AuthUserAction
 {
     public function handle() : Authenticatable
     {
