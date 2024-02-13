@@ -45,4 +45,9 @@ class Human extends Model
     {
         return $this->hasMany(Rod::class);
     }
+
+    public function link()
+    {
+        return $this->hasOne(Link::class, 'human_id', 'id');
+    }
 }

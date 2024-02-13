@@ -14,12 +14,16 @@ Route::get('/', function () {
 Route::get('/app', [HomeController::class, 'index'])->name('app');
 Route::get('/blog')->name('posts.index');
 
+Route::get('/rodovoe-drevo/{human}/{link}', [RodovoeDrevoController::class, 'show'])
+    ->name('rodovoe-drevo.link')
+    ->middleware('access.rodovoedrevo');
+
 Route::prefix('app')->group( function () {
     Route::resource('rods', RodController::class);
     Route::resource('humans', HumanController::class);
 
-    Route::get('/rodovoe-drevo/{human}/show', [RodovoeDrevoController::class, 'show'])->name('rodovoe-drevo.show');
-
+    Route::get('/rodovoe-drevo/{human}/show', [RodovoeDrevoController::class, 'show'])
+        ->name('rodovoe-drevo.show');
 })->middleware('auth');
 
 Auth::routes();

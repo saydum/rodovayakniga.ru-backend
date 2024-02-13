@@ -14,12 +14,12 @@ class Link extends Model
     protected $table = 'links';
 
     protected $fillable = [
-        'rod_id',
+        'human_id',
         'link'
     ];
 
-    public function rod() : BelongsTo
+    public function human() : BelongsTo
     {
-        return $this->belongsTo(Rod::class, 'id', 'rod_id');
+        return $this->belongsTo(Human::class, 'id', 'human_id');
     }
 }

@@ -22,7 +22,7 @@ class LinkRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'rod_id' => ['required', 'int', 'unique:links'],
+            'human_id' => ['required', 'int', 'unique:links'],
             'link' => ['required', 'string', 'max:15', 'unique:links'],
         ];
     }

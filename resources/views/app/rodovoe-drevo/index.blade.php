@@ -27,11 +27,11 @@
                             <i class="bi bi-copy"></i>
                         </button>
                             <div class="mt-3">
-
-                                {{--@TODO Нунжно доработать копирование по ссылке--}}
+                                @isset($shareHuman)
                                 <input type="text" hidden="hidden" id="copyText" class="form-control"
-                                       value="https://rodovayakniga.ru/tree/"
+                                       value="http://127.0.0.1:8000/rodovoe-drevo/{{ $human->id }}/{{ $shareHuman }}"
                                        readonly>
+                                @endisset
                             </div>
                     </div>
                 @endauth
