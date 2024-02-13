@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\App;
 
 use App\Models\Rod;
+use App\Actions\User\AuthUser;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Rod\RodRequest;
-use App\Models\User;
-use Illuminate\Support\Facades\Auth;
 
 class RodController extends Controller
 {
@@ -15,9 +14,11 @@ class RodController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(AuthUser $user)
     {
-        $rods = Rod::all();
+
+        $rods = $user->handle()->rods;
+
         return view('app.rod.index', [
             'rods' => $rods,
         ]);
