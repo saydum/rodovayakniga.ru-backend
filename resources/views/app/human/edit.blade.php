@@ -52,7 +52,7 @@
             <div class="col">
                 <label for="data_birth" class="pb-1">Дата рождения</label>
                 <input type="date" class="form-control" name="data_birth" id="data_birth"
-                       value="{{ $human->data_birth }}">
+                       value="{{ $human->date_birth }}">
             </div>
         </div>
 
@@ -124,6 +124,6 @@
             </div>
         </div>
 
-        <button type="submit" class="btn btn-success mt-4">Добавить</button>
+        <button type="submit" class="btn btn-success mt-4">Изменить</button>
     </form>
 @endsection

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\App\RodovoeDrevoController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\App\RodController;
@@ -16,6 +17,9 @@ Route::get('/blog')->name('posts.index');
 Route::prefix('app')->group( function () {
     Route::resource('rods', RodController::class);
     Route::resource('humans', HumanController::class);
+
+    Route::get('/rodovoe-drevo/{human}/show', [RodovoeDrevoController::class, 'show'])->name('rodovoe-drevo.show');
+
 })->middleware('auth');
 
 Auth::routes();
