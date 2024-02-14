@@ -29,7 +29,6 @@ class HumanRequest extends FormRequest
             'date_dead'  => ['date', 'nullable'],
             'location_birth' => ['string', 'max:550', 'nullable'],
             'nationality' => ['string', 'max:100', 'nullable'],
-            'generation' => ['int', 'max:16', 'nullable'],
             'image' => ['image', 'mimes:jpg,png,jpeg', 'max:1024', 'nullable'],
             'father_id' => ['int', 'nullable'],
             'mather_id' => ['int', 'nullable'],

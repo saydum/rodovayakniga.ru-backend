@@ -20,7 +20,6 @@ return new class extends Migration
             $table->date('date_dead')->nullable();
             $table->string('location_birth', 550)->nullable();
             $table->string('nationality', 100)->nullable();
-            $table->integer('generation')->nullable();
             $table->string('image', 550)->nullable();
 
             $table->unsignedBigInteger('father_id')->nullable();

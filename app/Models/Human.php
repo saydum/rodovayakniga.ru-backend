@@ -20,7 +20,6 @@ class Human extends Model
         'date_dead',
         'location_birth',
         'nationality',
-        'generation',
         'image',
         'father_id',
         'mather_id',

@@ -74,16 +74,10 @@ class HumanController extends Controller
         $rods = $authUserAction->handle()->rods;
         $humans = Human::all();
 
-        $generations = [
-            0 => $human->generation,
-            1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16
-        ];
-
         return view('app.human.edit', [
             'rods' => $rods,
             'human' => $human,
             'humans' => $humans,
-            'generations' => $generations
         ]);
     }
 

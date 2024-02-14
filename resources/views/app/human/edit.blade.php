@@ -94,17 +94,6 @@
             </div>
 
             <div class="col mb-3">
-                <label>Поколения</label>
-                <select id="generation" class="form-select" aria-label="Поколения" name="generation">
-                    @foreach($generations as $key => $generation)
-                        <option value="{{ $generation }}" @selected(old('generation') == $generation)>
-                            {{ $generation }}
-                        </option>
-                    @endforeach
-                </select>
-            </div>
-
-            <div class="col mb-3">
                 <div class="col">
                     <label for="nationality" class="pb-1">Национальность</label>
                     <input type="text" class="form-control" name="nationality" id="nationality"
