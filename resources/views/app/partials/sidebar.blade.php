@@ -11,7 +11,7 @@
         <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{ route('humans.index') }}">
             Человеки
         </a>
-        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Мой профиль</a>
-        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Управление ссылками</a>
+{{--        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Мой профиль</a>--}}
+        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{ route('links.index') }}">Управление ссылками</a>
     </div>
 </div>

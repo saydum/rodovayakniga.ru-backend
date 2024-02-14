@@ -20,6 +20,6 @@ class Link extends Model
 
     public function human() : BelongsTo
     {
-        return $this->belongsTo(Human::class, 'id', 'human_id');
+        return $this->belongsTo(Human::class, 'human_id', 'id');
     }
 }

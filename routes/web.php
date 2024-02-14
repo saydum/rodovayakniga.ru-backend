@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\App\LinkManagerController;
 use App\Http\Controllers\App\RodovoeDrevoController;
+use App\Http\Controllers\Web\LinkController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\App\RodController;
@@ -21,6 +23,7 @@ Route::get('/rodovoe-drevo/{human}/{link}', [RodovoeDrevoController::class, 'sho
 Route::middleware(['auth'])->prefix('app')->group( function () {
     Route::resource('rods', RodController::class);
     Route::resource('humans', HumanController::class);
+    Route::resource('links', LinkManagerController::class);
 
     Route::get('/rodovoe-drevo/{human}/show', [RodovoeDrevoController::class, 'show'])
         ->name('rodovoe-drevo.show');

@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers\App;
 
-use App\Http\Controllers\Controller;
 use App\Models\Link;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class LinkManagerController extends Controller
 {
@@ -13,23 +12,10 @@ class LinkManagerController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
+        $links = Link::all();
+        return view('app.link.index', [
+            'links' => $links,
+        ]);
     }
 
     /**
@@ -37,23 +23,9 @@ class LinkManagerController extends Controller
      */
     public function show(Link $link)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Link $link)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Link $link)
-    {
-        //
+        return view('app.link.show', [
+            'link' => $link,
+        ]);
     }
 
     /**
@@ -61,6 +33,7 @@ class LinkManagerController extends Controller
      */
     public function destroy(Link $link)
     {
-        //
+        $link->delete();
+        return redirect()->route('links.index')->with('Успешно удален!');
     }
 }

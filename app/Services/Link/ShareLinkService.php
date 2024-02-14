@@ -10,8 +10,11 @@ class ShareLinkService
 {
     public function get(Human $human = null) : string | null
     {
-        if ($human->link->get() == null) {
-            $this->save($human->id);
+
+        if (isset($human->link)) {
+            if ($human->link->get() == null) {
+                $this->save($human->id);
+            }
         }
         return $human->link->link;
     }
