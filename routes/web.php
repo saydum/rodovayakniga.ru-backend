@@ -1,13 +1,13 @@
 <?php
 
-use App\Http\Controllers\App\LinkManagerController;
-use App\Http\Controllers\App\RodovoeDrevoController;
-use App\Http\Controllers\Web\LinkController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\App\RodController;
 use App\Http\Controllers\App\HomeController;
 use App\Http\Controllers\App\HumanController;
+use App\Http\Controllers\App\LinkManagerController;
+use App\Http\Controllers\App\RodovoeDrevoController;
+use App\Http\Controllers\App\SearchHumansController;
 
 Route::get('/', function () {
     return view('web.index');
@@ -27,6 +27,9 @@ Route::middleware(['auth'])->prefix('app')->group( function () {
 
     Route::get('/rodovoe-drevo/{human}/show', [RodovoeDrevoController::class, 'show'])
         ->name('rodovoe-drevo.show');
+
+    Route::post('/humans/search', [SearchHumansController::class, 'index'])
+        ->name('humans.search');
 });
 
 Auth::routes();
