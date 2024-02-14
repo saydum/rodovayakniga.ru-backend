@@ -22,8 +22,7 @@ class AccessRodovoeDrevo
 
         if (!$human) abort(404);
 
-        //@TODO Проверка вызывает ошибку
-        if (!$human->link) abort(403);
+        if (!$human->first()->link) abort(403);
 
         return $next($request);
     }

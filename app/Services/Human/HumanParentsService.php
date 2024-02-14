@@ -12,7 +12,7 @@ class HumanParentsService
      */
     public function getParentsById(int $id)
     {
-        $human = Human::find($id);
+        $human = Human::findOrFail($id);
         return $this->loadParents($human);
     }
 
