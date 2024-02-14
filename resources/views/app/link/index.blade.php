@@ -10,7 +10,6 @@
         <tr>
             <th>ID</th>
             <th>Человек</th>
-            <th>Link</th>
             <th class="text-end">Actions</th>
         </tr>
         </thead>
@@ -23,10 +22,12 @@
                 <td>
                     {{ $link->human->name }}
                 </td>
-                <td>
-                    {{ $link->link }}
-                </td>
                 <td class="text-end">
+                    {{--@TODO  Изменить ссылку при деполй--}}
+                    <a class="btn btn-link" href="http://127.0.0.1:8000/rodovoe-drevo/{{$link->human->id}}/{{ $link->link }}">
+                        Перейти
+                    </a>
+
                     <a href="{{ route("links.show", $link->id) }}" type="button"
                        class="btn btn-outline-primary btn-sm btn-rounded">
                         <i class="bi bi-eye"></i>
