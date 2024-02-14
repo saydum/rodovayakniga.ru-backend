@@ -22,7 +22,7 @@ class AccessRodovoeDrevo
 
         if (!$human) abort(404);
 
-        if (!$human->first()->link) abort(403);
+        if (!$human->first()->share->link) abort(403);
 
         return $next($request);
     }
