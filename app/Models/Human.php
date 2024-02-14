@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Human extends Model
 {
@@ -25,6 +24,7 @@ class Human extends Model
         'image',
         'father_id',
         'mather_id',
+        'rod_id',
     ];
 
     protected $casts = [
@@ -41,12 +41,12 @@ class Human extends Model
         return $this->belongsTo(Human::class, 'mather_id');
     }
 
-    public function rod() : HasMany
+    public function rod() : BelongsTo
     {
-        return $this->hasMany(Rod::class);
+        return $this->belongsTo(Rod::class, 'rod_id', 'id');
     }
 
-    public function link()
+    public function share()
     {
         return $this->hasOne(Link::class, 'human_id', 'id');
     }

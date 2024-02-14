@@ -46,7 +46,10 @@ class RodController extends Controller
      */
     public function show(Rod $rod)
     {
-        return view('app.rod.show', compact('rod'));
+        $rodHumans = $rod->humans()->get();
+        return view('app.human.index', [
+            'humans' => $rodHumans
+        ]);
     }
 
     /**

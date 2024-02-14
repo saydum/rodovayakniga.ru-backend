@@ -33,6 +33,7 @@ class HumanRequest extends FormRequest
             'image' => ['image', 'mimes:jpg,png,jpeg', 'max:1024', 'nullable'],
             'father_id' => ['int', 'nullable'],
             'mather_id' => ['int', 'nullable'],
+            'rod_id' => ['int', 'nullable'],
         ];
     }
 }

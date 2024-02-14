@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('app.layout')
 
 @section('content')
     <x-errors />
@@ -11,7 +11,7 @@
         <div class="row g-3 pt-4">
             <h5>Название РОДового Древа</h5>
             <div class="col">
-                <input type="text" class="form-control" name="name" aria-label="Name" value="{{ $tree->name }}">
+                <input type="text" class="form-control" name="name" aria-label="Name" value="{{ $rod->name }}">
             </div>
         </div>
 

@@ -25,6 +25,7 @@ return new class extends Migration
 
             $table->unsignedBigInteger('father_id')->nullable();
             $table->unsignedBigInteger('mather_id')->nullable();
+            $table->unsignedBigInteger('rod_id')->nullable();
 
             $table->timestamps();
         });

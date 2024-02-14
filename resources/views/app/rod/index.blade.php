@@ -30,10 +30,6 @@
                     <a href="{{ route('rods.edit', $rod->id) }}" class="btn btn-outline-warning btn-sm btn-rounded">
                         <i class="bi bi-pencil-square"></i>
                     </a>
-
-                    {{--                        <a href="{{ route('rod-humans.tree', $human->id) }}" class="btn btn-success btn-sm btn-rounded">--}}
-                    {{--                            <i class="bi bi-arrows-fullscreen"></i>--}}
-                    {{--                        </a>--}}
                 </td>
             </tr>
         @endforeach
