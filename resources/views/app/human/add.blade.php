@@ -1,5 +1,7 @@
 @extends('app.layout')
 
+@section('title', 'Добавить человке')
+
 @section('content')
 
     <x-errors/>

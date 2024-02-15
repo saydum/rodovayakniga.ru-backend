@@ -1,5 +1,7 @@
 @extends('app.layout')
 
+@section('title', 'Все РОДственники')
+
 @section('content')
     <div class="mb-4">
 

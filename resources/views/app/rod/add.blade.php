@@ -1,5 +1,7 @@
 @extends('app.layout')
 
+@section('title', 'Добавление РОДового Древа')
+
 @section('content')
     <x-errors />
 

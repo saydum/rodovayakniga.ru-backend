@@ -1,5 +1,7 @@
 @extends('app.layout')
 
+@section('title', 'Все РОДовые Драва')
+
 @section('content')
     <div class="mb-4">
         <a href="{{ route("rods.create") }}" class="btn btn-outline-success">

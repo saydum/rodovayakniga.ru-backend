@@ -1,5 +1,7 @@
 @extends('app.layout')
 
+@section('title', $human->name)
+
 @section('content')
     @include('app.rodovoe-drevo.js.copy-link')
 

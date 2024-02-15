@@ -1,5 +1,7 @@
 @extends('app.layout')
 
+@section('title', 'Сылки РОДового Древа')
+
 @section('content')
     <div class="mb-4">
         Ссыдки РОДового Древа

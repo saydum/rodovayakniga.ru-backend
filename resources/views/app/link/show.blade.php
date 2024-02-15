@@ -1,5 +1,7 @@
 @extends('app.layout')
 
+@section('title', $link->human->name)
+
 @section('content')
 
     <div class="pb-3">

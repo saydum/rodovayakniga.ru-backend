@@ -1,5 +1,7 @@
 @extends('app.layout')
 
+@section('title', $rod->name)
+
 @section('content')
 
     <div class="pb-3">

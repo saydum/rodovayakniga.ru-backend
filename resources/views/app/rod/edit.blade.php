@@ -1,5 +1,7 @@
 @extends('app.layout')
 
+@section('title', 'Изменить ' . $rod->name)
+
 @section('content')
     <x-errors />
 
