@@ -10,6 +10,7 @@ class SearchHumansController extends Controller
 {
     public function index(SearchHumansRequest $request)
     {
+        /*TODO(необходимо рефакторинг)*/
         if (!$request->validated()) {
             return view('app.human.index', [
                 'humans' => []
@@ -18,6 +19,7 @@ class SearchHumansController extends Controller
 
         $humans = Human::query()
             ->where('name', 'LIKE', "%{$request->text}%")
+            ->where('global_search', '=', 1)
             ->orderBy('name')
             ->get();
         return view('app.human.index', [

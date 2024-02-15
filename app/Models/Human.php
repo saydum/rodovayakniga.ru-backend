@@ -24,6 +24,7 @@ class Human extends Model
         'father_id',
         'mather_id',
         'rod_id',
+        'global_search'
     ];
 
     protected $casts = [

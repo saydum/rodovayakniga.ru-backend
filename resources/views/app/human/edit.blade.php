@@ -103,7 +103,7 @@
         </div>
 
         <div class="row g-3 pt-3">
-            <div class="col-4 mb-3">
+            <div class="col mb-3">
                 <label for="profile_photo">Фотография</label>
                 <input type="file" class="form-control" name="image" id="image">
                 @isset($human->image)
@@ -111,6 +111,16 @@
                          alt="{{ $human->name }}">
                 @endisset
             </div>
+
+            <div class="col mb-3">
+                <label>Видимость в глобальном поиске</label>
+                <select class="form-select" name="global_search" aria-label="Открыть доступ к глобальному поиску">
+                    {{--@TODO нужно вставить деф значение--}}
+                    <option value="0">Закрыт</option>
+                    <option value="1">Открыть</option>
+                </select>
+            </div>
+
         </div>
 
         <button type="submit" class="btn btn-success mt-4">Изменить</button>

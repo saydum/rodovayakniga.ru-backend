@@ -97,10 +97,20 @@
         </div>
 
         <div class="row g-3 pt-3">
-            <div class="col-3 mb-3">
+
+            <div class="col mb-3">
                 <label for="profile_photo">Фотография</label>
                 <input type="file" class="form-control" name="image" id="image">
             </div>
+
+            <div class="col mb-3">
+                <label>Видимость в глобальном поиске</label>
+                <select class="form-select" name="global_search" aria-label="Открыть доступ к глобальному поиску">
+                        <option selected value="0">Закрыть</option>
+                        <option value="1">Открыть</option>
+                </select>
+            </div>
+
         </div>
 
         <button type="submit" class="btn btn-success mt-4">Добавить</button>

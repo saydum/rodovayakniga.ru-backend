@@ -33,6 +33,7 @@ class HumanRequest extends FormRequest
             'father_id' => ['int', 'nullable'],
             'mather_id' => ['int', 'nullable'],
             'rod_id' => ['int', 'nullable'],
+            'global_search' => ['integer', 'nullable', 'min:0', 'max:1'],
         ];
     }
 }

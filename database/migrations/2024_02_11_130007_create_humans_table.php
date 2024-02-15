@@ -26,6 +26,8 @@ return new class extends Migration
             $table->unsignedBigInteger('mather_id')->nullable();
             $table->unsignedBigInteger('rod_id')->nullable();
 
+            $table->integer('global_search', )->nullable()->default(0);
+
             $table->timestamps();
         });
     }
