@@ -6,7 +6,7 @@ use App\Models\Rod;
 use App\Models\Human;
 use App\Traits\ImageUploadTrait;
 use App\Http\Controllers\Controller;
-use App\Actions\User\AuthUserAction;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\View\View;
 use Illuminate\Contracts\View\Factory;
 use App\Http\Requests\Human\HumanRequest;
@@ -32,12 +32,11 @@ class HumanController extends Controller
     /**
      * Show the form for creating a new resource.
      * @param Rod|null $rod
-     * @param AuthUserAction $authUserAction
      * @return Application|Factory|View|\Illuminate\Foundation\Application
      */
-    public function create(Rod $rod = null, AuthUserAction $authUserAction)
+    public function create(Rod $rod = null)
     {
-        $rods = $authUserAction->handle()->rods;
+        $rods = Auth::user()->rods;
 
         return view('app.human.add', [
             'rod' => $rod,
@@ -68,10 +67,10 @@ class HumanController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Human $human, AuthUserAction $authUserAction)
+    public function edit(Human $human)
     {
         /*@TODO 1) Вывести логику в сервис класс*/
-        $rods = $authUserAction->handle()->rods;
+        $rods = Auth::user()->rods;
         $humans = Human::all();
 
         return view('app.human.edit', [
