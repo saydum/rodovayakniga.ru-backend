@@ -88,7 +88,7 @@
                 <li><a href="/">Главное</a></li>
                 <li><a href="/#about">О сервисе</a></li>
                 <li><a href="/#command">Команда</a></li>
-                <li><a href="{{ route('posts.index') }}">Блог</a></li>
+{{--                <li><a href="{{ route('posts.index') }}">Блог</a></li>--}}
                 @if (Route::has('login'))
                     @auth
                         <li>
