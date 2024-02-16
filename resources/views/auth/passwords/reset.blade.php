@@ -1,11 +1,13 @@
-@extends('auth.app')
+@extends('auth.layout')
+
+@section('title', 'Востановление пароля')
 
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Reset Password') }}</div>
+                    <div class="card-header">Востановление пароля</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('password.update') }}">
