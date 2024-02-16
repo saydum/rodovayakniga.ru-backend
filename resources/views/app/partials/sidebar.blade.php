@@ -1,3 +1,4 @@
+@auth()
 <div class="border-end bg-white" id="sidebar-wrapper">
     <div class="sidebar-heading border-bottom bg-light">
         rodovayakniga.ru
@@ -15,3 +16,4 @@
         <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{ route('links.index') }}">Управление ссылками</a>
     </div>
 </div>
+@endauth

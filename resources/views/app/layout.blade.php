@@ -44,7 +44,6 @@
 <div class="d-flex" id="wrapper">
     <!-- Sidebar-->
     @include('app.partials.sidebar')
-
     <!-- Page content wrapper-->
     <div id="page-content-wrapper">
         <!-- Top navigation-->
