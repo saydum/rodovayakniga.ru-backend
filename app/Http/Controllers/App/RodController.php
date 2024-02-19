@@ -9,8 +9,6 @@ use App\Http\Requests\Rod\RodRequest;
 
 class RodController extends Controller
 {
-    private const string MAIN_ROUTE = 'rods.index';
-
     /**
      * Display a listing of the resource.
      */
@@ -38,7 +36,7 @@ class RodController extends Controller
     public function store(RodRequest $request)
     {
         Rod::create($request->validated());
-        return redirect()->route(self::MAIN_ROUTE)->with('Успешно создан!');
+        return redirect()->route('rods.index')->with('Успешно создан!');
     }
 
     /**
@@ -66,7 +64,7 @@ class RodController extends Controller
     public function update(RodRequest $request, Rod $rod)
     {
         $rod->update($request->validated());
-        return redirect()->route(self::MAIN_ROUTE)->with('Успешно изменен!');
+        return redirect()->route('rods.index')->with('Успешно изменен!');
     }
 
     /**
@@ -75,6 +73,6 @@ class RodController extends Controller
     public function destroy(Rod $rod)
     {
         $rod->delete();
-        return redirect()->route(self::MAIN_ROUTE)->with('Успешно удален!');
+        return redirect()->route('rods.index')->with('Успешно удален!');
     }
 }

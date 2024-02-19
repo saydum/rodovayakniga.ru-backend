@@ -17,7 +17,6 @@ use ErrorException;
 class HumanController extends Controller
 {
     use ImageUploadTrait;
-    private const string MAIN_ROUTE = 'rods.index';
     /**
      * Display a listing of the resource.
      */
