@@ -33,3 +33,5 @@ jobs:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/testing_database.sqlite
       run: vendor/bin/phpunit
+    - name: Install and build Front-end
+      run: npm i && npm run dev
