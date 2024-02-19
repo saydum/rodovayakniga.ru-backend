@@ -1,11 +1,11 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Http;
 
 use App\Models\Rod;
 use App\Models\User;
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class RodControllerTest extends TestCase
 {
@@ -52,14 +52,15 @@ class RodControllerTest extends TestCase
     {
         $this->actingAs($this->user)
             ->get(route('rods.create'))
+            ->assertViewIs('app.rod.add')
             ->assertOk();
     }
 
     public function testIndex()
     {
-        $humans = Rod::factory(5)->create();
+        $rods = Rod::factory(5)->create();
 
-        $this->assertEquals(5, $humans->count());
+        $this->assertEquals(5, $rods->count());
 
         $this->actingAs($this->user)
             ->get(route('rods.index'))
