@@ -82,23 +82,11 @@
         <div class="row g-3 pt-4">
 
             <div class="col mb-3">
-                <label for="location_birth" class="pb-1">Пол</label>
-                <select class="form-select" aria-label="Пол" name="gender">
-                    <option value="" selected>Не выбран</option>
-                    <option value="man">Мужской</option>
-                    <option value="woman">Женский</option>
-                </select>
-            </div>
-
-            <div class="col mb-3">
                 <div class="col">
-                    <label for="nationality" class="pb-1">Национальность</label>
+                    <label for="nationality">Национальность</label>
                     <input type="text" class="form-control" name="nationality" id="nationality">
                 </div>
             </div>
-        </div>
-
-        <div class="row g-3 pt-3">
 
             <div class="col mb-3">
                 <label for="profile_photo">Фотография</label>
