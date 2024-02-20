@@ -26,5 +26,4 @@ class ShareLinkService
     {
         return Str::random(15);
     }
-
 }
