@@ -4,6 +4,7 @@ namespace App\Http\Controllers\App;
 
 use App\Models\Human;
 use App\Http\Controllers\Controller;
+use App\Models\Link;
 use App\Services\Link\ShareLinkService;
 use App\Services\RodovoeDrevo\RodovoeDrevoService;
 
