@@ -7,7 +7,7 @@
     <x-errors/>
 
     <div class="pb-3">
-        <x-go-back-btn routeName="humans.index" />
+        <x-go-back-btn routeName="humans.index"/>
     </div>
 
     <form
@@ -65,27 +65,48 @@
         {{-- Связь --}}
         <div class="row g-3 pt-4">
 
-            <div class="col">
+            <div class="col mb-3">
                 <label>Отец</label>
-                <select class="form-select" aria-label="РОД" name="father_id">
-                    <option value="0" selected></option>
+                <select class="form-select" aria-label="Отец" name="father_id">
+                    @if($human->father)
+                        <option value="{{ $human->father->id }}" selected>
+                            {{ $human->father->name . " " . $human->father->surname . " " . $human->father->lastname }}
+                        </option>
+                    @else
+                        <option value="">
+                            Не выбран
+                        </option>
+                    @endif
+
                     @foreach($humans as $human)
                         <option
-                            value="{{ $human->id }}">{{ $human->name . " " . $human->surname . " " . $human->lastname}}</option>
+                            value="{{ $human->id }}">{{ $human->name . " " . $human->surname . " " . $human->lastname}}
+                        </option>
                     @endforeach
                 </select>
             </div>
 
-            <div class="col">
+            <div class="col mb-3">
                 <label>Мать</label>
-                <select class="form-select" aria-label="РОД" name="mather_id">
-                    <option value="0" selected>не выбран</option>
+                <select class="form-select" aria-label="Мать" name="mather_id">
+                    @if($human->mather)
+                        <option value="{{ $human->mather->id }}" selected>
+                            {{ $human->mather->name . " " . $human->mather->surname . " " . $human->mather->lastname }}
+                        </option>
+                    @else
+                        <option value="">
+                            Не выбран
+                        </option>
+                    @endif
+
                     @foreach($humans as $human)
                         <option
-                            value="{{ $human->id }}">{{ $human->name . " " . $human->surname . " " . $human->lastname}}</option>
+                            value="{{ $human->id }}">{{ $human->name . " " . $human->surname . " " . $human->lastname}}
+                        </option>
                     @endforeach
                 </select>
             </div>
+
         </div>
 
         <div class="row g-3 pt-3">
@@ -101,10 +122,6 @@
             <div class="col mb-3">
                 <label for="profile_photo">Фотография</label>
                 <input type="file" class="form-control" name="image" id="image">
-                @isset($human->image)
-                    <img class="mt-3 rounded" src="{{ asset($human->image) }}" width="120" height="120"
-                         alt="{{ $human->name }}">
-                @endisset
             </div>
 
             <div class="col mb-3">
