@@ -6,6 +6,10 @@
 
     <x-errors/>
 
+    <div class="pb-3">
+        <x-go-back-btn routeName="humans.index" />
+    </div>
+
     <form
         action="{{ route("humans.update", $human->id) }}"
         method="POST"
