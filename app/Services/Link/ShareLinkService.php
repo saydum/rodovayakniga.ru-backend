@@ -8,9 +8,9 @@ use Illuminate\Support\Str;
 
 class ShareLinkService
 {
-    public function get(Human $human = null): string | null
+    public function get(Human $human = null): Link | null
     {
-        return $human->share === null ? $this->save($human->id) : $human->share->link;
+        return $human->share === null ? $this->save($human->id) : $human->share;
     }
 
     public function save(int $humanId)

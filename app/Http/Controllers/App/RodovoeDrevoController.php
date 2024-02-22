@@ -16,7 +16,7 @@ class RodovoeDrevoController extends Controller
     )
     {}
 
-    public function show(Human $human, Link $link = null)
+    public function show(Human $human)
     {
         $humans = $this->rodovoeDrevoService->getRodovoeDrevoHumans($human->id);
 
@@ -29,7 +29,7 @@ class RodovoeDrevoController extends Controller
             'fatherGrandmother' => $humans['fatherGrandmother'],
             'matherGrandfather' => $humans['matherGrandfather'],
             'matherGrandmother' => $humans['matherGrandmother'],
-            'shareHuman' => $link->link,
+            'shareHuman' => $this->shareLinkService->get($humans['human']),
         ]);
 
     }
