@@ -20,7 +20,7 @@ Route::get('/rodovoe-drevo/{human}/{link}', [RodovoeDrevoController::class, 'sho
     ->name('rodovoe-drevo.link')
     ->middleware('access.rodovoedrevo');
 
-Route::middleware(['auth'])->prefix('app')->group( function () {
+Route::middleware(['auth'])->prefix('app')->group(function () {
     Route::resource('rods', RodController::class);
     Route::resource('humans', HumanController::class);
     Route::resource('links', LinkManagerController::class);

@@ -13,8 +13,9 @@ class GoBackBtn extends Component
      */
     public function __construct(
         public string $routeName
-    )
-    {}
+    ) {
+
+    }
 
     /**
      * Get the view / contents that represent the component.

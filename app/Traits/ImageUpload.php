@@ -4,7 +4,7 @@ namespace App\Traits;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-trait ImageUploadTrait
+trait ImageUpload
 {
     public function imageUpload(FormRequest $request) : array
     {

@@ -13,8 +13,9 @@ class RodovoeDrevoController extends Controller
     public function __construct(
         public RodovoeDrevoService $rodovoeDrevoService,
         public ShareLinkService $shareLinkService,
-    )
-    {}
+    ) {
+
+    }
 
     public function show(Human $human)
     {
@@ -31,7 +32,5 @@ class RodovoeDrevoController extends Controller
             'matherGrandmother' => $humans['matherGrandmother'],
             'shareHuman' => $this->shareLinkService->get($humans['human']),
         ]);
-
     }
-
 }

@@ -20,9 +20,15 @@ class AccessRodovoeDrevo
 
         $human = Human::find($humanId);
 
-        if (!$human) abort(404);
+        if (!$human) {
+            abort(404);
+        }
 
-        if (!$human->first()->share->link) abort(403);
+
+        if (!$human->first()->share->link) {
+            abort(403);
+        }
+
 
         return $next($request);
     }

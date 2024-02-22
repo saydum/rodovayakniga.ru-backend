@@ -4,7 +4,7 @@ namespace App\Http\Controllers\App;
 
 use App\Models\Rod;
 use App\Models\Human;
-use App\Traits\ImageUploadTrait;
+use App\Traits\ImageUpload;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\View\View;
@@ -16,7 +16,7 @@ use ErrorException;
 
 class HumanController extends Controller
 {
-    use ImageUploadTrait;
+    use ImageUpload;
     /**
      * Display a listing of the resource.
      */

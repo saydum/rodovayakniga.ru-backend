@@ -9,8 +9,9 @@ class RodovoeDrevoService
 {
     public function __construct(
         public HumanParentsService $humanParentsService
-    )
-    {}
+    ) {
+
+    }
 
     /**
      * @param int $id
