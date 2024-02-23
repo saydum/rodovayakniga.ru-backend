@@ -13,16 +13,18 @@ class HumanControllerTest extends TestCase
     use RefreshDatabase;
 
     protected User $user;
+    protected Rod $rod;
 
     protected function setUp(): void
     {
         parent::setUp();
         $this->user = User::factory()->create();
+        $this->rod = Rod::factory()->create();
     }
 
     public function testEdit() : void
     {
-        $human = Human::factory()->create(['name' => 'Ivan']);
+        $human = Human::factory()->create(['name' => 'Ivan', 'rod_id' => $this->rod->id]);
 
         $this->actingAs($this->user)
             ->get(route('humans.edit', $human->id))
@@ -35,7 +37,7 @@ class HumanControllerTest extends TestCase
 
     public function testShow()
     {
-        $human = Human::factory()->create(['name' => 'Ivan']);
+        $human = Human::factory()->create(['name' => 'Ivan', 'rod_id' => $this->rod->id]);
 
         $this->actingAs($this->user)
             ->get(route('humans.show', $human->id))
@@ -65,7 +67,7 @@ class HumanControllerTest extends TestCase
 
     public function testStore()
     {
-        $human = ['name' => 'Saydum'];
+        $human = ['name' => 'Saydum', 'rod_id' => $this->rod->id];
 
         $this->actingAs($this->user)
             ->post(route('humans.store', $human))
@@ -75,8 +77,8 @@ class HumanControllerTest extends TestCase
 
     public function testUpdate()
     {
-        $human = Human::factory()->create();
-        $updateHuman = ['name' => 'Saydum',];
+        $human = Human::factory()->create(['rod_id' => $this->rod->id]);
+        $updateHuman = ['name' => 'Saydum'];
 
         $this->actingAs($this->user)
             ->put(route('humans.update', $human->id, ), $updateHuman)
@@ -86,7 +88,7 @@ class HumanControllerTest extends TestCase
 
     public function testDestroy()
     {
-        $human = Human::factory()->create();
+        $human = Human::factory()->create(['rod_id' => $this->rod->id]);
 
         $this->actingAs($this->user)
             ->delete(route('humans.destroy', $human->id))

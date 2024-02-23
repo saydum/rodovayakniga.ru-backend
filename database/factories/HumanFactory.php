@@ -23,9 +23,7 @@ class HumanFactory extends Factory
             'date_birth' => fake()->date(),
             'location_birth' => fake()->locale,
             'nationality' => array_rand(['Русский' => 'Русский', 'Лезгин' => 'Лезгин', 'Англичанин' => 'Англичанин']),
-            'father_id' =>  rand(1, 16),
-            'mather_id' =>  rand(1, 16),
-            'rod_id' => rand(1, 16),
+            'rod_id' => 1,
             'global_search' => true,
         ];
     }
