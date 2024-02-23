@@ -20,7 +20,7 @@ class HumanFactory extends Factory
             'name' => fake()->name,
             'surname' => fake()->lastName ,
             'lastname' => fake()->lastName,
-            'date_birth' => fake()->date('d-m-Y'),
+            'date_birth' => fake()->date(),
             'location_birth' => fake()->locale,
             'nationality' => array_rand(['Русский' => 'Русский', 'Лезгин' => 'Лезгин', 'Англичанин' => 'Англичанин']),
             'father_id' =>  rand(1, 16),
