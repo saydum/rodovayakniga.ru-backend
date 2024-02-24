@@ -80,4 +80,10 @@
 
         </tbody>
     </table>
+
+    <div class="row justify-content-center py-5">
+        <div class="col">
+            {{ $humans->links() }}
+        </div>
+    </div>
 @endsection

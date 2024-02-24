@@ -3,6 +3,7 @@
 @section('title', 'РОДовое Древо ' . $human->name)
 
 @section('content')
+    @dd($matherGrandmother)
     @include('app.rodovoe-drevo.js.copy-link')
 
 
@@ -76,7 +77,7 @@
                                                     onclick="getHumanByIdInShowModal({{ $father }})"
                                                 >
                                                     <img class="img-fluid" src="{{ asset($father->image) }}">
-                                                    <p>{{ $father->name . " " . $father->surname . " " . $father->lastname }}</p>
+                                                    <p>{{ $father->name }}</p>
                                                 </a>
                                             </div>
                                             <ul class="tree_ul">

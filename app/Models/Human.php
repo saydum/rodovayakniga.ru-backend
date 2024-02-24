@@ -5,6 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Human extends Model
 {
@@ -21,9 +24,9 @@ class Human extends Model
         'location_birth',
         'nationality',
         'image',
-        'father_id',
-        'mather_id',
         'rod_id',
+        'father_id',
+        'mother_id',
         'global_search'
     ];
 
@@ -31,19 +34,21 @@ class Human extends Model
         'data_birth' => 'datetime:d-m-Y',
     ];
 
-    public function father(): BelongsTo
-    {
-        return $this->belongsTo(Human::class, 'father_id');
-    }
 
-    public function mather(): BelongsTo
-    {
-        return $this->belongsTo(Human::class, 'mather_id');
-    }
 
     public function rod() : BelongsTo
     {
         return $this->belongsTo(Rod::class, 'rod_id', 'id');
+    }
+
+    public function father()
+    {
+        return $this->belongsTo(Human::class, 'father_id');
+    }
+
+    public function mother()
+    {
+        return $this->belongsTo(Human::class, 'mother_id');
     }
 
     public function share()

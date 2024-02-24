@@ -22,9 +22,14 @@ return new class extends Migration
             $table->string('nationality', 100)->nullable();
             $table->string('image', 550)->nullable();
 
-            $table->unsignedBigInteger('father_id')->nullable();
-            $table->unsignedBigInteger('mather_id')->nullable();
             $table->unsignedBigInteger('rod_id')->nullable();
+            $table->foreign('rod_id')->references('id')->on('rods')->onDelete('RESTRICT');
+
+            $table->unsignedBigInteger('father_id')->nullable();
+            $table->foreign('father_id')->references('id')->on('humans')->onDelete('RESTRICT');
+
+            $table->unsignedBigInteger('mother_id')->nullable();
+            $table->foreign('mother_id')->references('id')->on('humans')->onDelete('RESTRICT');
 
             $table->integer('global_search', )->nullable()->default(0);
 

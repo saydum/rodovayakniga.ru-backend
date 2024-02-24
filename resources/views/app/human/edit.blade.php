@@ -88,7 +88,7 @@
 
             <div class="col mb-3">
                 <label>Мать</label>
-                <select class="form-select" aria-label="Мать" name="mather_id">
+                <select class="form-select" aria-label="Мать" name="mother_id">
                     @if($human->mather)
                         <option value="{{ $human->mather->id }}" selected>
                             {{ $human->mather->name . " " . $human->mather->surname . " " . $human->mather->lastname }}

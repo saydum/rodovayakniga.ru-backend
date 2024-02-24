@@ -30,9 +30,9 @@ class HumanRequest extends FormRequest
             'location_birth' => ['string', 'max:550', 'nullable'],
             'nationality' => ['string', 'max:100', 'nullable'],
             'image' => ['image', 'mimes:jpg,png,jpeg', 'max:1024', 'nullable'],
-            'father_id' => ['int', 'nullable'],
-            'mather_id' => ['int', 'nullable'],
-            'rod_id' => ['int', 'nullable'],
+            'rod_id' => ['integer', 'nullable', 'exists:rods,id'],
+            'father_id' => ['integer', 'nullable', 'exists:humans,id'],
+            'mother_id' => ['nullable', 'exists:humans,id'],
             'global_search' => ['integer', 'nullable', 'min:0', 'max:1'],
         ];
     }

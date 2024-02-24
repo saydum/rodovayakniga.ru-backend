@@ -22,7 +22,7 @@ class HumanController extends Controller
      */
     public function index()
     {
-        $humans = Human::all();
+        $humans = Human::simplePaginate(25);
         return view('app.human.index', [
             'humans' => $humans,
         ]);

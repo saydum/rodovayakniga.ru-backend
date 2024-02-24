@@ -24,10 +24,6 @@ class Rod extends Model
         return $this->belongsTo(User::class, 'id', 'user_id');
     }
 
-    public function users() : MorphToMany
-    {
-        return $this->morphToMany(User::class, 'rod_user');
-    }
     public function humans() : HasMany
     {
         return $this->hasMany(Human::class, 'rod_id', 'id');

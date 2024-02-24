@@ -72,7 +72,7 @@
             @isset($womans)
                 <div class="col">
                     <label>Мать</label>
-                    <select class="form-select" aria-label="РОД" name="mather_id">
+                    <select class="form-select" aria-label="РОД" name="mother_id">
                         <option value="0" selected>не выбран</option>
                         @foreach($womans as $human)
                             <option
