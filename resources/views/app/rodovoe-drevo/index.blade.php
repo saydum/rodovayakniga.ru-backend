@@ -31,7 +31,7 @@
                             <div class="mt-3">
                                 @isset($shareHuman)
                                 <input type="text" hidden="hidden" id="copyText" class="form-control"
-                                       value="https://rododvayakniga.ru/rodovoe-drevo/{{ $human->id }}/{{ $shareHuman->link }}"
+                                       value="https://rodovayakniga.ru/rodovoe-drevo/{{ $human->id }}/{{ $shareHuman->link }}"
                                        readonly>
                                 @endisset
                             </div>
