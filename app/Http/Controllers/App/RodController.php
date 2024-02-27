@@ -44,7 +44,7 @@ class RodController extends Controller
      */
     public function show(Rod $rod)
     {
-        $rodHumans = $rod->humans()->get();
+        $rodHumans = $rod->with('humans')->simplePaginate(25);
         return view('app.human.index', [
             'humans' => $rodHumans
         ]);
