@@ -76,7 +76,8 @@
                                                     onclick="getHumanByIdInShowModal({{ $father }})"
                                                 >
                                                     <img class="img-fluid" src="{{ asset($father->image) }}">
-                                                    <p>{{ $father->name }}</p>
+                                                    <p>{{ $father->name . " " . $father->surname . " " . $father->lastname }}</p>
+
                                                 </a>
                                             </div>
 
