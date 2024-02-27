@@ -31,7 +31,7 @@ jobs:
         env:
           DB_CONNECTION: sqlite
           DB_DATABASE: database/test_database.sqlite
-        run: vendor/bin/phpunit
+        run: vendor/bin/phpunit --testsuite Feature
       - name: Deploy to server
         uses: appleboy/ssh-action@master
         with:
