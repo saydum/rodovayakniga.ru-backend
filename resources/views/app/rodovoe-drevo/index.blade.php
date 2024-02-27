@@ -3,7 +3,6 @@
 @section('title', 'РОДовое Древо ' . $human->name)
 
 @section('content')
-    @dd($matherGrandmother)
     @include('app.rodovoe-drevo.js.copy-link')
 
 
@@ -64,7 +63,7 @@
                                         <p class=""> {{ $human->name. " " .  $human->surname . " " . $human->lastname}}</p>
                                     </a>
                                 </div>
-                                {{-- E1--}}
+                                {{-- Отец--}}
                                 <ul class="tree_ul">
                                     @isset($father)
                                         <li class="tree_li">
@@ -80,8 +79,9 @@
                                                     <p>{{ $father->name }}</p>
                                                 </a>
                                             </div>
+
                                             <ul class="tree_ul">
-                                                @isset($fatherGrandfather)
+                                                @isset($fatherGrandFather)
                                                     <li class="tree_li">
                                                         <div class="tree_card">
                                                             <a
@@ -89,17 +89,18 @@
                                                                 data-mdb-ripple-init
                                                                 data-mdb-modal-init
                                                                 data-mdb-target="#show-info-modal"
-                                                                onclick="getHumanByIdInShowModal({{ $fatherGrandfather }})"
+                                                                onclick="getHumanByIdInShowModal({{ $fatherGrandFather }})"
                                                             >
                                                                 <img class="img-fluid"
-                                                                     src="{{ asset($fatherGrandfather->image) }}"/>
-                                                                <p>{{ $fatherGrandfather->name . " " . $fatherGrandfather->surname . " " . $fatherGrandfather->lastname }}</p>
+                                                                     src="{{ asset($fatherGrandFather->image) }}"/>
+                                                                <p>{{ $fatherGrandFather->name . " " . $fatherGrandFather->surname . " " . $fatherGrandFather->lastname }}</p>
 
                                                             </a>
                                                         </div>
                                                     </li>
                                                 @endisset
-                                                @isset($fatherGrandmother)
+
+                                                @isset($fatherGrandMother)
                                                     <li class="tree_li">
                                                         <div class="tree_card">
                                                             <a
@@ -107,11 +108,11 @@
                                                                 data-mdb-ripple-init
                                                                 data-mdb-modal-init
                                                                 data-mdb-target="#show-info-modal"
-                                                                onclick="getHumanByIdInShowModal({{ $fatherGrandmother }})"
+                                                                onclick="getHumanByIdInShowModal({{ $fatherGrandMother }})"
                                                             >
                                                                 <img class="img-fluid"
-                                                                     src="{{ asset($fatherGrandmother->image) }}">
-                                                                <p>{{ $fatherGrandmother->name . " " . $fatherGrandmother->surname . " " . $fatherGrandmother->lastname }}</p>
+                                                                     src="{{ asset($fatherGrandMother->image) }}">
+                                                                <p>{{ $fatherGrandMother->name . " " . $fatherGrandMother->surname . " " . $fatherGrandMother->lastname }}</p>
                                                             </a>
                                                         </div>
                                                     </li>
@@ -120,7 +121,8 @@
                                         </li>
                                     @endisset
 
-                                    @isset($mather)
+                                    {{--Мать    --}}
+                                    @isset($mother)
                                         <li class="tree_li">
                                             <div class="tree_card">
                                                 <a
@@ -128,14 +130,14 @@
                                                     data-mdb-ripple-init
                                                     data-mdb-modal-init
                                                     data-mdb-target="#show-info-modal"
-                                                    onclick="getHumanByIdInShowModal({{ $mather }})"
+                                                    onclick="getHumanByIdInShowModal({{ $mother }})"
                                                 >
-                                                    <img class="img-fluid" src="{{ asset($mather->image) }}">
-                                                    <p>{{ $mather->name . " " . $mather->surname . " " . $mather->lastname }}</p>
+                                                    <img class="img-fluid" src="{{ asset($mother->image) }}">
+                                                    <p>{{ $mother->name . " " . $mother->surname . " " . $mother->lastname }}</p>
                                                 </a>
                                             </div>
                                             <ul class="tree_ul">
-                                                @isset($matherGrandfather)
+                                                @isset($matherGrandFather)
                                                     <li class="tree_li">
                                                         <div class="tree_card">
                                                             <a
@@ -143,17 +145,17 @@
                                                                 data-mdb-ripple-init
                                                                 data-mdb-modal-init
                                                                 data-mdb-target="#show-info-modal"
-                                                                onclick="getHumanByIdInShowModal({{ $matherGrandfather }})"
+                                                                onclick="getHumanByIdInShowModal({{ $matherGrandFather }})"
                                                             >
                                                                 <img class="img-fluid"
-                                                                     src="{{ asset($matherGrandfather->image) }}">
-                                                                <p>{{ $matherGrandfather->name . " " . $matherGrandfather->surname . " " . $matherGrandfather->lastname }}</p>
+                                                                     src="{{ asset($matherGrandFather->image) }}">
+                                                                <p>{{ $matherGrandFather->name . " " . $matherGrandFather->surname . " " . $matherGrandFather->lastname }}</p>
 
                                                             </a>
                                                         </div>
                                                     </li>
                                                 @endisset
-                                                @isset($matherGrandmother)
+                                                @isset($matherGrandMother)
                                                     <li class="tree_li">
                                                         <div class="tree_card">
                                                             <a
@@ -161,11 +163,11 @@
                                                                 data-mdb-ripple-init
                                                                 data-mdb-modal-init
                                                                 data-mdb-target="#show-info-modal"
-                                                                onclick="getHumanByIdInShowModal({{ $matherGrandmother }})"
+                                                                onclick="getHumanByIdInShowModal({{ $matherGrandMother }})"
                                                             >
                                                                 <img class="img-fluid"
-                                                                     src="{{ asset($matherGrandmother->image) }}">
-                                                                <p>{{ $matherGrandmother->name . " " . $matherGrandmother->surname . " " . $matherGrandmother->lastname }}</p>
+                                                                     src="{{ asset($matherGrandMother->image) }}">
+                                                                <p>{{ $matherGrandMother->name . " " . $matherGrandMother->surname . " " . $matherGrandMother->lastname }}</p>
                                                             </a>
                                                         </div>
                                                     </li>

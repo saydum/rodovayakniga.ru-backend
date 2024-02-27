@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Rod;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,6 +17,8 @@ class HumanFactory extends Factory
      */
     public function definition(): array
     {
+        $rod = Rod::factory()->create();
+
         return [
             'name' => fake()->name,
             'surname' => fake()->lastName ,
@@ -23,7 +26,7 @@ class HumanFactory extends Factory
             'date_birth' => fake()->date(),
             'location_birth' => fake()->locale,
             'nationality' => array_rand(['Русский' => 'Русский', 'Лезгин' => 'Лезгин', 'Англичанин' => 'Англичанин']),
-            'rod_id' => 1,
+            'rod_id' => $rod->id,
             'global_search' => true,
         ];
     }

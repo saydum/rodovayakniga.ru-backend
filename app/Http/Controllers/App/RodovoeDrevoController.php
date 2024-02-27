@@ -18,22 +18,51 @@ class RodovoeDrevoController extends Controller
 
     public function show(Human $human)
     {
-        $humans = Human::all();
+        /*
+         * @TODO Проблема в быборге данных
+         * Нужно корректно получить данные и вывести
+        */
+        /*
+         * я
+         * 1) $human->name
+         *
+         * Родители
+         * 1) $human->father->name
+         * 2) $human->mother->name
+         *
+         * Дедушка и Бабушка
+         * 1) $human->father->father()->first()->name
+         * 2) $human->father->mother()->first()->name
+         *
+         * 3) $human->mother->father()->first()->name
+         * 4) $human->mother->mother()->first()->name
+         *
+         * Пра Дедушка и Бабушка
+         *
+         * */
 
-        $father = $human->father()->first();
-        $mather = $human->mother()->first();
+        $father = $human->father;
+        $mother = $human->mother;
+
+        $fatherGrandFather = $father->father;
+        $fatherGrandMother = $father->mother;
+
+
+        $matherGrandFather = $mother->father;
+        $matherGrandMother = $mother->mother;
+
 
         return view('app.rodovoe-drevo.index', [
             'human' => $human,
 
-            'father' => $father ?? null,
-            'mather' => $mather ?? null,
+            'father' => $father,
+            'mother' => $mother,
 
-            'fatherGrandFather' => $father ? $humans->find($father->id)->father : null,
-            'fatherGrandMother' => $father ? $humans->find($father->id)->mather : null,
+            'fatherGrandFather' =>  $fatherGrandFather,
+            'fatherGrandMother' =>  $fatherGrandMother,
 
-            'matherGrandFather' => $mather ? $humans->find($mather->id)->father : null,
-            'matherGrandMother' => $mather ? $humans->find($mather->id)->mather : null,
+            'matherGrandFather' =>  $matherGrandFather,
+            'matherGrandMother' =>  $matherGrandMother,
 
             'shareHuman' => $this->shareLinkService->get($human),
         ]);
