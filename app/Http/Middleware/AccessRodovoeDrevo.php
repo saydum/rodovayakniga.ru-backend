@@ -24,8 +24,7 @@ class AccessRodovoeDrevo
             abort(404);
         }
 
-
-        if (!$human->first()->share->link) {
+        if (!$human->first()->share) {
             abort(403);
         }
 
