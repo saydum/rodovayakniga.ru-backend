@@ -68,7 +68,7 @@ class HumanController extends Controller
      */
     public function edit(Human $human)
     {
-        /*@TODO 1) Вывести логику в сервис класс*/
+        /*@TODO РОДственики видны всем!*/
         $rods = Auth::user()->rods;
         $humans = Human::all();
 
