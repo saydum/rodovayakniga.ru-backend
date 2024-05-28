@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api\V1\App;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Human\HumanRequest;
 use App\Models\Human;
-use App\Models\Rod;
+use App\Models\Rodovayakniga;
 use App\Traits\ImageUpload;
 use ErrorException;
 use Illuminate\Contracts\Foundation\Application;
@@ -29,10 +29,10 @@ class HumanController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     * @param Rod|null $rod
+     * @param Rodovayakniga|null $rod
      * @return Application|Factory|View|\Illuminate\Foundation\Application
      */
-    public function create(Rod $rod = null)
+    public function create(Rodovayakniga $rod = null)
     {
         $rods = Auth::user()->rods;
 

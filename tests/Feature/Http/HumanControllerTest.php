@@ -3,7 +3,7 @@
 namespace Tests\Feature\Http;
 
 use App\Models\Human;
-use App\Models\Rod;
+use App\Models\Rodovayakniga;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -13,13 +13,13 @@ class HumanControllerTest extends TestCase
     use RefreshDatabase;
 
     protected User $user;
-    protected Rod $rod;
+    protected Rodovayakniga $rod;
 
     protected function setUp(): void
     {
         parent::setUp();
         $this->user = User::factory()->create();
-        $this->rod = Rod::factory()->create();
+        $this->rod = Rodovayakniga::factory()->create();
     }
 
     public function testEdit() : void
@@ -55,7 +55,7 @@ class HumanControllerTest extends TestCase
 
     public function testIndex()
     {
-        $humans = Rod::factory(5)->create();
+        $humans = Rodovayakniga::factory(5)->create();
 
         $this->assertEquals(5, $humans->count());
 

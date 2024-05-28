@@ -38,7 +38,7 @@ class Human extends Model
 
     public function rod() : BelongsTo
     {
-        return $this->belongsTo(Rod::class, 'rod_id', 'id');
+        return $this->belongsTo(Rodovayakniga::class, 'rod_id', 'id');
     }
 
     public function father()

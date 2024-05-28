@@ -46,6 +46,6 @@ class User extends Authenticatable
 
     public function rods() : HasMany
     {
-        return $this->hasMany(Rod::class, 'user_id', 'id');
+        return $this->hasMany(Rodovayakniga::class, 'user_id', 'id');
     }
 }

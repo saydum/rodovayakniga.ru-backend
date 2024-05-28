@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Http;
 
-use App\Models\Rod;
+use App\Models\Rodovayakniga;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -21,7 +21,7 @@ class RodControllerTest extends TestCase
 
     public function testEdit() : void
     {
-        $rod = Rod::factory()->create([
+        $rod = Rodovayakniga::factory()->create([
             'name' => 'ROD',
             'user_id' => 1
         ]);
@@ -29,7 +29,7 @@ class RodControllerTest extends TestCase
         $this->actingAs($this->user)
             ->get(route('rods.edit', $rod->id))
             ->assertViewIs('app.rod.edit')
-            ->assertViewHas('rod', function (Rod $rod) {
+            ->assertViewHas('rod', function (Rodovayakniga $rod) {
                 return $rod->name === 'ROD';
         })
             ->assertOk();
@@ -37,7 +37,7 @@ class RodControllerTest extends TestCase
 
     public function testShow()
     {
-        $rod = Rod::factory()->create([
+        $rod = Rodovayakniga::factory()->create([
             'name' => 'ROD',
             'user_id' => 1
         ]);
@@ -58,7 +58,7 @@ class RodControllerTest extends TestCase
 
     public function testIndex()
     {
-        $rods = Rod::factory(5)->create();
+        $rods = Rodovayakniga::factory(5)->create();
 
         $this->assertEquals(5, $rods->count());
 
@@ -79,7 +79,7 @@ class RodControllerTest extends TestCase
 
     public function testUpdate()
     {
-        $rod = Rod::factory()->create();
+        $rod = Rodovayakniga::factory()->create();
         $updateRod = ['name' => 'Saydum', 'user_id' => 1];
 
         $this->actingAs($this->user)
@@ -90,13 +90,13 @@ class RodControllerTest extends TestCase
 
     public function testDestroy()
     {
-        $rod = Rod::factory()->create();
+        $rod = Rodovayakniga::factory()->create();
 
         $this->actingAs($this->user)
             ->delete(route('rods.destroy', $rod->id))
             ->assertStatus(302)
             ->assertRedirect(route('rods.index'));
 
-        $this->assertEquals(0, Rod::count());
+        $this->assertEquals(0, Rodovayakniga::count());
     }
 }

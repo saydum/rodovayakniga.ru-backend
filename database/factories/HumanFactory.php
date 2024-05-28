@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Rod;
+use App\Models\Rodovayakniga;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +17,7 @@ class HumanFactory extends Factory
      */
     public function definition(): array
     {
-        $rod = Rod::factory()->create();
+        $rod = Rodovayakniga::factory()->create();
 
         return [
             'name' => fake()->name,

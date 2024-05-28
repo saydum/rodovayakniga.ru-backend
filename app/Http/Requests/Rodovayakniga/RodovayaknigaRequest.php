@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Rod;
+namespace App\Http\Requests\Rodovayakniga;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RodRequest extends FormRequest
+class RodovayaknigaRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
