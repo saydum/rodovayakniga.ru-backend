@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\App;
+namespace App\Http\Controllers\Api\V1\App;
 
-use App\Models\Link;
 use App\Http\Controllers\Controller;
+use App\Models\Link;
 
 class LinkManagerController extends Controller
 {
